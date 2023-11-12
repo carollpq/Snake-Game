@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 /**
  * 
  * @Project Snakee
- * @Description Hladdu leikinn og endurnýjaðu hann stöðugt
+ * @Description Load the game and update it continuously
  * @Author Sigurður Sigurðardóttir
- * @version Ekki viss
+ * @version Not sure
  */ 
 
 
@@ -115,20 +115,20 @@ public class MyFrame extends JPanel implements KeyListener
 
 		public MySnake(int x, int y)
 		{
-			this.l = true;
-			this.x = x;
-			this.y = y;
+			this.live_of_object = true;
+			this.x_position = x;
+			this.y_position = y;
 			this.i = ImageUtil.images.get("snake-body");
-			this.w = i.getWidth(null);
-			this.h = i.getHeight(null);
+			this.width_of_snake = i.getWidth(null);
+			this.height_of_snake = i.getHeight(null);
 
-			this.speed_XY = 5;
-			this.length = 1;
+			this.speed_XY = 5; //Starting speed is 5
+			this.length = 1; //Starting length is 1
 
 			/*
 			 * Attention : ?
 			 */
-			this.num = w / speed_XY;
+			this.num = width_of_snake / speed_XY;
 			newImgSnakeHead = IMG_SNAKE_HEAD;
 
 		}
@@ -204,19 +204,19 @@ public class MyFrame extends JPanel implements KeyListener
 
 		public void move()
 		{
-			// láta kvikindið hreyfa sig
+			// Let the snake move
 			if (up)
 			{
-				y -= speed_XY;
+				y_position -= speed_XY;
 			} else if (down)
 			{
-				y += speed_XY;
+				y_position += speed_XY;
 			} else if (left)
 			{
-				x -= speed_XY;
+				x_position -= speed_XY;
 			} else if (right)
 			{
-				x += speed_XY;
+				x_position += speed_XY;
 			}
 
 		}
@@ -227,13 +227,13 @@ public class MyFrame extends JPanel implements KeyListener
 			outofBounds();
 			eatBody();
 
-			bodyPoints.add(new Point(x, y));
+			bodyPoints.add(new Point(x_position, y_position));
 
 			if (bodyPoints.size() == (this.length + 1) * num)
 			{
 				bodyPoints.remove(0);
 			}
-			g.drawImage(newImgSnakeHead, x, y, null);
+			g.drawImage(newImgSnakeHead, x_position, y_position, null);
 			drawBody(g);
 
 			move();
@@ -247,7 +247,7 @@ public class MyFrame extends JPanel implements KeyListener
 				{
 					if (point.equals(point2) && point != point2)
 					{
-						this.l = false;
+						this.live_of_object = false;
 					}
 				}
 			}
@@ -266,11 +266,11 @@ public class MyFrame extends JPanel implements KeyListener
 
 		private void outofBounds()
 		{
-			boolean xOut = (x <= 0 || x >= (870 - w));
-			boolean yOut = (y <= 40 || y >= (560 - h));
+			boolean xOut = (x_position <= 0 || x_position >= (870 - width_of_snake));
+			boolean yOut = (y_position <= 40 || y_position >= (560 - height_of_snake));
 			if (xOut || yOut)
 			{
-				l = false;
+				live_of_object = false;
 			}
 		}
 	}
@@ -284,7 +284,7 @@ public class MyFrame extends JPanel implements KeyListener
 		int width_of_snake;
 		int height_of_snake;
 
-		public boolean l;
+		public boolean live_of_object;
 
 
 		public abstract void draw(Graphics g);
