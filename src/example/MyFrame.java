@@ -27,7 +27,7 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public JFrame jFrame = new JFrame();
 
-	public MyFrame()
+	public MyFrame() //Constructor
 	{
 		jFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MyFrame.class.getResource("snake-logo.png")));
 	}
@@ -35,7 +35,7 @@ public class MyFrame extends JPanel implements KeyListener
 	public void loadFrame()
 	{
 		/*
-		 * Komið í veg fyrir að myndin blikki.
+		 * Prevent the image from flashing.
 		 */
 		this.setDoubleBuffered(true);
 		jFrame.add(this);
@@ -43,7 +43,7 @@ public class MyFrame extends JPanel implements KeyListener
 
 		jFrame.setTitle("Snakee Yipee");
 		jFrame.setSize(870, 560);
-		jFrame.setLocationRelativeTo(null);
+		jFrame.setLocationRelativeTo(null); //Positions the frame to the center of the screen
 		jFrame.addWindowListener(new WindowAdapter()// loka
 		{
 			@Override
@@ -55,23 +55,23 @@ public class MyFrame extends JPanel implements KeyListener
 		});
 		jFrame.setVisible(true);
 
-		new MyThread().start();
+		new MyThread().start(); //Creates an instance of MyThread and calls the start() method
 	}
 	class MyThread extends Thread
 	{
 		@Override
 		public void run()
 		{
-			super.run();
-			while (true)
+			super.run(); //Nothing is being overriden, it's just re-using the parent method so this line has no purpose basically??
+			while (true) //Need to throw an exception
 			{
-				repaint();
+				repaint(); // Constantly re-renders?? Or re-renders every second?
 				try
 				{
-					sleep(30);
+					sleep(30); //Makes this thread sleep indefinitely, busy-waiting
 				} catch (Exception e)
 				{
-					e.printStackTrace();
+					e.printStackTrace(); //Should be replaced with more robust logging
 				}
 			}
 		}
@@ -100,11 +100,11 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public static class MySnake extends SnakeObject implements movable
 	{
-		// Leikjabreytan.
+		// The game changer.
 		private int speed_XY;
 		private int length;
 		private int num; // ?
-		public int score = 0;
+		public int score = 0; //K
 
 		private static final BufferedImage IMG_SNAKE_HEAD = (BufferedImage) ImageUtil.images.get("snake-head-right");
 
@@ -277,11 +277,12 @@ public class MyFrame extends JPanel implements KeyListener
 
 	public abstract static class SnakeObject
 	{
-		int x;
-		int y;
+		//Attributes to initialize the Rectangle object
+		int x_position;
+		int y_position;
 		Image i;
-		int w;
-		int h;
+		int width_of_snake;
+		int height_of_snake;
 
 		public boolean l;
 
@@ -290,7 +291,7 @@ public class MyFrame extends JPanel implements KeyListener
 
 		public Rectangle getRectangle()
 		{
-			return new Rectangle(x, y, w, h);
+			return new Rectangle(x_position, y_position, width_of_snake, height_of_snake);
 		}
 	}
 }
