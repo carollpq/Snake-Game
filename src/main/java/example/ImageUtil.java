@@ -10,10 +10,11 @@ public class ImageUtil
 
 	static
 	{
-		// snake
+		//put : add items to the HashMap (key-value pair)
+		// Snake
 		images.put("snake-head-right", GameUtil.getImage("example/snake-head-right.png"));
 		images.put("snake-body", GameUtil.getImage("example/snake-body.png"));
-		// obstacles
+		// Obstacles
 		images.put("0", GameUtil.getImage("example/food-kiwi.png"));
 		images.put("1", GameUtil.getImage("example/food-lemon.png"));
 		images.put("2", GameUtil.getImage("example/food-litchi.png"));
