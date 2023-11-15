@@ -23,7 +23,7 @@ public class Food extends MyFrame.SnakeObject
 
 		//If the snake object touches the food object
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && live_of_object && mySnake.live_of_object)		{
-			this.live_of_object = false; //The 'live'
+			this.live_of_object = false;
 			mySnake.changeLength(mySnake.getLength() + 1);
 			mySnake.score += 521;
 		}
