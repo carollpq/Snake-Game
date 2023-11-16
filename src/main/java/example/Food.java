@@ -8,22 +8,22 @@ import java.awt.Image;
 public class Food extends SnakeObject
 {
 	public Food()	{
-		this.live_of_object = true;
+		this.liveOfObject = true;
 
 		this.i = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
 		//Changed the names accordingly (RMB TO WRITE ABOUT IT IN COMMIT)
-		this.width_of_snake = i.getWidth(null);
-		this.height_of_snake = i.getHeight(null);
+		this.widthOfSnake = i.getWidth(null);
+		this.heightOfSnake = i.getHeight(null);
 
-		this.x_position = (int) (Math.random() * (870 - width_of_snake + 10));
-		this.y_position = (int) (Math.random() * (560 - height_of_snake - 40));
+		this.xPosition = (int) (Math.random() * (870 - widthOfSnake + 10));
+		this.yPosition = (int) (Math.random() * (560 - heightOfSnake - 40));
 	}
 
 	public void eaten(MySnake mySnake)	{
 
 		//If the snake object touches the food object
-		if (mySnake.getRectangle().intersects(this.getRectangle()) && live_of_object && mySnake.live_of_object)		{
-			this.live_of_object = false;
+		if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
+			this.liveOfObject = false;
 			mySnake.changeLength(mySnake.getLength() + 1);
 			mySnake.score += 521;
 		}
@@ -31,6 +31,6 @@ public class Food extends SnakeObject
 	@Override
 	public void draw(Graphics g)
 	{
-		g.drawImage(i, x_position, y_position, null);
+		g.drawImage(i, xPosition, yPosition, null);
 	}
 }

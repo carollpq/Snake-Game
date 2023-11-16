@@ -25,13 +25,13 @@ public class MySnake extends SnakeObject implements movable
 
     public MySnake(int x, int y)
     {
-        this.live_of_object = true;
-        this.x_position = x;
-        this.y_position = y;
-        this.i =
+        this.liveOfObject = true;
+        this.xPosition = x;
+        this.yPosition = y;
+        //this.i =
         //this.i = ImageUtil.images.get("snake-body");
-        this.width_of_snake = i.getWidth(null);
-        this.height_of_snake = i.getHeight(null);
+        this.widthOfSnake = i.getWidth(null);
+        this.heightOfSnake = i.getHeight(null);
 
         this.speed_XY = 5; //Starting speed is 5
         this.length = 1; //Starting length is 1
@@ -39,7 +39,7 @@ public class MySnake extends SnakeObject implements movable
         /*
          * Attention : ?
          */
-        this.num = width_of_snake / speed_XY;
+        this.num = widthOfSnake / speed_XY;
         newImgSnakeHead = IMG_SNAKE_HEAD;
 
     }
@@ -118,16 +118,16 @@ public class MySnake extends SnakeObject implements movable
         // Let the snake move
         if (up)
         {
-            y_position -= speed_XY;
+            yPosition -= speed_XY;
         } else if (down)
         {
-            y_position += speed_XY;
+            yPosition += speed_XY;
         } else if (left)
         {
-            x_position -= speed_XY;
+            xPosition -= speed_XY;
         } else if (right)
         {
-            x_position += speed_XY;
+            xPosition += speed_XY;
         }
 
     }
@@ -138,13 +138,13 @@ public class MySnake extends SnakeObject implements movable
         outofBounds();
         eatBody();
 
-        bodyPoints.add(new Point(x_position, y_position));
+        bodyPoints.add(new Point(xPosition, yPosition));
 
         if (bodyPoints.size() == (this.length + 1) * num)
         {
             bodyPoints.remove(0);
         }
-        g.drawImage(newImgSnakeHead, x_position, y_position, null);
+        g.drawImage(newImgSnakeHead, xPosition, yPosition, null);
         drawBody(g);
 
         move();
@@ -158,7 +158,7 @@ public class MySnake extends SnakeObject implements movable
             {
                 if (point.equals(point2) && point != point2)
                 {
-                    this.live_of_object = false;
+                    this.liveOfObject = false;
                 }
             }
         }
@@ -177,11 +177,11 @@ public class MySnake extends SnakeObject implements movable
 
     private void outofBounds()
     {
-        boolean xOut = (x_position <= 0 || x_position >= (870 - width_of_snake));
-        boolean yOut = (y_position <= 40 || y_position >= (560 - height_of_snake));
+        boolean xOut = (xPosition <= 0 || xPosition >= (870 - widthOfSnake));
+        boolean yOut = (yPosition <= 40 || yPosition >= (560 - heightOfSnake));
         if (xOut || yOut)
         {
-            live_of_object = false;
+            liveOfObject = false;
         }
     }
 }

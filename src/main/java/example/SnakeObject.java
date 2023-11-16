@@ -8,20 +8,20 @@ import javafx.scene.image.Image;
 public abstract class SnakeObject
 {
     //Attributes to initialize the Rectangle object
-    int x_position;
-    int y_position;
+    int xPosition;
+    int yPosition;
     Image snakeHeadImg;
-    Image snake_body_img;
-    int width_of_snake;
-    int height_of_snake;
+    Image snakeBodyImg;
+    int widthOfSnake;
+    int heightOfSnake;
 
-    public boolean live_of_object;
+    public boolean liveOfObject;
 
 
     public abstract void draw(Graphics g);
 
     public Rectangle getRectangle()
     {
-        return new Rectangle(x_position, y_position, width_of_snake, height_of_snake);
+        return new Rectangle(xPosition, yPosition, widthOfSnake, heightOfSnake);
     }
 }

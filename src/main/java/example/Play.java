@@ -39,10 +39,10 @@ public class Play extends MyFrame
 		g.drawImage(background, 0, 0, null);
 
 		// Ákveða stöðu leiksins.
-		if (mySnake.live_of_object)
+		if (mySnake.liveOfObject)
 		{
 			mySnake.draw(g);
-			if (food.live_of_object)
+			if (food.liveOfObject)
 			{
 				food.draw(g);
 				food.eaten(mySnake);
