@@ -5,7 +5,7 @@ import java.util.Random;
 import java.awt.Graphics2D;
 import java.awt.Image;
 
-public class Food extends MyFrame.SnakeObject
+public class Food extends SnakeObject
 {
 	public Food()	{
 		this.live_of_object = true;
@@ -19,7 +19,7 @@ public class Food extends MyFrame.SnakeObject
 		this.y_position = (int) (Math.random() * (560 - height_of_snake - 40));
 	}
 
-	public void eaten(MyFrame.MySnake mySnake)	{
+	public void eaten(MySnake mySnake)	{
 
 		//If the snake object touches the food object
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && live_of_object && mySnake.live_of_object)		{
