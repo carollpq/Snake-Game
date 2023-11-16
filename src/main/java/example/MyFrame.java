@@ -43,14 +43,10 @@ public class MyFrame extends Application implements EventHandler<ActionEvent>
 
 	private MySnake mySnake;
 
-	public MyFrame() //Constructor
-	{
-		jFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(MyFrame.class.getResource("snake-logo.png")));
-	}
-
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("Snake Game");
+		primaryStage.getIcons().add(new Image("snake-logo.png"));
 
 		Canvas canvas = new Canvas(STAGE_WIDTH, STAGE_HEIGHT);
 		//Returns GraphicsContext -> draw shapes, text, and images onto Canvas
