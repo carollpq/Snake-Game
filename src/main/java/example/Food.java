@@ -1,19 +1,18 @@
 package example;
 
-import java.awt.Graphics;
 import java.util.Random;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Food extends SnakeObject
 {
 	public Food()	{
 		this.liveOfObject = true;
 
-		this.i = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
+		this.foodImg = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
 		//Changed the names accordingly (RMB TO WRITE ABOUT IT IN COMMIT)
-		this.widthOfSnake = i.getWidth(null);
-		this.heightOfSnake = i.getHeight(null);
+		this.widthOfSnake = (int) foodImg.getWidth(); //DONE: Removed unnecessary parameter
+		this.heightOfSnake = (int) foodImg.getHeight();
 
 		this.xPosition = (int) (Math.random() * (870 - widthOfSnake + 10));
 		this.yPosition = (int) (Math.random() * (560 - heightOfSnake - 40));
@@ -29,8 +28,8 @@ public class Food extends SnakeObject
 		}
 	}
 	@Override
-	public void draw(Graphics g)
+	public void draw(GraphicsContext g)
 	{
-		g.drawImage(i, xPosition, yPosition, null);
+		g.drawImage(foodImg, xPosition, yPosition, null);
 	}
 }
