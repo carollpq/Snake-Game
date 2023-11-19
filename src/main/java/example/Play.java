@@ -59,11 +59,26 @@ public class Play extends MyFrame
 		gc.setFill(Color.MAGENTA);
 		gc.fillText("SCORE : " + mySnake.score, 20, 40);
 	}
+	@Override
+	public void start(Stage primaryStage) throws IOException
+	{
+		super.start(primaryStage);
+		//We need to erase body, constantly check  eat fruit or not
+		AnimationTimer animationTimer = new AnimationTimer() {
+			@Override
+			public void handle(long now) {
+				//playFrame.draw(graphicsContext);
+				mySnake.move();
+				mySnake.draw(graphicsContext);
+				draw(graphicsContext);
+			}
+		};
+
+		animationTimer.start();
+	}
 
 	public static void main(String[] args)
 	{
-		new Play().loadFrame();
-		MusicPlayer.getMusicPlay("src/main/java/example/frogger.mp3");
-
+		launch(args);
 	}
 }
