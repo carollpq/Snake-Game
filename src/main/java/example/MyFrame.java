@@ -35,8 +35,7 @@ public class MyFrame extends Application {
 
 		Canvas canvas = new Canvas(STAGE_WIDTH, STAGE_HEIGHT);
 		//Returns GraphicsContext -> draw shapes, text, and images onto Canvas
-		GraphicsContext gc = canvas.getGraphicsContext2D();
-		graphicsContext = gc;
+		graphicsContext = canvas.getGraphicsContext2D();
 
 		StackPane layout = new StackPane();
 		layout.getChildren().add(canvas);

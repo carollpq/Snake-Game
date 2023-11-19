@@ -1,11 +1,15 @@
 package example;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.KeyEvent;
 import javafx.animation.AnimationTimer;
+import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 /**
  * 
@@ -26,26 +30,18 @@ public class Play extends MyFrame
 	public Image background = ImageUtil.images.get("UI-background");
 	public Image fail = ImageUtil.images.get("game-scene-01");
 
-	@Override
-	public void keyPressed(KeyEvent e)
+	public void draw(GraphicsContext gc)
 	{
-		super.keyPressed(e);
-		mySnake.keyPressed(e);
-	}
+		//super.draw(gc);
+		gc.drawImage(background, 0, 0);
 
-	@Override
-	public void paint(Graphics g)
-	{
-		super.paint(g);
-		g.drawImage(background, 0, 0, null);
-
-		// Ákveða stöðu leiksins.
+		// Determine the state of the game.
 		if (mySnake.liveOfObject)
 		{
-			mySnake.draw(g);
+			mySnake.draw(gc);
 			if (food.liveOfObject)
 			{
-				food.draw(g);
+				food.draw(gc);
 				food.eaten(mySnake);
 			} else
 			{
@@ -53,16 +49,17 @@ public class Play extends MyFrame
 			}
 		} else
 		{
-			g.drawImage(fail, 0, 0, null);
+			gc.drawImage(fail, 0, 0);
 		}
-		drawScore(g);
+		drawScore(gc);
 	}
 
-	public void drawScore(Graphics g)
+	public void drawScore(GraphicsContext gc)
 	{
-		g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 30));
-		g.setColor(Color.MAGENTA);
-		g.drawString("SCORE : " + mySnake.score, 20, 40);
+		Font font = Font.font("Sans Serif", FontWeight.BOLD, FontPosture.REGULAR, 30);
+		gc.setFont(font);
+		gc.setFill(Color.MAGENTA);
+		gc.fillText("SCORE : " + mySnake.score, 20, 40);
 	}
 
 	public static void main(String[] args)
