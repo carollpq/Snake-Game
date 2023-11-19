@@ -1,29 +1,27 @@
 package example;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.net.URL;
-
-import javax.imageio.ImageIO;
+import java.awt.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.transform.Rotate;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelFormat;
 
 public class GameUtil
 {
 	public static Image getImage(String imagePath)
 	{
-		URL u = GameUtil.class.getClassLoader().getResource(imagePath);
-		BufferedImage i = null;
+		Image image = null;
 		try
 		{
-			i = ImageIO.read(u);
+			image = new Image(GameUtil.class.getResourceAsStream(imagePath));
+			return image; //DONE: put 'return' at the correct place
 		} catch (Exception e)
 		{
-			System.err.println("VILLA : FINN EKKI TILTEKNA MYNDIN !\n");
+			System.err.println("ERROR : SPECIFIC IMAGE NOT FOUND !\n");
 			e.printStackTrace();
+			return null;
 		}
-
-		return i;
 	}
 
 	public static Image rotateImage(final BufferedImage bufferedImage, final int degree)
