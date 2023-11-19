@@ -46,7 +46,7 @@ public class MyFrame extends Application implements EventHandler<ActionEvent>
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("Snake Game");
-		primaryStage.getIcons().add(new Image("snake-logo.png"));
+		primaryStage.getIcons().add(new Image("/main/java/example/snake-logo.png"));
 
 		Canvas canvas = new Canvas(STAGE_WIDTH, STAGE_HEIGHT);
 		//Returns GraphicsContext -> draw shapes, text, and images onto Canvas
