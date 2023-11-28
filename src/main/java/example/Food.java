@@ -30,6 +30,6 @@ public class Food extends SnakeObject
 	@Override
 	public void draw(GraphicsContext g)
 	{
-		g.drawImage(foodImg, xPosition, yPosition, null);
+		g.drawImage(foodImg, xPosition, yPosition);
 	}
 }

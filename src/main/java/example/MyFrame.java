@@ -31,7 +31,7 @@ public class MyFrame extends Application {
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("Snake Game");
-		primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/java/example/snake-logo.png")));
+		primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/example/Img/snake-logo.png")));
 
 		Canvas canvas = new Canvas(STAGE_WIDTH, STAGE_HEIGHT);
 		//Returns GraphicsContext -> draw shapes, text, and images onto Canvas

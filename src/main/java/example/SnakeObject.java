@@ -1,8 +1,9 @@
 package example;
 
-import java.awt.*;
+import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.shape.Rectangle;
 
 public abstract class SnakeObject
 {
@@ -21,7 +22,7 @@ public abstract class SnakeObject
 
     public abstract void draw(GraphicsContext gc);
 
-    public Rectangle getRectangle()
+    public Bounds getRectangle()
     {
         return new Rectangle(xPosition, yPosition, widthOfSnake, heightOfSnake);
     }
