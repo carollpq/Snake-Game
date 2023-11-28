@@ -1,7 +1,6 @@
 package example;
 
 import java.util.Random;
-import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Food extends SnakeObject
@@ -10,8 +9,7 @@ public class Food extends SnakeObject
 		this.liveOfObject = true;
 
 		this.foodImg = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
-		//Changed the names accordingly (RMB TO WRITE ABOUT IT IN COMMIT)
-		this.widthOfSnake = (int) foodImg.getWidth(); //DONE: Removed unnecessary parameter
+		this.widthOfSnake = (int) foodImg.getWidth();
 		this.heightOfSnake = (int) foodImg.getHeight();
 
 		this.xPosition = (int) (Math.random() * (870 - widthOfSnake + 10));

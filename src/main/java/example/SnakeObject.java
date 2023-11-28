@@ -3,7 +3,7 @@ package example;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.shape.Rectangle;
+import javafx.geometry.Rectangle2D;
 
 public abstract class SnakeObject
 {
@@ -22,8 +22,8 @@ public abstract class SnakeObject
 
     public abstract void draw(GraphicsContext gc);
 
-    public Bounds getRectangle()
+    public Rectangle2D getRectangle()
     {
-        return new Rectangle(xPosition, yPosition, widthOfSnake, heightOfSnake);
+        return new Rectangle2D(xPosition, yPosition, widthOfSnake, heightOfSnake);
     }
 }

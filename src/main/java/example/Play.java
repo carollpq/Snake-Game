@@ -1,6 +1,7 @@
 package example;
 
 import javafx.animation.AnimationTimer;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
@@ -62,6 +63,7 @@ public class Play extends MyFrame
 	@Override
 	public void start(Stage primaryStage) throws IOException
 	{
+		FXMLLoader fxmlLoader = new FXMLLoader(Play.class.getResource("hello-view.fxml"));
 		super.start(primaryStage);
 		//We need to erase body, constantly check  eat fruit or not
 		AnimationTimer animationTimer = new AnimationTimer() {
