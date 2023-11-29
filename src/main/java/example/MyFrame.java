@@ -5,6 +5,10 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.Canvas;
@@ -28,10 +32,47 @@ public class MyFrame extends Application {
 
 	public MySnake mySnake;
 
+	public Food food = new Food();
+
+	public Image background = ImageUtil.images.get("UI-background");
+	public Image fail = ImageUtil.images.get("game-scene-01");
+
+	public void drawScore(GraphicsContext gc)
+	{
+		Font font = Font.font("Sans Serif", FontWeight.BOLD, FontPosture.REGULAR, 30);
+		gc.setFont(font);
+		gc.setFill(Color.MAGENTA);
+		gc.fillText("SCORE : " + mySnake.score, 20, 40);
+	}
+
+	public void draw(GraphicsContext gc)
+	{
+		//super.draw(gc);
+		gc.drawImage(background, 0, 0);
+
+		// Determine the state of the game.
+		if (mySnake.liveOfObject)
+		{
+			mySnake.draw(gc);
+			if (food.liveOfObject)
+			{
+				food.draw(gc);
+				food.eaten(mySnake);
+			} else
+			{
+				food = new Food();
+			}
+		} else
+		{
+			gc.drawImage(fail, 0, 0);
+		}
+		drawScore(gc);
+	}
+
 	@Override
 	public void start(Stage primaryStage) throws IOException {
 		primaryStage.setTitle("Snake Game");
-		primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/example/Img/snake-logo.png")));
+		primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
 
 		Canvas canvas = new Canvas(STAGE_WIDTH, STAGE_HEIGHT);
 		//Returns GraphicsContext -> draw shapes, text, and images onto Canvas
@@ -51,7 +92,7 @@ public class MyFrame extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		MusicPlayer.getMusicPlay("src/main/java/example/frogger.mp3");
+		MusicPlayer.getMusicPlay("src/main/resources/cw1setup/Sounds/frogger.mp3");
 
 		primaryStage.setOnCloseRequest(e -> {
 			primaryStage.close();
