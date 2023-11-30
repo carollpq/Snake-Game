@@ -23,12 +23,9 @@ import javafx.scene.canvas.GraphicsContext;
  */ 
 
 
-public class MyFrame extends Application {
-	//private static final long serialVersionUID = -3149926831770554380L;
-	private static final int STAGE_WIDTH = 870;
-	private static final int STAGE_HEIGHT = 560;
+public class MyFrame extends Application implements Frame {
 
-	public GraphicsContext graphicsContext;
+	protected GraphicsContext graphicsContext;
 
 	public MySnake mySnake;
 
@@ -45,7 +42,8 @@ public class MyFrame extends Application {
 		gc.fillText("SCORE : " + mySnake.score, 20, 40);
 	}
 
-	public void draw(GraphicsContext gc)
+	@Override
+	public void drawBgImg(GraphicsContext gc)
 	{
 		//super.draw(gc);
 		gc.drawImage(background, 0, 0);

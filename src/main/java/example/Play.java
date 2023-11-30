@@ -19,7 +19,6 @@ public class Play extends MyFrame
 	@Override
 	public void start(Stage primaryStage) throws IOException
 	{
-		FXMLLoader fxmlLoader = new FXMLLoader(Play.class.getResource("hello-view.fxml"));
 		super.start(primaryStage);
 		//We need to erase body, constantly check  eat fruit or not
 		AnimationTimer animationTimer = new AnimationTimer() {
@@ -28,7 +27,7 @@ public class Play extends MyFrame
 				//playFrame.draw(graphicsContext);
 				mySnake.move();
 				mySnake.draw(graphicsContext);
-				draw(graphicsContext);
+				drawBgImg(graphicsContext);
 			}
 		};
 

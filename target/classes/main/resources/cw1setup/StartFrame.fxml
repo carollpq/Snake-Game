@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane alignment="CENTER" prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Canvas height="200.0" width="200.0" />
+      <Button mnemonicParsing="false" text="Button" />
+      <Label alignment="CENTER" prefHeight="55.0" prefWidth="248.0" text="Snake Game">
+         <font>
+            <Font name="Bodoni MT Condensed" size="66.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect></Label>
+      <ImageView fitHeight="697.0" fitWidth="890.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</StackPane>
