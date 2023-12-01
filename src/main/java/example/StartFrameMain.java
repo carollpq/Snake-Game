@@ -16,14 +16,14 @@ public class StartFrameMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/main/resources/cw1setup/StartFrame.fxml"));
-        Scene scene = new Scene(root, STAGE_WIDTH, STAGE_HEIGHT);
+        Scene startScene = new Scene(root, STAGE_WIDTH, STAGE_HEIGHT);
         //Fetch CSS file
         String css = this.getClass().getResource("/main/java/example/application.css").toExternalForm();
         //Sets the  CSS file to this scene
-        scene.getStylesheets().add(css);
+        startScene.getStylesheets().add(css);
         primaryStage.setTitle("Snake Game");
 
-        primaryStage.setScene(scene);
+        primaryStage.setScene(startScene);
         primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
         primaryStage.show();
         MusicPlayer.getMusicPlay("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3");
