@@ -9,3 +9,7 @@ Button {
     -fx-font-weight: 700;
     -fx-font-size: 16px;
 }
+
+#backBtn {
+    -fx-background-color: transparent;
+}

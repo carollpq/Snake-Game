@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -19,5 +20,16 @@
         <Button id="easyBtn" fx:id="startBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="Easy" />
         <Button id="mediumBtn" fx:id="highScoreBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="Medium" />
         <Button id="hardBtn" fx:id="settingsBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="Hard" />
+      <Button fx:id="backBtn" layoutX="54.0" layoutY="35.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="61.0" prefWidth="70.0">
+         <graphic>
+            <ImageView fx:id="backBtn" fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/cw1setup/Img/noun-back-button-251451.png" />
+               </image>
+               <effect>
+                  <Blend />
+               </effect>
+            </ImageView>
+         </graphic></Button>
     </children>
 </AnchorPane>

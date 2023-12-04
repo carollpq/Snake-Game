@@ -36,5 +36,18 @@ public class StartFrameController {
 
     public void switchToHighScore(ActionEvent event) {}
 
+    public void backToMainMenu(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/main/resources/cw1setup/StartFrame.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        //Fetch CSS file
+        String css = this.getClass().getResource("/main/java/example/application.css").toExternalForm();
+        //Sets the  CSS file to this scene
+        scene.getStylesheets().add(css);
+        stage.setScene(scene);
+        stage.show();
+        MusicPlayer.getMusicPlay("src/main/resources/cw1setup/Sounds/Button Press Sound Effect.wav");
+    }
+
 
 }
