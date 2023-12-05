@@ -37,7 +37,12 @@ public class MusicPlayer extends Thread
 		}.start();
 	}
 
-
+	//Stops the music when prompted
+	public void stopMusic() {
+		if (player != null) {
+			player.close();
+		}
+	}
 
 	public static void getMusicPlay(String filename)
 	{

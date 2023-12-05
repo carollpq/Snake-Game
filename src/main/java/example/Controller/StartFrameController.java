@@ -51,7 +51,7 @@ public class StartFrameController {
     }
 
     public void playEasyMode(ActionEvent event) throws IOException {
-
+        MusicPlayer.getMusicPlay("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3");
     }
 
     public void playMediumMode(ActionEvent event) throws IOException {}
