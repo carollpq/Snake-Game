@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.MyFrameController">
+    <children>
+        <ImageView fx:id="backgroundImage" fitHeight="560.0" fitWidth="870.0">
+            <image>
+                <Image url="@Img/UI-background.png" />
+            </image>
+        </ImageView>
+        <Canvas fx:id="gameCanvas" height="560.0" width="870.0" />
+        <Label fx:id="scoreLabel" layoutX="20.0" layoutY="40.0" textFill="#ff00ff">
+            <font>
+                <Font name="Sans Serif" size="30.0" />
+            </font>
+        </Label>
+    </children>
+</StackPane>

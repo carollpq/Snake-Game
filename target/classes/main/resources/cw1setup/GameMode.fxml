@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.StartFrameController">
+    <children>
+        <ImageView fitHeight="560.0" fitWidth="870.0" preserveRatio="true">
+            <image>
+                <Image url="@Img/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg" />
+            </image>
+        </ImageView>
+        <Label id="gameLabel" alignment="CENTER" layoutX="224.0" layoutY="70.0" prefHeight="106.0" prefWidth="421.0" text="Select Your Mode!" textAlignment="CENTER">
+            <font>
+                <Font size="49.0" />
+            </font></Label>
+        <Button id="easyBtn" fx:id="easyBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#playEasyMode" prefHeight="46.0" prefWidth="166.0" text="Easy" />
+        <Button id="mediumBtn" fx:id="mediumBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" onAction="#playMediumMode" prefHeight="46.0" prefWidth="166.0" text="Medium" />
+        <Button id="hardBtn" fx:id="hardBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="Hard" />
+      <Button fx:id="backBtn" layoutX="54.0" layoutY="35.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="61.0" prefWidth="70.0">
+         <graphic>
+            <ImageView fx:id="backBtn" fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/noun-back-button-251451.png" />
+               </image>
+               <effect>
+                  <Blend />
+               </effect>
+            </ImageView>
+         </graphic></Button>
+    </children>
+</AnchorPane>

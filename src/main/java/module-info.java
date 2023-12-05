@@ -1,5 +1,7 @@
 module CW1Setup {
     opens example;
+    opens example.Controller;
+    opens example.Model;
 
 
     requires java.desktop;
@@ -7,4 +9,5 @@ module CW1Setup {
     requires javafx.graphics;
     requires javafx.controls;
     requires javafx.fxml;
+    requires javafx.media;
 }
