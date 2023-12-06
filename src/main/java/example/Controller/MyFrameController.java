@@ -27,6 +27,9 @@ public class MyFrameController implements Frame {
     @FXML
     private ImageView backgroundImage;
 
+    @FXML
+    private ImageView failImage;
+
     private GraphicsContext graphicsContext;  // Add this line
 
     private MySnake mySnake;
@@ -62,10 +65,11 @@ public class MyFrameController implements Frame {
                 food = new Food();
             }
         }
-//        else
-//        {
-//            gc.drawImage(failImage.getImage(), 0, 0);
-//        }
+        else
+        {
+            //gc.drawImage(failImage.getImage(), 0, 0);
+            currentMusic.stopMusic();
+        }
         drawScore(gc);
     }
 

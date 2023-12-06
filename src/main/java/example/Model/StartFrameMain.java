@@ -31,7 +31,8 @@ public class StartFrameMain extends Application {
 
         primaryStage.setScene(startScene);
         primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
-        //controller.initializeSound();
+        //Play main menu music
+        controller.getCurrentMusic().play();
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> {

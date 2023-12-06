@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
@@ -17,9 +18,18 @@
             <font>
                 <Font size="49.0" />
             </font></Label>
-        <Button id="easyBtn" fx:id="easyBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#playEasyMode" prefHeight="46.0" prefWidth="166.0" text="Easy" />
-        <Button id="mediumBtn" fx:id="mediumBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" onAction="#playMediumMode" prefHeight="46.0" prefWidth="166.0" text="Medium" />
-        <Button id="hardBtn" fx:id="hardBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" onAction="#playHardMode" prefHeight="46.0" prefWidth="166.0" text="Hard" />
+        <Button id="easyBtn" fx:id="easyBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#playEasyMode" prefHeight="46.0" prefWidth="166.0" text="Easy">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button id="mediumBtn" fx:id="mediumBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" onAction="#playMediumMode" prefHeight="46.0" prefWidth="166.0" text="Medium">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+        <Button id="hardBtn" fx:id="hardBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" onAction="#playHardMode" prefHeight="46.0" prefWidth="166.0" text="Hard">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Button fx:id="backBtn" layoutX="54.0" layoutY="35.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="61.0" prefWidth="70.0">
          <graphic>
             <ImageView fx:id="back" fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
@@ -30,6 +40,9 @@
                   <Blend />
                </effect>
             </ImageView>
-         </graphic></Button>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
     </children>
 </AnchorPane>

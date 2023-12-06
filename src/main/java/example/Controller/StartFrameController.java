@@ -28,6 +28,10 @@ public class StartFrameController implements Initializable{
     private Parent root;
 
 
+    public MusicPlayer getCurrentMusic() {
+        return currentMusic;
+    }
+
     private MusicPlayer currentMusic, buttonClickedSound, backBtnSound;
 
     public void initializeSound() {

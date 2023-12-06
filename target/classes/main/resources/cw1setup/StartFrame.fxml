@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -16,8 +17,17 @@
          <font>
             <Font size="49.0" />
          </font></Label>
-      <Button id="startBtn" fx:id="startBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#switchToGameMode" prefHeight="46.0" prefWidth="166.0" text="START" />
-      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="HIGH SCORE" />
-      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="SETTINGS" />
+      <Button id="startBtn" fx:id="startBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#switchToGameMode" prefHeight="46.0" prefWidth="166.0" text="START">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="HIGH SCORE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="SETTINGS">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
    </children>
 </AnchorPane>
