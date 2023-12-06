@@ -44,6 +44,16 @@
             <artifactId>javafx-controls</artifactId>
             <version>20.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>21.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>22-ea+16</version>
+        </dependency>
 
     </dependencies>
     

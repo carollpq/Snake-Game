@@ -19,10 +19,10 @@
             </font></Label>
         <Button id="easyBtn" fx:id="easyBtn" layoutX="352.0" layoutY="215.0" mnemonicParsing="false" onAction="#playEasyMode" prefHeight="46.0" prefWidth="166.0" text="Easy" />
         <Button id="mediumBtn" fx:id="mediumBtn" layoutX="352.0" layoutY="314.0" mnemonicParsing="false" onAction="#playMediumMode" prefHeight="46.0" prefWidth="166.0" text="Medium" />
-        <Button id="hardBtn" fx:id="hardBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="166.0" text="Hard" />
+        <Button id="hardBtn" fx:id="hardBtn" layoutX="352.0" layoutY="410.0" mnemonicParsing="false" onAction="#playHardMode" prefHeight="46.0" prefWidth="166.0" text="Hard" />
       <Button fx:id="backBtn" layoutX="54.0" layoutY="35.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="61.0" prefWidth="70.0">
          <graphic>
-            <ImageView fx:id="backBtn" fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="back" fitHeight="61.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Img/noun-back-button-251451.png" />
                </image>

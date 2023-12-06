@@ -2,6 +2,7 @@ package example.Controller;
 
 import example.Food;
 import example.Frame;
+import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
@@ -31,6 +32,8 @@ public class MyFrameController implements Frame {
     private MySnake mySnake;
 
     private Food food;
+
+    private MusicPlayer currentMusic;
 
     public void drawScore(GraphicsContext gc)
     {
@@ -75,6 +78,8 @@ public class MyFrameController implements Frame {
 
         // Get the GraphicsContext from the canvas
         graphicsContext = gameCanvas.getGraphicsContext2D();
+        currentMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3");
+        currentMusic.play();
     }
 
     @FXML

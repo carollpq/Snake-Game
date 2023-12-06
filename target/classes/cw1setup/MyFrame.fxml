@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.MyFrameController">
+<AnchorPane prefHeight="560.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.MyFrameController">
     <children>
         <ImageView fx:id="backgroundImage" fitHeight="560.0" fitWidth="870.0">
             <image>
@@ -20,4 +20,4 @@
             </font>
         </Label>
     </children>
-</StackPane>
+</AnchorPane>

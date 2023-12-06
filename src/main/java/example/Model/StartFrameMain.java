@@ -1,7 +1,7 @@
 package example.Model;
 
+import example.Controller.StartFrameController;
 import example.GameUtil;
-import example.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,9 +15,13 @@ public class StartFrameMain extends Application {
 
     private final int STAGE_WIDTH = 870;
     private final int STAGE_HEIGHT = 560;
+
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/main/resources/cw1setup/StartFrame.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/cw1setup/StartFrame.fxml"));
+        Parent root = loader.load();
+
+        StartFrameController controller = loader.getController();
         Scene startScene = new Scene(root, STAGE_WIDTH, STAGE_HEIGHT);
         //Fetch CSS file
         String css = this.getClass().getResource("/main/java/example/application.css").toExternalForm();
@@ -27,12 +31,12 @@ public class StartFrameMain extends Application {
 
         primaryStage.setScene(startScene);
         primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
-        MusicPlayer.getMusicPlay("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3");
+        //controller.initializeSound();
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> {
             primaryStage.close();
-            System.exit(0); //DONE: properly exiting the program
+            System.exit(0);
         });
     }
 

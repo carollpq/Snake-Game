@@ -1,52 +1,33 @@
 package example;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
-import javazoom.jl.player.Player;
+import java.io.File;
 
-public class MusicPlayer extends Thread
+public class MusicPlayer
 {
 	private String filename;
-	public Player player;
+	private MediaPlayer mediaPlayer;
 
 	public MusicPlayer(String filename)
 	{
 		this.filename = filename;
+		Media media = new Media(new File(filename).toURI().toString());
+		this.mediaPlayer = new MediaPlayer(media);
 	}
 
 	public void play()
 	{
-		new Thread()
-		{
-			@Override
-			public void run()
-			{
-				super.run();
-				try
-				{
-					//BufferedInputStream buffer = new BufferedInputStream(new FileInputStream(filename));
-					player = new Player(new BufferedInputStream(new FileInputStream(filename)));
-					player.play();
-
-				} catch (Exception e)
-				{
-					System.out.println(e);
-				}
-			}
-		}.start();
+		if(mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING){
+			mediaPlayer.play();
+		}
 	}
 
 	//Stops the music when prompted
 	public void stopMusic() {
-		if (player != null) {
-			player.close();
+		if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
+			mediaPlayer.stop();
 		}
-	}
-
-	public static void getMusicPlay(String filename)
-	{
-		MusicPlayer musicPlayer = new MusicPlayer(filename);
-		musicPlayer.play();
 	}
 }
