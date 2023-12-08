@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="mainAnchorPane" prefHeight="495.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.StartFrameController">
    <children>
-      <ImageView fitHeight="491.0" fitWidth="868.0" layoutY="6.0" preserveRatio="true">
+      <ImageView fitHeight="491.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
          <image>
             <Image url="@Img/start-scene-bg.jpg" />
          </image>
