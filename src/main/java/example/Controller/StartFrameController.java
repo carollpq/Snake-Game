@@ -27,25 +27,42 @@ public class StartFrameController implements Initializable{
     @FXML
     private Parent root;
 
+    private MusicPlayer currentMusic, buttonClickedSound, backBtnSound;
 
     public MusicPlayer getCurrentMusic() {
         return currentMusic;
     }
+    public void setCurrentMusic(MusicPlayer currentMusic) {
+        this.currentMusic = currentMusic;
+    }
 
-    private MusicPlayer currentMusic, buttonClickedSound, backBtnSound;
+    public MusicPlayer getBackBtnSound() {
+        return backBtnSound;
+    }
+
+    public void setBackBtnSound(MusicPlayer backBtnSound) {
+        this.backBtnSound = backBtnSound;
+    }
+
+    public MusicPlayer getButtonClickedSound() {
+        return buttonClickedSound;
+    }
+
+    public void setButtonClickedSound(MusicPlayer buttonClickedSound) {
+        this.buttonClickedSound = buttonClickedSound;
+    }
 
     public void initializeSound() {
-        if (this.currentMusic == null) {
-            this.currentMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3");
-            //currentMusic.play();
+        if (getCurrentMusic() == null) {
+            setCurrentMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3"));
         }
 
-        if (this.buttonClickedSound == null) {
-            this.buttonClickedSound = new MusicPlayer("src/main/resources/cw1setup/Sounds/decidemp3-14575.mp3");
+        if (getButtonClickedSound() == null) {
+            setButtonClickedSound(new MusicPlayer("src/main/resources/cw1setup/Sounds/decidemp3-14575.mp3"));
         }
 
-        if (this.backBtnSound == null) {
-            this.backBtnSound = new MusicPlayer("src/main/resources/cw1setup/Sounds/Button Press Sound Effect.wav");
+        if (getBackBtnSound() == null) {
+            setBackBtnSound(new MusicPlayer("src/main/resources/cw1setup/Sounds/Button Press Sound Effect.wav"));
         }
     }
     @Override
