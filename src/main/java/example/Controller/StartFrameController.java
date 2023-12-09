@@ -54,7 +54,7 @@ public class StartFrameController implements Initializable{
 
     public void initializeSound() {
         if (getCurrentMusic() == null) {
-            setCurrentMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3"));
+            setCurrentMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3"));
         }
 
         if (getButtonClickedSound() == null) {

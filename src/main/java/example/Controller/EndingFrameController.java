@@ -3,6 +3,7 @@ package example.Controller;
 import example.MusicPlayer;
 import javafx.fxml.FXML;
 
+
 public class EndingFrameController extends StartFrameController {
     @FXML
     public void playAgain() {}
@@ -10,6 +11,7 @@ public class EndingFrameController extends StartFrameController {
     @Override
     public void initializeSound() {
         super.initializeSound();
-        //getCurrentMusic() = new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-sound.mp3");
+        //Change main menu music to ending scene music
+        setCurrentMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
     }
 }
