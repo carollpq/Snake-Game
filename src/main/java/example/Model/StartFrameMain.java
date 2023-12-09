@@ -28,7 +28,6 @@ public class StartFrameMain extends Application {
         //Sets the  CSS file to this scene
         startScene.getStylesheets().add(css);
         primaryStage.setTitle("Snake Game");
-
         primaryStage.setScene(startScene);
         primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
         //Play main menu music

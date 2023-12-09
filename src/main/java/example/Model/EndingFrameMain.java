@@ -11,11 +11,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
-
 public class EndingFrameMain extends Application {
-    private final int STAGE_WIDTH = 870;
-    private final int STAGE_HEIGHT = 560;
+    private final int STAGE_WIDTH = 860;
+    private final int STAGE_HEIGHT = 495;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -28,7 +26,9 @@ public class EndingFrameMain extends Application {
         String css = this.getClass().getResource("/main/java/example/application.css").toExternalForm();
         //Sets the  CSS file to this scene
         endScene.getStylesheets().add(css);
+        primaryStage.setTitle("Snake Game");
         primaryStage.setScene(endScene);
+        primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
         //Play main menu music
         controller.getCurrentMusic().play();
         primaryStage.show();
