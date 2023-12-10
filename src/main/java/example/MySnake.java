@@ -36,7 +36,7 @@ public class MySnake extends SnakeObject implements movable
         this.xPosition = x;
         this.yPosition = y;
         this.snakeBodyImg = ImageUtil.images.get("snake-body");
-        this.widthOfSnake = (int)snakeBodyImg.getWidth(); //DONE: remove unnecessary parameter ; type-casted to correct type
+        this.widthOfSnake = (int)snakeBodyImg.getWidth();
         this.heightOfSnake = (int)snakeBodyImg.getHeight();
 
         this.speed_XY = 2; //Starting speed is 5
@@ -66,7 +66,6 @@ public class MySnake extends SnakeObject implements movable
         switch (e.getCode())
         {
             case UP: //DONE: change cases to 'KeyCode' constants
-                //DONE: removed unnecessary and redundant boolean assignment
                 if (!down)
                 {
                     up = true;

@@ -10,24 +10,32 @@ public class MusicPlayer
 	private String filename;
 	private MediaPlayer mediaPlayer;
 
+	public MediaPlayer getMediaPlayer() {
+		return mediaPlayer;
+	}
+
+	public void setMediaPlayer(MediaPlayer mediaPlayer) {
+		this.mediaPlayer = mediaPlayer;
+	}
+
 	public MusicPlayer(String filename)
 	{
 		this.filename = filename;
 		Media media = new Media(new File(filename).toURI().toString());
-		this.mediaPlayer = new MediaPlayer(media);
+		setMediaPlayer(new MediaPlayer(media));
 	}
 
 	public void play()
 	{
-		if(mediaPlayer.getStatus() != MediaPlayer.Status.PLAYING){
-			mediaPlayer.play();
+		if(getMediaPlayer().getStatus() != MediaPlayer.Status.PLAYING){
+			getMediaPlayer().play();
 		}
 	}
 
 	//Stops the music when prompted
 	public void stopMusic() {
-		if (mediaPlayer.getStatus() == MediaPlayer.Status.PLAYING) {
-			mediaPlayer.stop();
+		if (getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {
+			getMediaPlayer().stop();
 		}
 	}
 }

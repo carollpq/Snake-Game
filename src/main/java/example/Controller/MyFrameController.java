@@ -1,7 +1,7 @@
 package example.Controller;
 
 import example.Food;
-import example.Frame;
+import example.Model.StartFrameMain;
 import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
@@ -9,34 +9,42 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 
+import java.io.IOException;
 
-public class MyFrameController implements Frame {
+
+public class MyFrameController {
+
     @FXML
     private Canvas gameCanvas;
 
     @FXML
     private Label scoreLabel;
 
-    @FXML
-    private ImageView backgroundImage;
-
-    @FXML
-    private ImageView failImage;
-
-    private GraphicsContext graphicsContext;  // Add this line
+    private GraphicsContext graphicsContext;
 
     private MySnake mySnake;
 
     private Food food;
 
-    private MusicPlayer currentMusic;
+    private boolean stopAnimation = false; // Flag to control the animation stopping condition
+
+    @FXML
+    public void initialize() throws IOException, InterruptedException {
+        if (gameCanvas == null) {
+            System.out.println("gameCanvas is null in MyFrameController.initialize()");
+        }
+        graphicsContext = gameCanvas.getGraphicsContext2D();
+        mySnake = new MySnake(100, 100);
+        food = new Food();
+        drawBgImg(graphicsContext);
+        animationTimer();
+    }
 
     public void drawScore(GraphicsContext gc)
     {
@@ -46,16 +54,12 @@ public class MyFrameController implements Frame {
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 
-    @Override
-    public void drawBgImg(GraphicsContext gc)
-    {
-        //super.draw(gc);
-        gc.drawImage(backgroundImage.getImage(), 0, 0);
+    public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
         if (mySnake.liveOfObject)
         {
-            mySnake.draw(gc);
+            this.mySnake.draw(gc);
             if (food.liveOfObject)
             {
                 food.draw(gc);
@@ -67,23 +71,11 @@ public class MyFrameController implements Frame {
         }
         else
         {
-            //gc.drawImage(failImage.getImage(), 0, 0);
-            currentMusic.stopMusic();
+            StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
+            StartFrameMain.setRoot("/cw1setup/EndingFrame");
+            stopAnimation = true;
         }
         drawScore(gc);
-    }
-
-    // Example:
-    public void initialize() {
-        // Initialize your JavaFX components and set up event handlers
-        // For example, set up key event handling and other initialization code.
-        mySnake = new MySnake(100, 100);
-        food = new Food();
-
-        // Get the GraphicsContext from the canvas
-        graphicsContext = gameCanvas.getGraphicsContext2D();
-        currentMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3");
-        currentMusic.play();
     }
 
     @FXML
@@ -98,10 +90,26 @@ public class MyFrameController implements Frame {
             public void handle(long now) {
                 mySnake.move();
                 mySnake.draw(graphicsContext);
-                drawBgImg(graphicsContext);
+                try {
+                    drawBgImg(graphicsContext);
+                } catch (IOException | InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+                // Check the condition to stop the animation
+                if (stopAnimation) {
+                    stopAnimationTimer(this);
+                }
             }
         };
 
         animationTimer.start();
+    }
+
+    // Method to stop the animation timer
+    private void stopAnimationTimer(AnimationTimer animationTimer) {
+        animationTimer.stop();
+        // You can perform additional actions after stopping the timer if needed
+        //System.out.println("Animation Timer Stopped");
     }
 }
