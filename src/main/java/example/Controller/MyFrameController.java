@@ -59,10 +59,12 @@ public class MyFrameController implements Initializable {
 
     public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
+        //Clears the canvas before output another snake body
+        gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
         // Determine the state of the game.
         if (mySnake.liveOfObject)
         {
-            this.mySnake.draw(gc);
+            mySnake.draw(gc);
             if (food.liveOfObject)
             {
                 food.draw(gc);
@@ -91,8 +93,6 @@ public class MyFrameController implements Initializable {
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
-                mySnake.move();
-                mySnake.draw(graphicsContext);
                 try {
                     drawBgImg(graphicsContext);
                 } catch (IOException | InterruptedException e) {

@@ -7,11 +7,11 @@ public class GameUtil
 {
 	public static Image getImage(String imagePath)
 	{
-		Image image = null;
+		Image image;
 		try
 		{
 			image = new Image(GameUtil.class.getResourceAsStream(imagePath));
-			return image; //DONE: put 'return' at the correct place
+			return image;
 		} catch (Exception e)
 		{
 			System.err.println("ERROR : SPECIFIC IMAGE NOT FOUND !\n");

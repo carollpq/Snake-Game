@@ -20,8 +20,8 @@ public class MySnake extends SnakeObject implements movable
     // The game changer.
     private int speed_XY;
     private int length;
-    private int num; // ?
-    public int score = 0; //K
+    private int num;
+    public int score = 0;
 
     private static final Image IMG_SNAKE_HEAD = ImageUtil.images.get("snake-head-right");
 
@@ -39,12 +39,9 @@ public class MySnake extends SnakeObject implements movable
         this.widthOfSnake = (int)snakeBodyImg.getWidth();
         this.heightOfSnake = (int)snakeBodyImg.getHeight();
 
-        this.speed_XY = 2; //Starting speed is 5
+        this.speed_XY = 5; //Starting speed is 5
         this.length = 1; //Starting length is 1
 
-        /*
-         * Attention : ?
-         */
         this.num = widthOfSnake / speed_XY;
         newImgSnakeHead = IMG_SNAKE_HEAD;
 
@@ -108,7 +105,7 @@ public class MySnake extends SnakeObject implements movable
 
                     newImgSnakeHead = IMG_SNAKE_HEAD;
                 }
-                break; //DONE: added missing break statement
+                break;
 
             default:
                 break;
@@ -137,6 +134,7 @@ public class MySnake extends SnakeObject implements movable
 
     public void draw(GraphicsContext gc)
     {
+
         outofBounds();
         eatBody();
 
@@ -173,14 +171,14 @@ public class MySnake extends SnakeObject implements movable
         for (int i = length; i >= num; i -= num)
         {
             Point point = bodyPoints.get(i);
-            g.drawImage(this.snakeBodyImg, point.x, point.y); //DONE: remove unused parameter
+            g.drawImage(this.snakeBodyImg, point.x, point.y);
         }
     }
 
     private void outofBounds()
     {
-        boolean xOut = (xPosition <= 0 || xPosition >= (870 - widthOfSnake));
-        boolean yOut = (yPosition <= 40 || yPosition >= (560 - heightOfSnake));
+        boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfSnake));
+        boolean yOut = (yPosition <= 40 || yPosition >= (495 - heightOfSnake));
         if (xOut || yOut)
         {
             liveOfObject = false;
