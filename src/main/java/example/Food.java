@@ -5,6 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class Food extends SnakeObject
 {
+	private final int SCORE_INCREMENT = 1;
 	public Food()	{
 		this.liveOfObject = true;
 
@@ -22,7 +23,7 @@ public class Food extends SnakeObject
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
 			this.liveOfObject = false;
 			mySnake.changeLength(mySnake.getLength() + 1);
-			mySnake.score += 521;
+			mySnake.score += SCORE_INCREMENT;
 		}
 	}
 	@Override
