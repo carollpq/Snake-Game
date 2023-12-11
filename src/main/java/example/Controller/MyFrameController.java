@@ -47,6 +47,7 @@ public class MyFrameController implements Initializable {
     private static AnimationTimer animationTimer;
 
     private static boolean pause = false; //Initialise pause button to false
+    private static boolean handleKeyPressEnabled = true;
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
@@ -93,9 +94,14 @@ public class MyFrameController implements Initializable {
     }
 
     @FXML
-    public void handleKeyPress(KeyEvent event) {
+    public void handleKeyPress(KeyEvent event) throws IOException {
         // Handle key press events
         mySnake.handleKeyPress(event);
+        if (event.getCode() == KeyCode.P) {
+            togglePauseBtn();
+        } else if (event.getCode() == KeyCode.H) {
+            backToMain();
+        }
     }
 
     public AnimationTimer animationTimer() {
@@ -103,7 +109,9 @@ public class MyFrameController implements Initializable {
             @Override
             public void handle(long now) {
                 try {
-                    drawBgImg(graphicsContext);
+                    if (!pause) {
+                        drawBgImg(graphicsContext);
+                    }
                 } catch (IOException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -119,6 +127,7 @@ public class MyFrameController implements Initializable {
         return animationTimer;
     }
 
+
     // Method to stop the animation timer
     private void stopAnimationTimer(AnimationTimer animationTimer) {
         animationTimer.stop();
@@ -128,10 +137,17 @@ public class MyFrameController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             initialization();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            StartFrameMain.getScene().setOnKeyPressed(event -> {
+                try {
+                    handleKeyPress(event);
+                } catch (IOException e) {
+                    // Log the exception or take appropriate action
+                    e.printStackTrace();
+                }
+            });
+        } catch (IOException | InterruptedException e) {
+            // Log the exception or take appropriate action
+            e.printStackTrace();
         }
     }
 
@@ -144,7 +160,6 @@ public class MyFrameController implements Initializable {
             pause = true;
             pauseImg.setImage(ImageUtil.images.get("resume-btn"));
         }
-        System.out.println("Pause button is pressed");
         //Add / change to a pause backdrop
     }
 

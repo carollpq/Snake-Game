@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="495.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.StartFrameController">
+   <children>
+      <ImageView fitHeight="491.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
+         <image>
+            <Image url="@Img/start-scene-bg.jpg" />
+         </image>
+      </ImageView>
+      <Button id="startBtn" fx:id="startBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToGameMode" prefHeight="46.0" prefWidth="232.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="45.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/start-btn-modified.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="246.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/high-score-modified.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/settings-btn-modified.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>

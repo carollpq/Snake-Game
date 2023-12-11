@@ -41,8 +41,6 @@ public class StartFrameController {
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
         StartFrameMain.setRoot("/cw1setup/MyFrame");
         StartFrameMain.setCurrentMode("easy");
-        MyFrameController myFrame = StartFrameMain.getLoader().getController();
-        StartFrameMain.getScene().setOnKeyPressed(myFrame::handleKeyPress);
     }
 
     @FXML
