@@ -4,17 +4,12 @@ import example.Model.StartFrameMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-//import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 import example.MusicPlayer;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
 
 public class StartFrameController {
 
@@ -52,9 +47,8 @@ public class StartFrameController {
     public void playEasyMode() throws IOException, InterruptedException {
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
         StartFrameMain.setRoot("/cw1setup/MyFrame");
-        MyFrameController myFrame = new MyFrameController();
-        //StartFrameMain.getScene().setOnKeyPressed(myFrame::handleKeyPress);
-        myFrame.initialize();
+        MyFrameController myFrame = (MyFrameController) StartFrameMain.getLoader().getController();
+        StartFrameMain.getScene().setOnKeyPressed(myFrame::handleKeyPress);
     }
 
     @FXML

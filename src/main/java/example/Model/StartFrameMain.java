@@ -5,6 +5,7 @@ import example.GameUtil;
 import example.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -20,7 +21,16 @@ public class StartFrameMain extends Application {
 
     private static Scene scene;
     private static MusicPlayer currenMusic;
+    private static FXMLLoader loader;  // Add this line
+    private static String currentMode;
 
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static FXMLLoader getLoader() {
+        return loader;
+    }
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -31,7 +41,7 @@ public class StartFrameMain extends Application {
         scene.getStylesheets().add(css);
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/main/resources/cw1setup/Img/snake-logo.png")));
+        primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/cw1setup/Img/snake-logo.png")));
         //Play main menu music
         currenMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3");
         currenMusic.play();
@@ -56,8 +66,8 @@ public class StartFrameMain extends Application {
     }
 
     private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StartFrameMain.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        loader = new FXMLLoader(StartFrameMain.class.getResource(fxml + ".fxml"));
+        return loader.load();
     }
 
     public static void setCurrenMusic(MusicPlayer currenMusic) {

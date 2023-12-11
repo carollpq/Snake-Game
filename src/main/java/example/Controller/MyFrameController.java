@@ -6,6 +6,7 @@ import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
@@ -16,9 +17,11 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 
-public class MyFrameController {
+public class MyFrameController implements Initializable {
 
     @FXML
     private Canvas gameCanvas;
@@ -35,7 +38,7 @@ public class MyFrameController {
     private boolean stopAnimation = false; // Flag to control the animation stopping condition
 
     @FXML
-    public void initialize() throws IOException, InterruptedException {
+    public void initialization() throws IOException, InterruptedException {
         if (gameCanvas == null) {
             System.out.println("gameCanvas is null in MyFrameController.initialize()");
         }
@@ -109,7 +112,16 @@ public class MyFrameController {
     // Method to stop the animation timer
     private void stopAnimationTimer(AnimationTimer animationTimer) {
         animationTimer.stop();
-        // You can perform additional actions after stopping the timer if needed
-        //System.out.println("Animation Timer Stopped");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            initialization();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
