@@ -3,19 +3,12 @@ package example.Controller;
 import example.Model.StartFrameMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.media.AudioClip;
-import javafx.stage.Stage;
 import example.MusicPlayer;
 
 import java.io.IOException;
-import java.net.URL;
 
 public class StartFrameController {
-
-    //@FXML
-    //private Button startBtn, highScoreBtn, settingsBtn, easyBtn, mediumBtn, hardBtn;
-
 
     @FXML
     public void switchToGameMode() throws IOException {
@@ -48,7 +41,7 @@ public class StartFrameController {
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
         StartFrameMain.setRoot("/cw1setup/MyFrame");
         StartFrameMain.setCurrentMode("easy");
-        MyFrameController myFrame = (MyFrameController) StartFrameMain.getLoader().getController();
+        MyFrameController myFrame = StartFrameMain.getLoader().getController();
         StartFrameMain.getScene().setOnKeyPressed(myFrame::handleKeyPress);
     }
 

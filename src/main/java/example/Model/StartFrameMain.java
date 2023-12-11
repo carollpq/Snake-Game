@@ -24,22 +24,6 @@ public class StartFrameMain extends Application {
     private static FXMLLoader loader;  // Add this line
     private static String currentMode; // Indicating the mode of the current game
 
-    public static String getCurrentMode() {
-        return currentMode;
-    }
-
-    public static void setCurrentMode(String currentMode) {
-        StartFrameMain.currentMode = currentMode;
-    }
-
-    public static Scene getScene() {
-        return scene;
-    }
-
-    public static FXMLLoader getLoader() {
-        return loader;
-    }
-
     @Override
     public void start(Stage primaryStage) throws IOException {
         scene = new Scene(loadFXML("/cw1setup/StartFrame"), STAGE_WIDTH, STAGE_HEIGHT);
@@ -80,6 +64,22 @@ public class StartFrameMain extends Application {
 
     public static void setCurrenMusic(MusicPlayer currenMusic) {
         StartFrameMain.currenMusic = currenMusic;
+    }
+
+    public static String getCurrentMode() {
+        return currentMode;
+    }
+
+    public static void setCurrentMode(String currentMode) {
+        StartFrameMain.currentMode = currentMode;
+    }
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static FXMLLoader getLoader() {
+        return loader;
     }
 
     public static void main(String[] args) {

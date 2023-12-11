@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="495.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.EndingFrameController">
+   <children>
+      <ImageView fitHeight="491.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
+         <image>
+            <Image url="@Img/ending-scene-bg.jpg" />
+         </image>
+      </ImageView>
+      <Button id="playAgainBtn" fx:id="playAgainBtn" layoutX="299.0" layoutY="298.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="48.0" prefWidth="246.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/play-again-btn%20(2)-modified.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button id="mainMenuBtn" fx:id="mainMenuBtn" layoutX="297.0" layoutY="389.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="52.0" prefWidth="262.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Img/main-menu-btn%20(2)-modified.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+   </children>
+</AnchorPane>
