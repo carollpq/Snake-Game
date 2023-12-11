@@ -35,5 +35,8 @@ public class ImageUtil
 		images.put("UI-background", GameUtil.getImage("/cw1setup/Img/UI-background.png"));
 		images.put("game-scene-01", GameUtil.getImage("/cw1setup/Img/game-scene-01.jpg"));
 		images.put("main-menu-scene", GameUtil.getImage("/cw1setup/Img/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg"));
+		//Button images
+		images.put("resume-btn", GameUtil.getImage("/cw1setup/Img/resume-btn.png"));
+		images.put("pause-btn", GameUtil.getImage("/cw1setup/Img/pause-btn-modified.png"));
 	}
 }

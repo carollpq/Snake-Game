@@ -1,16 +1,18 @@
 package example.Controller;
 
 import example.Food;
+import example.ImageUtil;
 import example.Model.StartFrameMain;
 import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.AudioClip;
@@ -32,6 +34,9 @@ public class MyFrameController implements Initializable {
     @FXML
     private Label scoreLabel;
 
+    @FXML
+    private ImageView pauseImg;
+
     private GraphicsContext graphicsContext;
 
     private MySnake mySnake;
@@ -40,6 +45,8 @@ public class MyFrameController implements Initializable {
 
     private boolean stopAnimation = false; // Flag to control the animation stopping condition
     private static AnimationTimer animationTimer;
+
+    private static boolean pause = false; //Initialise pause button to false
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
@@ -61,11 +68,11 @@ public class MyFrameController implements Initializable {
 
     public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
-        //Clears the canvas before output another snake body
-        gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
         // Determine the state of the game.
-        if (mySnake.liveOfObject)
+        if (mySnake.liveOfObject && !pause)
         {
+            //Clears the canvas before output another snake body
+            gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
             mySnake.draw(gc);
             if (food.liveOfObject)
             {
@@ -76,7 +83,7 @@ public class MyFrameController implements Initializable {
                 food = new Food();
             }
         }
-        else
+        else if (!mySnake.liveOfObject)
         {
             StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
             StartFrameMain.setRoot("/cw1setup/EndingFrame");
@@ -129,8 +136,16 @@ public class MyFrameController implements Initializable {
     }
 
     @FXML
-    public void pauseGame() {
+    public void togglePauseBtn() {
+        if (pause) {
+            pause = false;
+            pauseImg.setImage(ImageUtil.images.get("pause-btn"));
+        } else {
+            pause = true;
+            pauseImg.setImage(ImageUtil.images.get("resume-btn"));
+        }
         System.out.println("Pause button is pressed");
+        //Add / change to a pause backdrop
     }
 
     @FXML
