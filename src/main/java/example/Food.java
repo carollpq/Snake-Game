@@ -13,8 +13,8 @@ public class Food extends SnakeObject
 		this.widthOfSnake = (int) foodImg.getWidth();
 		this.heightOfSnake = (int) foodImg.getHeight();
 
-		this.xPosition = (int) (Math.random() * (860 - widthOfSnake + 10));
-		this.yPosition = (int) (Math.random() * (495 - heightOfSnake - 40));
+		this.xPosition = (int) (Math.random() * (860 - widthOfSnake - 30) + 30);
+		this.yPosition = (int) (Math.random() * (495 - heightOfSnake - 60) + 55);
 	}
 
 	public void eaten(MySnake mySnake)	{

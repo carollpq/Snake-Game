@@ -180,7 +180,7 @@ public class MySnake extends SnakeObject implements movable
     private void outofBounds()
     {
         boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfSnake));
-        boolean yOut = (yPosition <= 40 || yPosition >= (495 - heightOfSnake));
+        boolean yOut = (yPosition <= 0 || yPosition >= (495 - heightOfSnake));
         if (xOut || yOut)
         {
             liveOfObject = false;
