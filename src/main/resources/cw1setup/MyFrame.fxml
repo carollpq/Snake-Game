@@ -19,7 +19,7 @@
                 <Font name="Sans Serif" size="30.0" />
             </font>
         </Label>
-      <Button layoutX="784.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#togglePauseBtn" prefHeight="54.0" prefWidth="61.0">
+      <Button layoutX="775.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#togglePauseBtn" prefHeight="54.0" prefWidth="61.0">
          <graphic>
             <ImageView fx:id="pauseImg" fitHeight="46.0" fitWidth="62.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -37,5 +37,15 @@
             </ImageView>
          </graphic>
       </Button>
+      <ImageView fx:id="darkenedBgImg" fitHeight="685.0" fitWidth="1030.0" layoutY="-99.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/A_black_background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="pauseBoard" fitHeight="205.0" fitWidth="638.0" layoutX="116.0" layoutY="141.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Img/pause-board-modified.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

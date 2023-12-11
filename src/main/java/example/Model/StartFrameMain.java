@@ -48,7 +48,7 @@ public class StartFrameMain extends Application {
     }
 
     //Changes the background music for the game
-    public static void changeMusic(MusicPlayer newMusic) throws IOException {
+    public static void changeMusic(MusicPlayer newMusic) {
         currenMusic.stopMusic();
         setCurrenMusic(newMusic);
         currenMusic.play();

@@ -37,6 +37,12 @@ public class MyFrameController implements Initializable {
     @FXML
     private ImageView pauseImg;
 
+    @FXML
+    private ImageView pauseBoard;
+
+    @FXML
+    private ImageView darkenedBgImg;
+
     private GraphicsContext graphicsContext;
 
     private MySnake mySnake;
@@ -111,6 +117,8 @@ public class MyFrameController implements Initializable {
                 try {
                     if (!pause) {
                         drawBgImg(graphicsContext);
+                        pauseBoard.setVisible(false); // Hide the paused image
+                        darkenedBgImg.setVisible(false);
                     }
                 } catch (IOException | InterruptedException e) {
                     throw new RuntimeException(e);
@@ -156,11 +164,14 @@ public class MyFrameController implements Initializable {
         if (pause) {
             pause = false;
             pauseImg.setImage(ImageUtil.images.get("pause-btn"));
+            pauseBoard.setVisible(false); // Hide the paused image
+            darkenedBgImg.setVisible(false);
         } else {
             pause = true;
             pauseImg.setImage(ImageUtil.images.get("resume-btn"));
+            pauseBoard.setVisible(true); // Show the paused image
+            darkenedBgImg.setVisible(true);
         }
-        //Add / change to a pause backdrop
     }
 
     @FXML
