@@ -18,7 +18,7 @@ public class StartFrameMain extends Application {
 
     private static Scene scene;
     private static MusicPlayer currenMusic;
-    private static FXMLLoader loader;  // Add this line
+    private static FXMLLoader loader;
     private static String currentMode; // Indicating the mode of the current game
 
     @Override

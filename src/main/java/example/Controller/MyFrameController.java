@@ -5,12 +5,15 @@ import example.Model.StartFrameMain;
 import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -36,17 +39,16 @@ public class MyFrameController implements Initializable {
     private Food food;
 
     private boolean stopAnimation = false; // Flag to control the animation stopping condition
+    private static AnimationTimer animationTimer;
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
-        if (gameCanvas == null) {
-            System.out.println("gameCanvas is null in MyFrameController.initialize()");
-        }
         graphicsContext = gameCanvas.getGraphicsContext2D();
         mySnake = new MySnake(100, 100);
         food = new Food();
         drawBgImg(graphicsContext);
-        animationTimer();
+        gameCanvas.setFocusTraversable(true);
+        animationTimer = animationTimer();
     }
 
     public void drawScore(GraphicsContext gc)
@@ -89,7 +91,7 @@ public class MyFrameController implements Initializable {
         mySnake.handleKeyPress(event);
     }
 
-    public void animationTimer() {
+    public AnimationTimer animationTimer() {
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -107,6 +109,7 @@ public class MyFrameController implements Initializable {
         };
 
         animationTimer.start();
+        return animationTimer;
     }
 
     // Method to stop the animation timer
@@ -123,5 +126,24 @@ public class MyFrameController implements Initializable {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @FXML
+    public void pauseGame() {
+        //if (keyEvent.getCode() == KeyCode.P) {
+            System.out.println("Pause button is pressed");
+        //}
+    }
+
+    @FXML
+    public void backToMain() throws IOException {
+        stopAnimationTimer(animationTimer);
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3"));
+        StartFrameMain.setRoot("/cw1setup/StartFrame");
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/Button Press Sound Effect.wav")
+                        .toExternalForm())
+                .play();
     }
 }

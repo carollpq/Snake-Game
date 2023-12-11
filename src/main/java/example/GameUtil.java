@@ -20,11 +20,11 @@ public class GameUtil
 		}
 	}
 
-	public static ImageView rotateImage(final Image image, final int degree)
+	public static Image rotateImage(final Image image, final int degree)
 	{
 		ImageView imageView = new ImageView(image);
 		imageView.setRotate(degree);
 
-		return imageView;
+		return imageView.getImage();
 	}
 }

@@ -27,6 +27,7 @@ public class MySnake extends SnakeObject implements movable
 
     public static List<Point> bodyPoints = new LinkedList<>();
 
+
     private static Image newImgSnakeHead;
     boolean up, down, left, right = true;
 
@@ -62,14 +63,15 @@ public class MySnake extends SnakeObject implements movable
         // Checking the keys
         switch (e.getCode())
         {
-            case UP: //DONE: change cases to 'KeyCode' constants
+            case UP:
                 if (!down)
                 {
                     up = true;
                     left = false;
                     right = false;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -90).getImage();
+                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -90);
+
                 }
                 break;
 
@@ -80,7 +82,7 @@ public class MySnake extends SnakeObject implements movable
                     left = false;
                     right = false;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, 90).getImage();
+                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, 90);
                 }
                 break;
 
@@ -91,7 +93,7 @@ public class MySnake extends SnakeObject implements movable
                     down = false;
                     left = true;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -180).getImage();
+                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -180);
 
                 }
                 break;
