@@ -130,9 +130,7 @@ public class MyFrameController implements Initializable {
 
     @FXML
     public void pauseGame() {
-        //if (keyEvent.getCode() == KeyCode.P) {
-            System.out.println("Pause button is pressed");
-        //}
+        System.out.println("Pause button is pressed");
     }
 
     @FXML
