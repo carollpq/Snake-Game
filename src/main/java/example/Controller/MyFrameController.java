@@ -162,11 +162,13 @@ public class MyFrameController implements Initializable {
     public void togglePauseBtn() {
         if (pause) {
             pause = false;
+            StartFrameMain.getCurrenMusic().play();
             pauseImg.setImage(ImageUtil.images.get("pause-btn"));
             pauseBoard.setVisible(false); // Hide the paused image
             darkenedBgImg.setVisible(false);
         } else {
             pause = true;
+            StartFrameMain.getCurrenMusic().pause();
             pauseImg.setImage(ImageUtil.images.get("resume-btn"));
             pauseBoard.setVisible(true); // Show the paused image
             darkenedBgImg.setVisible(true);

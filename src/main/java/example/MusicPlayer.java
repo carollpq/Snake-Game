@@ -32,6 +32,11 @@ public class MusicPlayer
 		}
 	}
 
+	public void pause() {
+		if(getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING){
+			getMediaPlayer().pause();
+		}
+	}
 	//Stops the music when prompted
 	public void stopMusic() {
 		if (getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {

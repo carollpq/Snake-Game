@@ -17,6 +17,7 @@ public class StartFrameMain extends Application {
     private final int STAGE_HEIGHT = 495;
 
     private static Scene scene;
+
     private static MusicPlayer currenMusic;
     private static FXMLLoader loader;
     private static String currentMode; // Indicating the mode of the current game
@@ -61,6 +62,9 @@ public class StartFrameMain extends Application {
 
     public static void setCurrenMusic(MusicPlayer currenMusic) {
         StartFrameMain.currenMusic = currenMusic;
+    }
+    public static MusicPlayer getCurrenMusic() {
+        return currenMusic;
     }
 
     public static String getCurrentMode() {
