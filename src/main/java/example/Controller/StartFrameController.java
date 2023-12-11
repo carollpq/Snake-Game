@@ -47,14 +47,15 @@ public class StartFrameController {
     public void playEasyMode() throws IOException, InterruptedException {
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
         StartFrameMain.setRoot("/cw1setup/MyFrame");
+        StartFrameMain.setCurrentMode("easy");
         MyFrameController myFrame = (MyFrameController) StartFrameMain.getLoader().getController();
         StartFrameMain.getScene().setOnKeyPressed(myFrame::handleKeyPress);
     }
 
     @FXML
-    public void playMediumMode(ActionEvent event) throws IOException {}
+    public void playMediumMode() throws IOException {}
 
     @FXML
-    public void playHardMode(ActionEvent event) throws IOException {}
+    public void playHardMode() throws IOException {}
 
 }

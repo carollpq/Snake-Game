@@ -22,7 +22,15 @@ public class StartFrameMain extends Application {
     private static Scene scene;
     private static MusicPlayer currenMusic;
     private static FXMLLoader loader;  // Add this line
-    private static String currentMode;
+    private static String currentMode; // Indicating the mode of the current game
+
+    public static String getCurrentMode() {
+        return currentMode;
+    }
+
+    public static void setCurrentMode(String currentMode) {
+        StartFrameMain.currentMode = currentMode;
+    }
 
     public static Scene getScene() {
         return scene;
