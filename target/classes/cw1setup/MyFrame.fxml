@@ -54,7 +54,7 @@
       </ImageView>
       <Label fx:id="countdownLabel" layoutX="400.0" layoutY="175.0" prefHeight="119.0" prefWidth="196.0" textFill="WHITE">
          <font>
-            <Font name="Georgia" size="72.0" />
+            <Font name="Georgia Bold" size="72.0" />
          </font></Label>
     </children>
 </AnchorPane>

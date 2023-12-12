@@ -58,7 +58,7 @@ public class MySnake extends SnakeObject implements movable
         this.length = length;
     }
 
-    public void handleKeyPress(javafx.scene.input.KeyEvent e)
+    public void handleKeyPress(KeyEvent e)
     {
         // Checking the keys
         switch (e.getCode())

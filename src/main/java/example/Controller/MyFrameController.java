@@ -61,7 +61,6 @@ public class MyFrameController implements Initializable {
     private static AnimationTimer animationTimer;
 
     private static boolean pause = false; //Initialise pause button to false
-    private static boolean handleKeyPressEnabled = true;
 
     private Timeline countdownTimeline;
     private int countdownSeconds = 6; // Set the desired countdown time in seconds
@@ -113,6 +112,7 @@ public class MyFrameController implements Initializable {
         drawBgImg(graphicsContext);
         gameCanvas.setFocusTraversable(true);
         animationTimer = animationTimer();
+        gameCanvas.requestFocus();
     }
 
     public void drawScore(GraphicsContext gc)
