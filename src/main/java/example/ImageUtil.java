@@ -34,10 +34,10 @@ public class ImageUtil
 		images.put("14", GameUtil.getImage("/cw1setup/Img/food-pineapple.png"));
 		images.put("15", GameUtil.getImage("/cw1setup/Img/food-strawberry.png"));
 		images.put("16", GameUtil.getImage("/cw1setup/Img/food-watermelon.png"));
-		images.put("17", GameUtil.getImage("/cw1setup/Img/bonus1.png"));
-		images.put("18", GameUtil.getImage("/cw1setup/Img/bonus2.png"));
-		images.put("19", GameUtil.getImage("/cw1setup/Img/gold_star.png"));
-		images.put("20", GameUtil.getImage("/cw1setup/Img/invertbonus.png"));
+		images.put("17", GameUtil.getImage("/cw1setup/Img/topaz.png"));
+		images.put("18", GameUtil.getImage("/cw1setup/Img/diamond.png"));
+		images.put("19", GameUtil.getImage("/cw1setup/Img/garnet.png"));
+		images.put("20", GameUtil.getImage("/cw1setup/Img/sapphire.png"));
 		//Background images
 		images.put("UI-background", GameUtil.getImage("/cw1setup/Img/UI-background.png"));
 		images.put("main-menu-scene", GameUtil.getImage("/cw1setup/Img/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg"));
