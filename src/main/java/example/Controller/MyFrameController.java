@@ -6,6 +6,8 @@ import example.Model.StartFrameMain;
 import example.MusicPlayer;
 import example.MySnake;
 import javafx.animation.AnimationTimer;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -19,6 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,6 +45,12 @@ public class MyFrameController implements Initializable {
     @FXML
     private ImageView darkenedBgImg;
 
+    @FXML
+    private ImageView countDownBackDrop;
+
+    @FXML
+    private Label countdownLabel;
+
     private GraphicsContext graphicsContext;
 
     private MySnake mySnake;
@@ -54,8 +63,50 @@ public class MyFrameController implements Initializable {
     private static boolean pause = false; //Initialise pause button to false
     private static boolean handleKeyPressEnabled = true;
 
+    private Timeline countdownTimeline;
+    private int countdownSeconds = 6; // Set the desired countdown time in seconds
+
     @FXML
     public void initialization() throws IOException, InterruptedException {
+        // Initialize the Timeline for countdown
+        countdownTimeline = new Timeline();
+        countdownTimeline.setCycleCount(countdownSeconds);
+
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
+            countdownSeconds--;
+            if (countdownSeconds > 0) {
+                countdownLabel.setText(Integer.toString(countdownSeconds));
+                new AudioClip(
+                        getClass()
+                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
+                                .toExternalForm())
+                        .play();
+            } else {
+                // Start the game after the countdown
+                countdownTimeline.stop();
+                try {
+                    startGame();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        countdownTimeline.getKeyFrames().add(keyFrame);
+        countdownTimeline.play();
+
+    }
+
+    public void startGame() throws IOException, InterruptedException {
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/game_start_post-timer.mp3")
+                        .toExternalForm())
+                .play();
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
+        countdownLabel.setVisible(false);
+        countDownBackDrop.setVisible(false);
         graphicsContext = gameCanvas.getGraphicsContext2D();
         mySnake = new MySnake(100, 100);
         food = new Food();

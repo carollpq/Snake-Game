@@ -38,7 +38,7 @@ public class StartFrameController {
 
     @FXML
     public void playEasyMode() throws IOException, InterruptedException {
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
+        StartFrameMain.getCurrenMusic().pause();
         StartFrameMain.setRoot("/cw1setup/MyFrame");
         StartFrameMain.setCurrentMode("easy");
     }
