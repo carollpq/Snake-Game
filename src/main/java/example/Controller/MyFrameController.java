@@ -63,7 +63,7 @@ public class MyFrameController implements Initializable {
     private static boolean pause = false; //Initialise pause button to false
 
     private Timeline countdownTimeline;
-    private int countdownSeconds = 6; // Set the desired countdown time in seconds
+    private int countdownSeconds = 4; // Set the desired countdown time in seconds
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
@@ -97,6 +97,35 @@ public class MyFrameController implements Initializable {
 
     }
 
+    public void countDownTimer() {
+//        countdownTimeline = new Timeline();
+//        countdownTimeline.setCycleCount(countdownSeconds);
+//
+//        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
+//            countdownSeconds--;
+//            if (countdownSeconds > 0) {
+//                countdownLabel.setText(Integer.toString(countdownSeconds));
+//                new AudioClip(
+//                        getClass()
+//                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
+//                                .toExternalForm())
+//                        .play();
+//            } else {
+//                // Start the game after the countdown
+//                countdownTimeline.stop();
+//                try {
+//                    startGame();
+//                } catch (IOException e) {
+//                    throw new RuntimeException(e);
+//                } catch (InterruptedException e) {
+//                    throw new RuntimeException(e);
+//                }
+//            }
+//        });
+//        countdownTimeline.getKeyFrames().add(keyFrame);
+//        countdownTimeline.play();
+    }
+
     public void startGame() throws IOException, InterruptedException {
         new AudioClip(
                 getClass()
@@ -119,7 +148,7 @@ public class MyFrameController implements Initializable {
     {
         Font font = Font.font("Sans Serif", FontWeight.BOLD, FontPosture.REGULAR, 30);
         gc.setFont(font);
-        gc.setFill(Color.MAGENTA);
+        gc.setFill(Color.BLACK);
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 

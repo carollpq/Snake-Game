@@ -70,7 +70,7 @@ public class MySnake extends SnakeObject implements movable
                     left = false;
                     right = false;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -90);
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-up");
 
                 }
                 break;
@@ -82,7 +82,7 @@ public class MySnake extends SnakeObject implements movable
                     left = false;
                     right = false;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, 90);
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-down");
                 }
                 break;
 
@@ -93,7 +93,7 @@ public class MySnake extends SnakeObject implements movable
                     down = false;
                     left = true;
 
-                    newImgSnakeHead = GameUtil.rotateImage(IMG_SNAKE_HEAD, -180);
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-left");
 
                 }
                 break;

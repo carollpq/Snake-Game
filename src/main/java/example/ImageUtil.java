@@ -13,6 +13,9 @@ public class ImageUtil
 		// Snake
 		images.put("snake-head-right", GameUtil.getImage("/cw1setup/Img/snake-head-right.png"));
 		images.put("snake-body", GameUtil.getImage("/cw1setup/Img/snake-body.png"));
+		images.put("snake-head-up", GameUtil.rotateImage(GameUtil.getImage("/cw1setup/Img/snake-head-right.png"), -90));
+		images.put("snake-head-down", GameUtil.rotateImage(GameUtil.getImage("/cw1setup/Img/snake-head-right.png"), 90));
+		images.put("snake-head-left", GameUtil.rotateImage(GameUtil.getImage("/cw1setup/Img/snake-head-right.png"), -180));
 		// Food objects
 		images.put("0", GameUtil.getImage("/cw1setup/Img/food-kiwi.png"));
 		images.put("1", GameUtil.getImage("/cw1setup/Img/food-lemon.png"));

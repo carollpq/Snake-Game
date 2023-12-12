@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -14,7 +15,7 @@
             </image>
         </ImageView>
         <Canvas fx:id="gameCanvas" height="495.0" width="860.0" />
-        <Label fx:id="scoreLabel" layoutX="20.0" layoutY="40.0" textFill="#ff00ff">
+        <Label fx:id="scoreLabel" layoutX="20.0" layoutY="40.0" textFill="#000000">
             <font>
                 <Font name="Sans Serif" size="30.0" />
             </font>
@@ -27,6 +28,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <Button fx:id="backToMain" layoutX="701.0" layoutY="12.0" mnemonicParsing="false" onMouseClicked="#backToMain" prefHeight="54.0" prefWidth="61.0">
          <graphic>
@@ -36,6 +40,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </Button>
       <ImageView fx:id="darkenedBgImg" fitHeight="700.0" fitWidth="1045.0" layoutY="-131.0" opacity="0.56" pickOnBounds="true" preserveRatio="true">
          <image>
