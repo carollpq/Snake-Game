@@ -1,13 +1,11 @@
 package example.Controller;
 
-import example.Food;
-import example.ImageUtil;
+import example.*;
 import example.Model.StartFrameMain;
-import example.MusicPlayer;
-import example.MySnake;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
@@ -26,6 +24,8 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MyFrameController implements Initializable {
@@ -57,6 +57,8 @@ public class MyFrameController implements Initializable {
 
     private Food food;
 
+    private PowerUp bonusObj;
+
     private boolean stopAnimation = false; // Flag to control the animation stopping condition
     private static AnimationTimer animationTimer;
 
@@ -64,6 +66,10 @@ public class MyFrameController implements Initializable {
 
     private Timeline countdownTimeline;
     private int countdownSeconds = 4; // Set the desired countdown time in seconds
+
+    private Timer bonusSpawnTimer;
+    private TimerTask bonusSpawnTask;
+    private long bonusSpawnTime;
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
@@ -97,35 +103,6 @@ public class MyFrameController implements Initializable {
 
     }
 
-    public void countDownTimer() {
-//        countdownTimeline = new Timeline();
-//        countdownTimeline.setCycleCount(countdownSeconds);
-//
-//        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
-//            countdownSeconds--;
-//            if (countdownSeconds > 0) {
-//                countdownLabel.setText(Integer.toString(countdownSeconds));
-//                new AudioClip(
-//                        getClass()
-//                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
-//                                .toExternalForm())
-//                        .play();
-//            } else {
-//                // Start the game after the countdown
-//                countdownTimeline.stop();
-//                try {
-//                    startGame();
-//                } catch (IOException e) {
-//                    throw new RuntimeException(e);
-//                } catch (InterruptedException e) {
-//                    throw new RuntimeException(e);
-//                }
-//            }
-//        });
-//        countdownTimeline.getKeyFrames().add(keyFrame);
-//        countdownTimeline.play();
-    }
-
     public void startGame() throws IOException, InterruptedException {
         new AudioClip(
                 getClass()
@@ -138,10 +115,47 @@ public class MyFrameController implements Initializable {
         graphicsContext = gameCanvas.getGraphicsContext2D();
         mySnake = new MySnake(100, 100);
         food = new Food();
+        bonusObj = new PowerUp();
+        // Initialize the bonusObj spawn timer and task if not already done
+        if (bonusSpawnTimer == null) {
+            bonusSpawnTimer = new Timer();
+            scheduleBonusSpawn();
+        }
         drawBgImg(graphicsContext);
         gameCanvas.setFocusTraversable(true);
         animationTimer = animationTimer();
         gameCanvas.requestFocus();
+    }
+
+    private void scheduleBonusSpawn() {
+        int delay = getRandomDelay(); // Get a random delay in milliseconds
+        int period = 30000; // Set the period for bonusObj spawn (30,000 milliseconds = 30 seconds)
+
+        // Cancel the existing task if it exists
+        if (bonusSpawnTask != null) {
+            bonusSpawnTask.cancel();
+        }
+
+        bonusSpawnTask = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    if (!bonusObj.liveOfObject) {
+                        bonusObj = new PowerUp();
+                        bonusSpawnTime = System.currentTimeMillis(); // Set the bonus spawn time
+                    }
+                    scheduleBonusSpawn(); // Reschedule for the next random interval
+                });
+            }
+        };
+
+        bonusSpawnTimer.schedule(bonusSpawnTask, delay, period);
+    }
+
+
+    private int getRandomDelay() {
+        // Get a random delay between 5 and 15 seconds (adjust as needed)
+        return (int) (Math.random() * 10000) + 5000;
     }
 
     public void drawScore(GraphicsContext gc)
@@ -151,6 +165,7 @@ public class MyFrameController implements Initializable {
         gc.setFill(Color.BLACK);
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
+
 
     public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
@@ -168,9 +183,27 @@ public class MyFrameController implements Initializable {
             {
                 food = new Food();
             }
+
+            //Implement a timer so that object stays for a limited amount of time
+            //Add label to
+            if (bonusObj.liveOfObject) {
+                bonusObj.checkObjectPosition(food);
+                bonusObj.draw(gc);
+                bonusObj.eaten(mySnake, getGameCanvas());
+
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - bonusSpawnTime > 4000) { // 4000 milliseconds = 4 seconds
+                    bonusObj.liveOfObject = false; // Mark the bonusObj as no longer live
+                }
+            }
         }
         else if (!mySnake.liveOfObject)
         {
+            new AudioClip(
+                    getClass()
+                            .getResource("/cw1setup/Sounds/game_over.mp3")
+                            .toExternalForm())
+                    .play();
             StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
             StartFrameMain.setRoot("/cw1setup/EndingFrame");
             stopAnimation = true;
@@ -213,7 +246,6 @@ public class MyFrameController implements Initializable {
         animationTimer.start();
         return animationTimer;
     }
-
 
     // Method to stop the animation timer
     private void stopAnimationTimer(AnimationTimer animationTimer) {
@@ -265,5 +297,9 @@ public class MyFrameController implements Initializable {
                         .getResource("/cw1setup/Sounds/Button Press Sound Effect.wav")
                         .toExternalForm())
                 .play();
+    }
+
+    public Canvas getGameCanvas() {
+        return gameCanvas;
     }
 }

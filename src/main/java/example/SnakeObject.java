@@ -10,7 +10,7 @@ public abstract class SnakeObject
     //Attributes to initialize the Rectangle object
     int xPosition;
     int yPosition;
-    Image snakeHeadImg;
+    //Image snakeHeadImg;
     Image snakeBodyImg;
 
     Image foodImg;

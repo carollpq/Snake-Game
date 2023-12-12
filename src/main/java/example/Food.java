@@ -2,6 +2,7 @@ package example;
 
 import java.util.Random;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.AudioClip;
 
 public class Food extends SnakeObject
 {
@@ -9,7 +10,7 @@ public class Food extends SnakeObject
 	public Food()	{
 		this.liveOfObject = true;
 
-		this.foodImg = ImageUtil.images.get(String.valueOf(new Random().nextInt(10)));
+		this.foodImg = ImageUtil.images.get(String.valueOf(new Random().nextInt(17)));
 		this.widthOfSnake = (int) foodImg.getWidth();
 		this.heightOfSnake = (int) foodImg.getHeight();
 
@@ -24,6 +25,11 @@ public class Food extends SnakeObject
 			this.liveOfObject = false;
 			mySnake.changeLength(mySnake.getLength() + 1);
 			mySnake.score += SCORE_INCREMENT;
+			new AudioClip(
+					getClass()
+							.getResource("/cw1setup/Sounds/snake-eat-sound.mp3")
+							.toExternalForm())
+					.play();
 		}
 	}
 	@Override
