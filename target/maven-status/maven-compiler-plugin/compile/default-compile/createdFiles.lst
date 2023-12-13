@@ -1,12 +1,7 @@
+example\Controller\MediumFrameController.class
 example\Frame.class
-example\Paddle.class
-example\SnakeObject.class
 example\MusicPlayer.class
 example\PowerUp.class
-example\Controller\MyFrameController$2.class
-example\ImageUtil.class
-example\GameUtil.class
-example\MySnake$1.class
 example\movable.class
 module-info.class
 example\Food.class
@@ -15,5 +10,11 @@ example\Snake.class
 example\Controller\EndingFrameController.class
 example\Controller\StartFrameController.class
 example\Model\StartFrameMain.class
+example\Paddle.class
+example\SnakeObject.class
+example\Controller\MyFrameController$2.class
+example\ImageUtil.class
+example\GameUtil.class
+example\MySnake$1.class
 example\Controller\MyFrameController.class
 example\MySnake.class

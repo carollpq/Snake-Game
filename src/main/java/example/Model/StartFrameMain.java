@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class StartFrameMain extends Application {
 
-    private final int STAGE_WIDTH = 860;
-    private final int STAGE_HEIGHT = 495;
+    public static final int STAGE_WIDTH = 860;
+    public static final int STAGE_HEIGHT = 495;
 
     private static Scene scene;
 
