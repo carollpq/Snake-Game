@@ -11,7 +11,7 @@
     <children>
         <ImageView fx:id="backgroundImage" fitHeight="495.0" fitWidth="860.0">
             <image>
-                <Image url="@Img/UI-background.png" />
+                <Image url="@Img/easy-mode-bg.jpg" />
             </image>
         </ImageView>
         <Canvas fx:id="gameCanvas" height="495.0" width="860.0" />

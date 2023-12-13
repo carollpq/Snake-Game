@@ -44,5 +44,7 @@ public class ImageUtil
 		//Button images
 		images.put("resume-btn", GameUtil.getImage("/cw1setup/Img/resume-btn.png"));
 		images.put("pause-btn", GameUtil.getImage("/cw1setup/Img/pause-btn-modified.png"));
+		//Obstacle
+		images.put("obstacle-block", GameUtil.getImage("/cw1setup/Img/pause-btn-modified.png"));
 	}
 }

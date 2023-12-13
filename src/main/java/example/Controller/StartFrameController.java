@@ -44,7 +44,11 @@ public class StartFrameController {
     }
 
     @FXML
-    public void playMediumMode() throws IOException {}
+    public void playMediumMode() throws IOException {
+        StartFrameMain.getCurrenMusic().pause();
+        StartFrameMain.setRoot("/cw1setup/MediumFrame");
+        StartFrameMain.setCurrentMode("medium");
+    }
 
     @FXML
     public void playHardMode() throws IOException {}
