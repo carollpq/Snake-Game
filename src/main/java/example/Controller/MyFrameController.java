@@ -273,11 +273,16 @@ public class MyFrameController implements Initializable {
     @FXML
     public void togglePauseBtn() {
         if (pause) {
-            pause = false;
-            StartFrameMain.getCurrenMusic().play();
-            pauseImg.setImage(ImageUtil.images.get("pause-btn"));
+            //Reset countdown time
+            countdownSeconds = 3;
+            // Start a new countdown when the game is resumed
             pauseBoard.setVisible(false); // Hide the paused image
-            darkenedBgImg.setVisible(false);
+            new AudioClip(
+                    getClass()
+                            .getResource("/cw1setup/Sounds/countdown-audio.mp3")
+                            .toExternalForm())
+                    .play();
+            startCountdown();
         } else {
             pause = true;
             StartFrameMain.getCurrenMusic().pause();
@@ -285,6 +290,40 @@ public class MyFrameController implements Initializable {
             pauseBoard.setVisible(true); // Show the paused image
             darkenedBgImg.setVisible(true);
         }
+    }
+
+    private void startCountdown() {
+        // Reset the countdown label and visibility
+        countdownLabel.setVisible(true);
+        countdownLabel.setText(Integer.toString(countdownSeconds));
+
+        // Initialize the Timeline for the new countdown
+        countdownTimeline = new Timeline();
+        countdownTimeline.setCycleCount(countdownSeconds);
+
+        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
+            countdownSeconds--;
+            if (countdownSeconds > 0) {
+                countdownLabel.setText(Integer.toString(countdownSeconds));
+                new AudioClip(
+                        getClass()
+                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
+                                .toExternalForm())
+                        .play();
+            } else {
+                // Start the game after the countdown
+                countdownTimeline.stop();
+                pause = false;
+                StartFrameMain.getCurrenMusic().play();
+                pauseImg.setImage(ImageUtil.images.get("pause-btn"));
+                darkenedBgImg.setVisible(false);
+                countdownLabel.setVisible(false);
+            }
+        });
+
+        countdownTimeline.getKeyFrames().add(keyFrame);
+        countdownTimeline.play();
+
     }
 
     @FXML
