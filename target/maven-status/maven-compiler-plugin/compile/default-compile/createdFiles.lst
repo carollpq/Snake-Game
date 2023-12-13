@@ -16,5 +16,6 @@ example\Controller\MyFrameController$2.class
 example\ImageUtil.class
 example\GameUtil.class
 example\MySnake$1.class
+example\Controller\HardFrameController.class
 example\Controller\MyFrameController.class
 example\MySnake.class

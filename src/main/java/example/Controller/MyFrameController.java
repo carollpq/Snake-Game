@@ -207,7 +207,9 @@ public class MyFrameController implements Initializable {
         }
         else if (!mySnake.liveOfObject)
         {
+            //Resets the game
             MySnake.bodyPoints = new LinkedList<>();
+            pause = false;
             new AudioClip(
                     getClass()
                             .getResource("/cw1setup/Sounds/game_over.mp3")

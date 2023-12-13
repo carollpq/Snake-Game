@@ -51,6 +51,10 @@ public class StartFrameController {
     }
 
     @FXML
-    public void playHardMode() throws IOException {}
+    public void playHardMode() throws IOException {
+        StartFrameMain.getCurrenMusic().pause();
+        StartFrameMain.setRoot("/cw1setup/HardFrame");
+        StartFrameMain.setCurrentMode("hard");
+    }
 
 }
