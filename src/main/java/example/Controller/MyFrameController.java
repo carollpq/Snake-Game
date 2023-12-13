@@ -71,9 +71,14 @@ public class MyFrameController implements Initializable {
     private TimerTask bonusSpawnTask;
     private long bonusSpawnTime;
 
+    private int snakeSpeed;
+    private int onScreenTime;
+
     @FXML
     public void initialization() throws IOException, InterruptedException {
         // Initialize the Timeline for countdown
+        setSnakeSpeed(5);
+        setOnScreenTime(4000);
         countdownTimeline = new Timeline();
         countdownTimeline.setCycleCount(countdownSeconds);
 
@@ -113,7 +118,7 @@ public class MyFrameController implements Initializable {
         countdownLabel.setVisible(false);
         countDownBackDrop.setVisible(false);
         graphicsContext = gameCanvas.getGraphicsContext2D();
-        mySnake = new MySnake(100, 100);
+        mySnake = new MySnake(100, 100, getSnakeSpeed());
         food = new Food();
         bonusObj = new PowerUp();
         // Initialize the bonusObj spawn timer and task if not already done
@@ -167,6 +172,10 @@ public class MyFrameController implements Initializable {
     }
 
 
+    public MySnake getMySnake() {
+        return mySnake;
+    }
+
     public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
@@ -185,14 +194,13 @@ public class MyFrameController implements Initializable {
             }
 
             //Implement a timer so that object stays for a limited amount of time
-            //Add label to
             if (bonusObj.liveOfObject) {
                 bonusObj.checkObjectPosition(food);
                 bonusObj.draw(gc);
                 bonusObj.eaten(mySnake, getGameCanvas());
 
                 long currentTime = System.currentTimeMillis();
-                if (currentTime - bonusSpawnTime > 4000) { // 4000 milliseconds = 4 seconds
+                if (currentTime - bonusSpawnTime > getOnScreenTime()) { // 4000 milliseconds = 4 seconds
                     bonusObj.liveOfObject = false; // Mark the bonusObj as no longer live
                 }
             }
@@ -340,5 +348,21 @@ public class MyFrameController implements Initializable {
 
     public Canvas getGameCanvas() {
         return gameCanvas;
+    }
+
+    public int getOnScreenTime() {
+        return onScreenTime;
+    }
+
+    public void setOnScreenTime(int onScreenTime) {
+        this.onScreenTime = onScreenTime;
+    }
+
+    public int getSnakeSpeed() {
+        return snakeSpeed;
+    }
+
+    public void setSnakeSpeed(int snakeSpeed) {
+        this.snakeSpeed = snakeSpeed;
     }
 }

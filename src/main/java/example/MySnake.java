@@ -1,17 +1,11 @@
 package example;
 
-import javafx.scene.input.KeyCode;
-
 import java.util.LinkedList;
 import java.util.List;
 
 import java.awt.*;
 import javafx.scene.input.KeyEvent;
-import java.awt.image.BufferedImage;
-import java.util.LinkedList;
-import java.util.List;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 import javafx.scene.canvas.GraphicsContext;
 
@@ -31,7 +25,7 @@ public class MySnake extends SnakeObject implements movable
     private static Image newImgSnakeHead;
     boolean up, down, left, right = true;
 
-    public MySnake(int x, int y)
+    public MySnake(int x, int y, int snakeSpeed)
     {
         this.liveOfObject = true;
         this.xPosition = x;
@@ -40,7 +34,7 @@ public class MySnake extends SnakeObject implements movable
         this.widthOfSnake = (int)snakeBodyImg.getWidth();
         this.heightOfSnake = (int)snakeBodyImg.getHeight();
 
-        this.speed_XY = 5; //Starting speed is 5
+        setSpeed_XY(snakeSpeed);
         this.length = 1; //Starting length is 1
 
         this.num = widthOfSnake / speed_XY;
@@ -175,6 +169,14 @@ public class MySnake extends SnakeObject implements movable
             Point point = bodyPoints.get(i);
             g.drawImage(this.snakeBodyImg, point.x, point.y);
         }
+    }
+
+    public int getSpeed_XY() {
+        return speed_XY;
+    }
+
+    public void setSpeed_XY(int speed_XY) {
+        this.speed_XY = speed_XY;
     }
 
     private void outofBounds()
