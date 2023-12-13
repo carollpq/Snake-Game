@@ -21,11 +21,11 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
+import java.util.List;
 
 
 public class MyFrameController implements Initializable {
@@ -199,6 +199,7 @@ public class MyFrameController implements Initializable {
         }
         else if (!mySnake.liveOfObject)
         {
+            MySnake.bodyPoints = new LinkedList<>();
             new AudioClip(
                     getClass()
                             .getResource("/cw1setup/Sounds/game_over.mp3")

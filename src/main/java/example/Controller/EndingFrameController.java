@@ -15,7 +15,7 @@ public class EndingFrameController extends StartFrameController {
             playEasyMode();
         } else if (Objects.equals(StartFrameMain.getCurrentMode(), "medium")) {
             playMediumMode();
-        } else {
+        } else if (Objects.equals(StartFrameMain.getCurrentMode(), "hard")) {
             playHardMode();
         }
     }

@@ -35,6 +35,7 @@ public class StartFrameMain extends Application {
         //Play main menu music
         currenMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3");
         currenMusic.play();
+        primaryStage.setResizable(false);
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(e -> {
