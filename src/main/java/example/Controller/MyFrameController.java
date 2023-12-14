@@ -114,7 +114,6 @@ public class MyFrameController implements Initializable {
                         .getResource("/cw1setup/Sounds/game_start_post-timer.mp3")
                         .toExternalForm())
                 .play();
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/easy-mode-music.mp3"));
         countdownLabel.setVisible(false);
         countDownBackDrop.setVisible(false);
         graphicsContext = gameCanvas.getGraphicsContext2D();
@@ -130,6 +129,11 @@ public class MyFrameController implements Initializable {
         gameCanvas.setFocusTraversable(true);
         animationTimer = animationTimer();
         gameCanvas.requestFocus();
+        playModeMusic(StartFrameMain.getCurrentMode());
+    }
+
+    public void playModeMusic(String gameMode) {
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/"+ gameMode +"-mode-music.mp3"));
     }
 
     private void scheduleBonusSpawn() {

@@ -96,8 +96,7 @@ public class PowerUp extends SnakeObject {
         // Get the parent of the Canvas (which is the AnchorPane)
         Parent parent = gameCanvas.getParent();
 
-        if (parent instanceof Pane) {
-            Pane anchorPane = (Pane) parent;
+        if (parent instanceof Pane anchorPane) {
 
             // Add the bonus message to the AnchorPane
             anchorPane.getChildren().add(bonusMessage);
