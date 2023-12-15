@@ -12,34 +12,34 @@
                 <Image url="@Img/game-mode-bg.jpg" />
             </image>
         </ImageView>
-        <Button id="easyBtn" fx:id="easyBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#playEasyMode" prefHeight="46.0" prefWidth="232.0">
+        <Button id="easyBtn" fx:id="easyBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#playEasyMode" onMouseEntered="#onEasyHover" onMouseExited="#onEasy" prefHeight="46.0" prefWidth="232.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
             <graphic>
-                <ImageView fitHeight="45.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="easyBtnImg" fitHeight="45.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Img/easy-btn-modified.png" />
                     </image>
                 </ImageView>
             </graphic></Button>
-        <Button id="mediumBtn" fx:id="mediumBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" onAction="#playMediumMode" prefHeight="48.0" prefWidth="246.0">
+        <Button id="mediumBtn" fx:id="mediumBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" onAction="#playMediumMode" onMouseEntered="#onMediumHover" onMouseExited="#onMedium" prefHeight="48.0" prefWidth="246.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
             <graphic>
-                <ImageView fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="mediumBtnImg" fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Img/medium-btn-modified.png" />
                     </image>
                 </ImageView>
             </graphic></Button>
-        <Button id="hardBtn" fx:id="hardBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" onAction="#playHardMode" prefHeight="52.0" prefWidth="262.0">
+        <Button id="hardBtn" fx:id="hardBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" onAction="#playHardMode" onMouseEntered="#onHardHover" onMouseExited="#onHard" prefHeight="52.0" prefWidth="262.0">
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor>
             <graphic>
-                <ImageView fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="hardBtnImg" fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Img/hard-btn-modified.png" />
                     </image>

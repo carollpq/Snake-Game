@@ -12,34 +12,34 @@
             <Image url="@Img/start-scene-bg.jpg" />
          </image>
       </ImageView>
-      <Button id="startBtn" fx:id="startBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToGameMode" prefHeight="46.0" prefWidth="232.0">
+      <Button id="startBtn" fx:id="startBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToGameMode" onMouseEntered="#onStartHover" onMouseExited="#onStart" prefHeight="46.0" prefWidth="232.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="45.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="startBtnImg" fitHeight="45.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Img/start-btn-modified.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="246.0">
+      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" onMouseEntered="#onHighScoreHover" onMouseExited="#onHighScore" prefHeight="48.0" prefWidth="246.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="highScoreBtnImg" fitHeight="51.0" fitWidth="252.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Img/high-score-modified.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchToInstructions" prefHeight="52.0" prefWidth="262.0">
+      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchToInstructions" onMouseEntered="#onInstructionsHover" onMouseExited="#onInstructions" prefHeight="52.0" prefWidth="262.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
-            <ImageView fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="instructionsBtnImg" fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Img/instructions-btn.png" />
                </image>

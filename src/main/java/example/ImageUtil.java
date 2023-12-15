@@ -44,5 +44,17 @@ public class ImageUtil
 		//Button images
 		images.put("resume-btn", GameUtil.getImage("/cw1setup/Img/resume-btn.png"));
 		images.put("pause-btn", GameUtil.getImage("/cw1setup/Img/pause-btn-modified.png"));
+		images.put("start-btn", GameUtil.getImage("/cw1setup/Img/start-btn-modified.png"));
+		images.put("highscore-btn", GameUtil.getImage("/cw1setup/Img/high-score-modified.png"));
+		images.put("instructions-btn", GameUtil.getImage("/cw1setup/Img/instructions-btn.png"));
+		images.put("easy-btn", GameUtil.getImage("/cw1setup/Img/easy-btn-modified.png"));
+		images.put("medium-btn", GameUtil.getImage("/cw1setup/Img/medium-btn-modified.png"));
+		images.put("hard-btn", GameUtil.getImage("/cw1setup/Img/hard-btn-modified.png"));
+		images.put("start-btn-hover", GameUtil.getImage("/cw1setup/Img/start-btn-hover.png"));
+		images.put("highscore-btn-hover", GameUtil.getImage("/cw1setup/Img/highscore-btn-hover.png"));
+		images.put("instructions-btn-hover", GameUtil.getImage("/cw1setup/Img/instructions-btn-hover.png"));
+		images.put("easy-btn-hover", GameUtil.getImage("/cw1setup/Img/easy-btn-hover.png"));
+		images.put("medium-btn-hover", GameUtil.getImage("/cw1setup/Img/medium-btn-hover.png"));
+		images.put("hard-btn-hover", GameUtil.getImage("/cw1setup/Img/hard-btn-hover.png"));
 	}
 }
