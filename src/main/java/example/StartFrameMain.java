@@ -1,7 +1,5 @@
-package example.Model;
+package example;
 
-import example.GameUtil;
-import example.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

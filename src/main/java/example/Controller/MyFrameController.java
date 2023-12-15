@@ -1,7 +1,7 @@
 package example.Controller;
 
 import example.*;
-import example.Model.StartFrameMain;
+import example.StartFrameMain;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -21,11 +21,9 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-import java.util.List;
 
 
 public class MyFrameController implements Initializable {
