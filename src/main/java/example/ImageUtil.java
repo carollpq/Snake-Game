@@ -39,7 +39,6 @@ public class ImageUtil
 		images.put("19", GameUtil.getImage("/cw1setup/Img/garnet.png"));
 		images.put("20", GameUtil.getImage("/cw1setup/Img/sapphire.png"));
 		//Background images
-		images.put("UI-background", GameUtil.getImage("/cw1setup/Img/UI-background.png"));
 		images.put("main-menu-scene", GameUtil.getImage("/cw1setup/Img/1629702755362_84a39ede3284dfcaa71703c98647a8f5.jpg"));
 		//Button images
 		images.put("resume-btn", GameUtil.getImage("/cw1setup/Img/resume-btn.png"));
