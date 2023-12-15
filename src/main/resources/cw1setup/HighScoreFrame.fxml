@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="495.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.HighScoreFrameController">
+    <children>
+        <ImageView fitHeight="495.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
+            <image>
+                <Image url="@Img/HighScore-page.jpg" />
+            </image>
+        </ImageView>
+        <Button fx:id="backBtn" layoutX="46.0" layoutY="21.0" mnemonicParsing="false" onAction="#backToMainMenu">
+            <graphic>
+                <ImageView fitHeight="123.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Img/back-btn%20(1)-modified.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <Label fx:id="easyHighScore" layoutX="548.0" layoutY="116.0">
+         <font>
+            <Font name="Georgia Bold" size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="mediumHighScore" layoutX="548.0" layoutY="246.0">
+         <font>
+            <Font name="Georgia Bold" size="39.0" />
+         </font>
+      </Label>
+      <Label fx:id="hardHighScore" layoutX="548.0" layoutY="374.0">
+         <font>
+            <Font name="Georgia Bold" size="39.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

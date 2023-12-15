@@ -222,6 +222,7 @@ public class MyFrameController implements Initializable {
                             .getResource("/cw1setup/Sounds/game_over.mp3")
                             .toExternalForm())
                     .play();
+            HighScoreManager.saveHighScore(mySnake.score, StartFrameMain.getCurrentMode());
             MyFrameController.setFinalScore(mySnake.score);
             StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
             StartFrameMain.setRoot("/cw1setup/EndingFrame");

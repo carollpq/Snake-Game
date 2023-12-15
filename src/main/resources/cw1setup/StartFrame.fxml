@@ -23,7 +23,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" onMouseEntered="#onHighScoreHover" onMouseExited="#onHighScore" prefHeight="48.0" prefWidth="246.0">
+      <Button id="highScoreBtn" fx:id="highScoreBtn" layoutX="301.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToHighScore" onMouseEntered="#onHighScoreHover" onMouseExited="#onHighScore" prefHeight="48.0" prefWidth="246.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -1,10 +1,12 @@
 package example.Controller;
 
 import example.GameUtil;
+import example.HighScoreManager;
 import example.ImageUtil;
 import example.Model.StartFrameMain;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
@@ -96,7 +98,14 @@ public class StartFrameController {
     }
 
     @FXML
-    public void switchToHighScore() {}
+    public void switchToHighScore() throws IOException {
+        StartFrameMain.setRoot("/cw1setup/HighScoreFrame");
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
+                        .toExternalForm())
+                .play();
+    }
 
     @FXML
     public void backToMainMenu() throws IOException {
