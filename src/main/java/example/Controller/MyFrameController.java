@@ -34,9 +34,6 @@ public class MyFrameController implements Initializable {
     private Canvas gameCanvas;
 
     @FXML
-    private Label scoreLabel;
-
-    @FXML
     private ImageView pauseImg;
 
     @FXML
@@ -73,9 +70,20 @@ public class MyFrameController implements Initializable {
 
     private int snakeSpeed;
     private int onScreenTime;
+    private static int finalScore;
+
+    public static int getFinalScore() {
+        return finalScore;
+    }
+
+    public static void setFinalScore(int finalScore) {
+        MyFrameController.finalScore = finalScore;
+    }
 
     @FXML
     public void initialization() throws IOException, InterruptedException {
+        //Reset final score at the start of game
+        setFinalScore(0);
         // Initialize the Timeline for countdown
         setSnakeSpeed(5);
         setOnScreenTime(4000);
@@ -175,11 +183,6 @@ public class MyFrameController implements Initializable {
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 
-
-    public MySnake getMySnake() {
-        return mySnake;
-    }
-
     public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
@@ -219,6 +222,7 @@ public class MyFrameController implements Initializable {
                             .getResource("/cw1setup/Sounds/game_over.mp3")
                             .toExternalForm())
                     .play();
+            MyFrameController.setFinalScore(mySnake.score);
             StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
             StartFrameMain.setRoot("/cw1setup/EndingFrame");
             stopAnimation = true;
