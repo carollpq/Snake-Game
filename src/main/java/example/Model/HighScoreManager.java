@@ -1,4 +1,4 @@
-package example;
+package example.Model;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;

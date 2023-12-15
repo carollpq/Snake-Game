@@ -1,6 +1,6 @@
 package example.Controller;
 
-import example.HighScoreManager;
+import example.Model.HighScoreManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 

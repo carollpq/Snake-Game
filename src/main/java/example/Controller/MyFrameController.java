@@ -1,6 +1,9 @@
 package example.Controller;
 
 import example.*;
+import example.Model.HighScoreManager;
+import example.Model.ImageUtil;
+import example.Model.MusicPlayer;
 import example.StartFrameMain;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;

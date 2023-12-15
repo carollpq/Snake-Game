@@ -1,5 +1,6 @@
-package example;
+package example.Model;
 
+import example.Model.GameUtil;
 import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;

@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import java.awt.*;
+
+import example.Model.ImageUtil;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
 
@@ -11,14 +13,14 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class MySnake extends SnakeObject implements movable
 {
-    // The game changer.
     private int speed_XY;
     private int length;
-    private int num;
+    private final int num;
     public int score = 0;
 
+    //Image of the Snake's head
     private static final Image IMG_SNAKE_HEAD = ImageUtil.images.get("snake-head-right");
-
+    //Stores all the coordinates where the snake has traversed
     public static List<Point> bodyPoints = new LinkedList<>();
 
 
@@ -31,13 +33,13 @@ public class MySnake extends SnakeObject implements movable
         this.xPosition = x;
         this.yPosition = y;
         this.snakeBodyImg = ImageUtil.images.get("snake-body");
-        this.widthOfSnake = (int)snakeBodyImg.getWidth();
-        this.heightOfSnake = (int)snakeBodyImg.getHeight();
+        this.widthOfObj = (int)snakeBodyImg.getWidth();
+        this.heightOfObj = (int)snakeBodyImg.getHeight();
 
         setSpeed_XY(snakeSpeed);
         this.length = 1; //Starting length is 1
 
-        this.num = widthOfSnake / speed_XY;
+        this.num = widthOfObj / speed_XY;
         newImgSnakeHead = IMG_SNAKE_HEAD;
 
     }
@@ -52,6 +54,7 @@ public class MySnake extends SnakeObject implements movable
         this.length = length;
     }
 
+    //Handles key presses for Snake's movements
     public void handleKeyPress(KeyEvent e)
     {
         // Checking the keys
@@ -109,6 +112,7 @@ public class MySnake extends SnakeObject implements movable
     }
 
 
+    //Handles Snake's movement direction
     public void move()
     {
         // Let the snake move
@@ -146,6 +150,7 @@ public class MySnake extends SnakeObject implements movable
         move();
     }
 
+    //Checks whether the Snake has eaten itself
     public void eatBody()
     {
         for (Point point : bodyPoints)
@@ -171,18 +176,15 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    public int getSpeed_XY() {
-        return speed_XY;
-    }
-
     public void setSpeed_XY(int speed_XY) {
         this.speed_XY = speed_XY;
     }
 
+    //Checks whether the Snake has gone out of bounds
     private void outofBounds()
     {
-        boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfSnake));
-        boolean yOut = (yPosition <= 0 || yPosition >= (495 - heightOfSnake));
+        boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfObj));
+        boolean yOut = (yPosition <= 0 || yPosition >= (495 - heightOfObj));
         if (xOut || yOut)
         {
             liveOfObject = false;

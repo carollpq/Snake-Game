@@ -5,18 +5,10 @@ import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;
 
-public abstract class SnakeObject
+public abstract class SnakeObject //Represents the objects that will be drawn onto the game canvas
 {
-    //Attributes to initialize the Rectangle object
-    int xPosition;
-    int yPosition;
-    //Image snakeHeadImg;
-    Image snakeBodyImg;
-
-    Image foodImg;
-    int widthOfSnake;
-    int heightOfSnake;
-
+    int xPosition, yPosition, widthOfObj, heightOfObj;
+    Image snakeBodyImg, foodImg;
     public boolean liveOfObject;
 
 
@@ -24,6 +16,6 @@ public abstract class SnakeObject
 
     public Rectangle2D getRectangle()
     {
-        return new Rectangle2D(xPosition, yPosition, widthOfSnake, heightOfSnake);
+        return new Rectangle2D(xPosition, yPosition, widthOfObj, heightOfObj);
     }
 }

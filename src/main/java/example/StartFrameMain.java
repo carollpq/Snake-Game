@@ -1,5 +1,7 @@
 package example;
 
+import example.Model.GameUtil;
+import example.Model.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -76,10 +78,6 @@ public class StartFrameMain extends Application {
 
     public static Scene getScene() {
         return scene;
-    }
-
-    public static FXMLLoader getLoader() {
-        return loader;
     }
 
     public static void main(String[] args) {

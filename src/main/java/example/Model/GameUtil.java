@@ -1,4 +1,4 @@
-package example;
+package example.Model;
 
 import javafx.scene.SnapshotParameters;
 import javafx.scene.image.Image;

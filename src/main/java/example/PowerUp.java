@@ -1,5 +1,6 @@
 package example;
 
+import example.Model.ImageUtil;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Parent;
@@ -26,10 +27,10 @@ public class PowerUp extends SnakeObject {
         this.foodImg = ImageUtil.images.get(String.valueOf(powerUp));
         checkPowerUpType();
 
-        this.widthOfSnake = (int) foodImg.getWidth();
-        this.heightOfSnake = (int) foodImg.getHeight();
-        this.xPosition = (int) (Math.random() * (860 - widthOfSnake - 30) + 30);
-        this.yPosition = (int) (Math.random() * (495 - heightOfSnake - 60) + 55);
+        this.widthOfObj = (int) foodImg.getWidth();
+        this.heightOfObj = (int) foodImg.getHeight();
+        this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
+        this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
     }
 
     @Override
@@ -37,6 +38,7 @@ public class PowerUp extends SnakeObject {
         gc.drawImage(foodImg, xPosition, yPosition);
     }
 
+    //Sets the scores according to the type of bonus point object generated
     public void checkPowerUpType() {
         if (powerUp == 17) {
             setScoreImplement(3);
@@ -49,12 +51,15 @@ public class PowerUp extends SnakeObject {
         }
     }
 
+    //Makes sure the generated bonus point object does not stack on top of Food object
     public void checkObjectPosition(Food food) {
+        //Regenerates x position when current object overlaps with Food object
         if (Math.abs(this.xPosition - food.xPosition) < 10) {
-            this.xPosition = (int) (Math.random() * (860 - widthOfSnake - 30) + 30);
+            this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
         }
+        //Regenerates y position when current object overlaps with Food object
         if (Math.abs(this.yPosition - food.yPosition) < 10) {
-            this.yPosition = (int) (Math.random() * (495 - heightOfSnake - 60) + 55);
+            this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
         }
     }
 
