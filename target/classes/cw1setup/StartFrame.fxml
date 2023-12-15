@@ -34,14 +34,14 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="262.0">
+      <Button id="settingsBtn" fx:id="settingsBtn" layoutX="299.0" layoutY="412.0" mnemonicParsing="false" onAction="#switchToInstructions" prefHeight="52.0" prefWidth="262.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <graphic>
             <ImageView fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Img/settings-btn-modified.png" />
+                  <Image url="@Img/instructions-btn.png" />
                </image>
             </ImageView>
          </graphic></Button>

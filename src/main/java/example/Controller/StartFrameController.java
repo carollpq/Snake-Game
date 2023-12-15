@@ -21,7 +21,14 @@ public class StartFrameController {
     }
 
     @FXML
-    public void switchToSettings(ActionEvent event) {}
+    public void switchToInstructions() throws IOException {
+        StartFrameMain.setRoot("/cw1setup/InstructionFrame");
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
+                        .toExternalForm())
+                .play();
+    }
 
     @FXML
     public void switchToHighScore(ActionEvent event) {}
