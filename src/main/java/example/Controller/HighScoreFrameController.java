@@ -23,7 +23,6 @@ public class HighScoreFrameController extends StartFrameController {
 
     @FXML
     public void initialize() throws IOException {
-        switchToEnterName();
         displayHighScores();
     }
 
@@ -38,7 +37,7 @@ public class HighScoreFrameController extends StartFrameController {
     private void displayHighScore(Label label, HighScoreEntry entry) {
         String playerName = entry.getPlayerName();
         int score = entry.getScore();
-        label.setText(playerName + " - " + score);
+        label.setText(playerName + "   -   " + score);
     }
 
     @Override
