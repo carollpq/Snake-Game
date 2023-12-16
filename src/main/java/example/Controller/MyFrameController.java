@@ -130,7 +130,7 @@ public class MyFrameController implements Initializable {
         graphicsContext = gameCanvas.getGraphicsContext2D();
         mySnake = new MySnake(100, 100, getSnakeSpeed()); //Creates instance of 'Snake'
         food = new Food(); //Creates instance of Food object
-        bonusObj = new PowerUp(); //Creates instance of bonus points object
+        bonusObj = FactoryPowerUp.makePowerUp() ; //Creates instance of bonus points object
         // Initialize the bonusObj spawn timer and task if not already done
         if (bonusSpawnTimer == null) {
             bonusSpawnTimer = new Timer();
@@ -162,7 +162,7 @@ public class MyFrameController implements Initializable {
             public void run() {
                 Platform.runLater(() -> {
                     if (!bonusObj.liveOfObject) {
-                        bonusObj = new PowerUp();
+                        bonusObj = FactoryPowerUp.makePowerUp();
                         bonusSpawnTime = System.currentTimeMillis(); // Set the bonus spawn time
                     }
                     scheduleBonusSpawn(); // Reschedule for the next random interval

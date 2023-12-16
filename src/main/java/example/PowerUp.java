@@ -7,26 +7,23 @@ import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
-import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
+import javafx.scene.media.AudioClip;
 
 import java.util.Random;
 
-public class PowerUp extends SnakeObject {
+public abstract class PowerUp extends SnakeObject {
     private int scoreImplement;
     private int powerUp;
 
-    public PowerUp() {
+    public PowerUp(int r) {
         this.liveOfObject = true;
-        this.powerUp = new Random().nextInt(4) + 17;
-        this.foodImg = ImageUtil.images.get(String.valueOf(powerUp));
-        checkPowerUpType();
-
+        this.foodImg = ImageUtil.images.get(String.valueOf(r));
         this.widthOfObj = (int) foodImg.getWidth();
         this.heightOfObj = (int) foodImg.getHeight();
         this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
@@ -37,20 +34,6 @@ public class PowerUp extends SnakeObject {
     public void draw(GraphicsContext gc) {
         gc.drawImage(foodImg, xPosition, yPosition);
     }
-
-    //Sets the scores according to the type of bonus point object generated
-    public void checkPowerUpType() {
-        if (powerUp == 17) {
-            setScoreImplement(3);
-        } else if (powerUp == 18) {
-            setScoreImplement(5);
-        } else if (powerUp == 19) {
-            setScoreImplement(8);
-        } else {
-            setScoreImplement(10);
-        }
-    }
-
     //Makes sure the generated bonus point object does not stack on top of Food object
     public void checkObjectPosition(Food food) {
         //Regenerates x position when current object overlaps with Food object
@@ -62,11 +45,9 @@ public class PowerUp extends SnakeObject {
             this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
         }
     }
-
-    public void eaten(MySnake mySnake, Canvas gameCanvas)	{
-
-        //If the snake object touches the food object
-        if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
+    // check if snake overlaps with a power up
+    public boolean handleSnakeTouch(MySnake mySnake, Canvas gameCanvas){
+        if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject) {
             this.liveOfObject = false;
             mySnake.changeLength(mySnake.getLength() + 1);
             mySnake.score += scoreImplement;
@@ -75,20 +56,11 @@ public class PowerUp extends SnakeObject {
                             .getResource("/cw1setup/Sounds/power-up-sparkle.mp3")
                             .toExternalForm())
                     .play();
-            //Display how many points gained
-            if (scoreImplement == 3) {
-                displayBonusMessage("+3 points! Yippee!", this.xPosition, this.yPosition, gameCanvas);
-            } else if (scoreImplement == 5) {
-                displayBonusMessage("+5 points! Good Job!", this.xPosition, this.yPosition, gameCanvas);
-            } else if (scoreImplement == 8) {
-                displayBonusMessage("+8 points! Brilliant!", this.xPosition, this.yPosition, gameCanvas);
-            } else if (scoreImplement == 10) {
-                displayBonusMessage("+10 points! WOO!!", this.xPosition, this.yPosition, gameCanvas);
-            }
+            return true;
         }
+        return false;
     }
-
-    private void displayBonusMessage(String message, double x, double y, Canvas gameCanvas) {
+    void displayBonusMessage(String message, double x, double y, Canvas gameCanvas) {
         Text bonusMessage = new Text(message);
         bonusMessage.setFont(Font.font("Sans Serif", FontWeight.BOLD, 20));
         bonusMessage.setFill(Color.BLACK);
@@ -114,7 +86,11 @@ public class PowerUp extends SnakeObject {
         }
     }
 
+    public abstract void eaten(MySnake mySnake, Canvas gameCanvas);
+
     public void setScoreImplement(int scoreImplement) {
         this.scoreImplement = scoreImplement;
     }
+
 }
+
