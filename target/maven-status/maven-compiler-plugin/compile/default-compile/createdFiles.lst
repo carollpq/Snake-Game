@@ -12,6 +12,7 @@ example\Controller\MyFrameController$1.class
 example\DiamondPowerUp.class
 example\Controller\EndingFrameController.class
 example\Controller\StartFrameController.class
+example\Model\HighScoreEntry.class
 example\GarnetPowerUp.class
 example\Model\ImageUtil.class
 example\SnakeObject.class
@@ -20,6 +21,7 @@ example\MySnake$1.class
 example\Controller\HighScoreFrameController.class
 example\StartFrameMain.class
 example\Controller\HardFrameController.class
+example\Controller\EnterNameFrameController.class
 example\Controller\MyFrameController.class
 example\MySnake.class
 example\FactoryPowerUp.class

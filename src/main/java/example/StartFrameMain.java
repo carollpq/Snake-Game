@@ -1,5 +1,6 @@
 package example;
 
+import example.Controller.MyFrameController;
 import example.Model.GameUtil;
 import example.Model.MusicPlayer;
 import javafx.application.Application;
@@ -21,6 +22,7 @@ public class StartFrameMain extends Application {
     private static MusicPlayer currenMusic;
     private static FXMLLoader loader;
     private static String currentMode; // Indicating the mode of the current game
+    private static String playerName;
 
     @Override
     public void start(Stage primaryStage) throws IOException {
@@ -80,6 +82,13 @@ public class StartFrameMain extends Application {
         return scene;
     }
 
+    public static String getPlayerName() {
+        return playerName;
+    }
+
+    public static void setPlayerName(String playerName) {
+        StartFrameMain.playerName = playerName;
+    }
     public static void main(String[] args) {
         launch(args);
     }

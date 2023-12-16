@@ -1,8 +1,11 @@
 package example.Controller;
 
+import example.Model.HighScoreEntry;
 import example.Model.HighScoreManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+
+import java.util.Map;
 
 public class HighScoreFrameController extends StartFrameController {
     @FXML //High score labels
@@ -13,9 +16,17 @@ public class HighScoreFrameController extends StartFrameController {
     }
 
     private void displayHighScores() {
-        easyHighScore.setText(String.valueOf(HighScoreManager.getHighScore("easy")));
-        mediumHighScore.setText(String.valueOf(HighScoreManager.getHighScore("medium")));
-        hardHighScore.setText(String.valueOf(HighScoreManager.getHighScore("hard")));
+        Map<String, HighScoreEntry> highScores = HighScoreManager.readHighScores();
+
+        displayHighScore(easyHighScore, highScores.getOrDefault("easy", new HighScoreEntry("", 0, "easy")));
+        displayHighScore(mediumHighScore, highScores.getOrDefault("medium", new HighScoreEntry("", 0, "medium")));
+        displayHighScore(hardHighScore, highScores.getOrDefault("hard", new HighScoreEntry("", 0, "hard")));
+    }
+
+    private void displayHighScore(Label label, HighScoreEntry entry) {
+        String playerName = entry.getPlayerName();
+        int score = entry.getScore();
+        label.setText(playerName + " - " + score);
     }
 
 

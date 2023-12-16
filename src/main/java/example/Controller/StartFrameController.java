@@ -96,6 +96,29 @@ public class StartFrameController {
     }
 
     @FXML
+    //Checks whether current user is previous user
+    public void checkPlayerNameIsSet() throws IOException {
+        if (StartFrameMain.getPlayerName() != null) { //If it's still the same player, no need to prompt player to enter name again
+            switchToGameMode();
+        } else {
+            switchToEnterName();
+        }
+    }
+
+    @FXML
+    //Load the page to insert user's name after 'Instructions' button is clicked
+    public void switchToEnterName() throws IOException {
+        //Sets and loads the corresponding FXML file
+        StartFrameMain.setRoot("/cw1setup/EnterNameFrame");
+        //Loads and plays the button clicked sound effect
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
+                        .toExternalForm())
+                .play();
+    }
+
+    @FXML
     //Load the Instructions page after 'Instructions' button is clicked
     public void switchToInstructions() throws IOException {
         //Sets and loads the corresponding FXML file

@@ -61,7 +61,7 @@ public class MyFrameController implements Initializable {
     private int snakeSpeed;
     private int onScreenTime; //Time for bonus points objects to stay on screen
     private static int finalScore; //Records the final score obtained
-
+    private static String controls; //Whether left or right controls are used
 
     // #1 ADDED THIS
     public void playAudio(String audioFileName){
@@ -219,7 +219,7 @@ public class MyFrameController implements Initializable {
         //Plays Game Over sound effect
         playAudio("game_over.mp3");
         //Saves final score
-        HighScoreManager.saveHighScore(mySnake.score, StartFrameMain.getCurrentMode());
+        HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
         MyFrameController.setFinalScore(mySnake.score);
         //Sets Ending/Game Over scene music
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
@@ -374,4 +374,5 @@ public class MyFrameController implements Initializable {
     public static void setFinalScore(int finalScore) {
         MyFrameController.finalScore = finalScore;
     }
+
 }

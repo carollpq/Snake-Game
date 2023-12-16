@@ -12,7 +12,7 @@
             <Image url="@Img/start-scene-bg.jpg" />
          </image>
       </ImageView>
-      <Button id="startBtn" fx:id="startBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#switchToGameMode" onMouseEntered="#onStartHover" onMouseExited="#onStart" prefHeight="46.0" prefWidth="232.0">
+      <Button id="startBtn" fx:id="startBtn" layoutX="300.0" layoutY="250.0" mnemonicParsing="false" onAction="#checkPlayerNameIsSet" onMouseEntered="#onStartHover" onMouseExited="#onStart" prefHeight="46.0" prefWidth="232.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
