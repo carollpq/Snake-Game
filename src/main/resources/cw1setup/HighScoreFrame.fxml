@@ -10,7 +10,7 @@
     <children>
         <ImageView fitHeight="495.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
             <image>
-                <Image url="@Img/HighScore-page.jpg" />
+                <Image url="@Img/high-score-frame.jpg" />
             </image>
         </ImageView>
         <Button fx:id="backBtn" layoutX="46.0" layoutY="21.0" mnemonicParsing="false" onAction="#backToMainMenu">
@@ -25,19 +25,19 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-      <Label fx:id="easyHighScore" layoutX="548.0" layoutY="116.0">
+      <Label fx:id="easyHighScore" layoutX="275.0" layoutY="133.0" prefHeight="46.0" prefWidth="315.0" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold" size="39.0" />
+            <Font name="Georgia Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="mediumHighScore" layoutX="548.0" layoutY="246.0">
+      <Label fx:id="mediumHighScore" layoutX="289.0" layoutY="260.0" prefHeight="46.0" prefWidth="288.0" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold" size="39.0" />
+            <Font name="Georgia Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="hardHighScore" layoutX="548.0" layoutY="374.0">
+      <Label fx:id="hardHighScore" layoutX="275.0" layoutY="418.0" prefHeight="46.0" prefWidth="315.0" textAlignment="CENTER">
          <font>
-            <Font name="Georgia Bold" size="39.0" />
+            <Font name="Georgia Bold" size="30.0" />
          </font>
       </Label>
     </children>
