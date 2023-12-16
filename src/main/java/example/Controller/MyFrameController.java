@@ -62,6 +62,16 @@ public class MyFrameController implements Initializable {
     private int onScreenTime; //Time for bonus points objects to stay on screen
     private static int finalScore; //Records the final score obtained
 
+
+    // #1 ADDED THIS
+    public void playAudio(String audioFileName){
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/"+audioFileName)
+                        .toExternalForm())
+                .play();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -96,19 +106,13 @@ public class MyFrameController implements Initializable {
             if (countdownSeconds > 0) {
                 countdownLabel.setText(Integer.toString(countdownSeconds));
                 //Plays countdown sound effect
-                new AudioClip(
-                        getClass()
-                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
-                                .toExternalForm())
-                        .play();
+                playAudio("countdown-audio.mp3");
             } else {
                 // Stops the countdown timer after countdown ends
                 countdownTimeline.stop();
                 try {
                     startGame(); //Start the game after the countdown
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (InterruptedException e) {
+                } catch (IOException | InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -120,23 +124,19 @@ public class MyFrameController implements Initializable {
 
     public void startGame() throws IOException, InterruptedException {
         //Plays Start Game sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/game_start_post-timer.mp3")
-                        .toExternalForm())
-                .play();
+        playAudio("game_start_post-timer.mp3");
         countdownLabel.setVisible(false); //Hides previous countdown label
         countDownBackDrop.setVisible(false); //Hides previous background image used for countdown
         graphicsContext = gameCanvas.getGraphicsContext2D();
         mySnake = new MySnake(100, 100, getSnakeSpeed()); //Creates instance of 'Snake'
         food = new Food(); //Creates instance of Food object
         bonusObj = FactoryPowerUp.makePowerUp() ; //Creates instance of bonus points object
-        // Initialize the bonusObj spawn timer and task if not already done
+        //Initialize the bonusObj spawn timer and task if not already done
         if (bonusSpawnTimer == null) {
             bonusSpawnTimer = new Timer();
             scheduleBonusSpawn();
         }
-        drawBgImg(graphicsContext);
+        drawSnakeObjects(graphicsContext);
         gameCanvas.setFocusTraversable(true);
         animationTimer = animationTimer();
         gameCanvas.requestFocus(); //Ensure the buttons and objects on gameCanvas detect key presses
@@ -169,7 +169,6 @@ public class MyFrameController implements Initializable {
                 });
             }
         };
-
         bonusSpawnTimer.schedule(bonusSpawnTask, delay, period);
     }
 
@@ -188,54 +187,61 @@ public class MyFrameController implements Initializable {
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 
+    public void clearCanvas(){
+        graphicsContext.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
+        mySnake.draw(graphicsContext); //Draws snake onto canvas
+        if (food.liveOfObject) //If Food object has not been eaten
+        {
+            food.draw(graphicsContext); //Continue drawing current Food at current position
+            food.eaten(mySnake); //Continue checking whether food has been eaten
+        } else
+        {
+            food = new Food(); //Draws a new Food object
+        }
+    }
+
+    public void setBonusObjTimer(){
+        if (bonusObj.liveOfObject) { //If bonus points object has not been eaten
+            bonusObj.checkObjectPosition(food); //Checks whether object collides with Food objects
+            bonusObj.draw(graphicsContext);
+            bonusObj.eaten(mySnake, getGameCanvas()); //Continue checking whether object has been eaten
+
+            long currentTime = System.currentTimeMillis();
+            if (currentTime - bonusSpawnTime > getOnScreenTime()) { //If object stays longer than set on screen time
+                bonusObj.liveOfObject = false; // Mark the bonusObj as no longer live
+            }
+        }
+    }
+
+    public void resetGame() throws IOException {
+        MySnake.bodyPoints = new LinkedList<>();
+        pause = false; //Resets the pausing state
+        //Plays Game Over sound effect
+        playAudio("game_over.mp3");
+        //Saves final score
+        HighScoreManager.saveHighScore(mySnake.score, StartFrameMain.getCurrentMode());
+        MyFrameController.setFinalScore(mySnake.score);
+        //Sets Ending/Game Over scene music
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
+        StartFrameMain.setRoot("/cw1setup/EndingFrame");
+        stopAnimation = true;
+    }
+
     //Draws MySnake, Food, and PowerUp objects onto screen
-    public void drawBgImg(GraphicsContext gc) throws IOException, InterruptedException {
+    public void drawSnakeObjects(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
         if (mySnake.liveOfObject && !pause) //if Snake is alive and game is not paused
         {
             //Clears the canvas before output another snake body
-            gc.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
-            mySnake.draw(gc); //Draws snake onto canvas
-            if (food.liveOfObject) //If Food object has not been eaten
-            {
-                food.draw(gc); //Continue drawing current Food at current position
-                food.eaten(mySnake); //Continue checking whether food has been eaten
-            } else
-            {
-                food = new Food(); //Draws a new Food object
-            }
-
+            clearCanvas();
             //Implement a timer so that object stays for a limited amount of time
-            if (bonusObj.liveOfObject) { //If bonus points object has not been eaten
-                bonusObj.checkObjectPosition(food); //Checks whether object collides with Food objects
-                bonusObj.draw(gc);
-                bonusObj.eaten(mySnake, getGameCanvas()); //Continue checking whether object has been eaten
-
-                long currentTime = System.currentTimeMillis();
-                if (currentTime - bonusSpawnTime > getOnScreenTime()) { //If object stays longer than set on screen time
-                    bonusObj.liveOfObject = false; // Mark the bonusObj as no longer live
-                }
-            }
+            setBonusObjTimer();
         }
         else if (!mySnake.liveOfObject)
         {
             //Resets the game
-            MySnake.bodyPoints = new LinkedList<>();
-            pause = false; //Resets the pausing state
-            //Plays Game Over sound effect
-            new AudioClip(
-                    getClass()
-                            .getResource("/cw1setup/Sounds/game_over.mp3")
-                            .toExternalForm())
-                    .play();
-            //Saves final score
-            HighScoreManager.saveHighScore(mySnake.score, StartFrameMain.getCurrentMode());
-            MyFrameController.setFinalScore(mySnake.score);
-            //Sets Ending/Game Over scene music
-            StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
-            StartFrameMain.setRoot("/cw1setup/EndingFrame");
-            stopAnimation = true;
+            resetGame();
         }
         drawScore(gc);
     }
@@ -257,7 +263,7 @@ public class MyFrameController implements Initializable {
             public void handle(long now) {
                 try {
                     if (!pause) {
-                        drawBgImg(graphicsContext);
+                        drawSnakeObjects(graphicsContext);
                         pauseBoard.setVisible(false); // Hide the paused image
                         darkenedBgImg.setVisible(false);
                     }
@@ -289,11 +295,7 @@ public class MyFrameController implements Initializable {
             // Start a new countdown when the game is resumed
             pauseBoard.setVisible(false); // Hide the paused image
             //Plays countdown sound effect
-            new AudioClip(
-                    getClass()
-                            .getResource("/cw1setup/Sounds/countdown-audio.mp3")
-                            .toExternalForm())
-                    .play();
+            playAudio("countdown-audio.mp3");
             startCountdown();
         } else {
             pause = true;
@@ -317,11 +319,7 @@ public class MyFrameController implements Initializable {
             countdownSeconds--;
             if (countdownSeconds > 0) {
                 countdownLabel.setText(Integer.toString(countdownSeconds));
-                new AudioClip(
-                        getClass()
-                                .getResource("/cw1setup/Sounds/countdown-audio.mp3")
-                                .toExternalForm())
-                        .play();
+                playAudio("countdown-audio.mp3");
             } else {
                 // Resumes the game after the countdown
                 countdownTimeline.stop();
@@ -347,11 +345,7 @@ public class MyFrameController implements Initializable {
         //Sets and loads Main Menu's FXML
         StartFrameMain.setRoot("/cw1setup/StartFrame");
         //Loads and plays button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/Button Press Sound Effect.wav")
-                        .toExternalForm())
-                .play();
+        playAudio("Button Press Sound Effect.wav");
     }
 
     public Canvas getGameCanvas() {
