@@ -4,6 +4,7 @@ example\Controller\MediumFrameController.class
 example\TopazPowerUp.class
 example\Model\GameUtil.class
 example\PowerUp.class
+example\Controller\GameControlsController.class
 example\movable.class
 example\Model\HighScoreManager.class
 module-info.class

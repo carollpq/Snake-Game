@@ -12,9 +12,6 @@ import java.io.IOException;
 public class EnterNameFrameController extends StartFrameController {
 
     @FXML
-    private RadioButton leftHandControls, rightHandControls;
-
-    @FXML
     private TextField playerName;
 
     @FXML
@@ -28,16 +25,9 @@ public class EnterNameFrameController extends StartFrameController {
             playerName.requestFocus(); // Set focus on the TextField
         } else {
             StartFrameMain.setPlayerName(enteredName);
-            switchToGameMode();
+            switchToGameControls();
         }
     }
-
-
-    @FXML
-    public void setLeftHandControls() {}
-
-    @FXML
-    public void setRightHandControls() {}
 
     // Helper method to show an alert
     private void showAlert() {

@@ -132,6 +132,18 @@ public class StartFrameController {
     }
 
     @FXML
+    public void switchToGameControls() throws IOException {
+        //Sets and loads the corresponding FXML file
+        StartFrameMain.setRoot("/cw1setup/GameControlsFrame");
+        //Loads and plays the button clicked sound effect
+        new AudioClip(
+                getClass()
+                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
+                        .toExternalForm())
+                .play();
+    }
+
+    @FXML
     //Loads the 'High Score' page after 'High Score' button is clicked
     public void switchToHighScore() throws IOException {
         //Sets and loads the corresponding FXML file

@@ -61,6 +61,7 @@ public class MyFrameController implements Initializable {
     private int snakeSpeed;
     private int onScreenTime; //Time for bonus points objects to stay on screen
     private static int finalScore; //Records the final score obtained
+
     private static String controls; //Whether left or right controls are used
 
     // #1 ADDED THIS
@@ -249,7 +250,11 @@ public class MyFrameController implements Initializable {
     @FXML
     public void handleKeyPress(KeyEvent event) throws IOException {
         // Handle key presses for snake movements
-        mySnake.handleKeyPress(event);
+        if (controls.equals("left")) {
+            mySnake.handleKeyPressLeft(event);
+        } else if (controls.equals("right")) {
+            mySnake.handleKeyPressRight(event);
+        }
         if (event.getCode() == KeyCode.P) { //If 'P' is pressed
             togglePauseBtn();
         } else if (event.getCode() == KeyCode.H) { //If 'H' is pressed
@@ -373,6 +378,13 @@ public class MyFrameController implements Initializable {
 
     public static void setFinalScore(int finalScore) {
         MyFrameController.finalScore = finalScore;
+    }
+    public static String getControls() {
+        return controls;
+    }
+
+    public static void setControls(String controls) {
+        MyFrameController.controls = controls;
     }
 
 }

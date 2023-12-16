@@ -6,6 +6,7 @@ import java.util.List;
 import java.awt.*;
 
 import example.Model.ImageUtil;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
 
@@ -55,7 +56,7 @@ public class MySnake extends SnakeObject implements movable
     }
 
     //Handles key presses for Snake's movements
-    public void handleKeyPress(KeyEvent e)
+    public void handleKeyPressRight(KeyEvent e)
     {
         // Checking the keys
         switch (e.getCode())
@@ -96,6 +97,62 @@ public class MySnake extends SnakeObject implements movable
                 break;
 
             case RIGHT:
+                if (!left)
+                {
+                    up = false;
+                    down = false;
+                    right = true;
+
+                    newImgSnakeHead = IMG_SNAKE_HEAD;
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void handleKeyPressLeft(KeyEvent e)
+    {
+        // Checking the keys
+        switch (e.getCode())
+        {
+            case W:
+                if (!down)
+                {
+                    up = true;
+                    left = false;
+                    right = false;
+
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-up");
+
+                }
+                break;
+
+            case S:
+                if (!up)
+                {
+                    down = true;
+                    left = false;
+                    right = false;
+
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-down");
+                }
+                break;
+
+            case A:
+                if (!right)
+                {
+                    up = false;
+                    down = false;
+                    left = true;
+
+                    newImgSnakeHead = ImageUtil.images.get("snake-head-left");
+
+                }
+                break;
+
+            case D:
                 if (!left)
                 {
                     up = false;

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainAnchorPane" prefHeight="495.0" prefWidth="865.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="example.Controller.GameControlsController">
+    <children>
+        <ImageView fitHeight="495.0" fitWidth="865.0" layoutY="6.0" preserveRatio="true">
+            <image>
+                <Image url="@Img/game-controls-scene.jpg" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <Button fx:id="backBtn" layoutX="46.0" layoutY="21.0" mnemonicParsing="false" onAction="#switchToEnterName">
+            <graphic>
+                <ImageView fitHeight="123.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Img/back-btn%20(1)-modified.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button fx:id="nextBtn" layoutX="726.0" layoutY="21.0" mnemonicParsing="false" onAction="#checkChosenControls">
+            <graphic>
+                <ImageView fitHeight="123.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Img/resume-btn.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+      <RadioButton fx:id="leftHandControls" layoutX="46.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleRadioButtonSelection" prefHeight="126.0" prefWidth="385.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></RadioButton>
+      <RadioButton fx:id="rightHandControls" layoutX="447.0" layoutY="227.0" mnemonicParsing="false" onAction="#handleRadioButtonSelection" prefHeight="126.0" prefWidth="385.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </RadioButton>
+    </children>
+</AnchorPane>
