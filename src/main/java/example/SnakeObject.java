@@ -14,6 +14,10 @@ public abstract class SnakeObject //Represents the objects that will be drawn on
     Image snakeBodyImg;
     Image foodImg;
     boolean liveOfObject;
+    final int HORIZONTAL_BUFFER = 30;
+    final int VERTICAL_BUFFER = 60;
+    final int HORIZONTAL_SHIFT = 30;
+    final int VERTICAL_SHIFT = 55;
 
 
     public abstract void draw(GraphicsContext gc);
@@ -21,5 +25,13 @@ public abstract class SnakeObject //Represents the objects that will be drawn on
     public Rectangle2D getRectangle()
     {
         return new Rectangle2D(xPosition, yPosition, widthOfObj, heightOfObj);
+    }
+
+    public int generateRandomXPosition() {
+        return (int) (Math.random() * (StartFrameMain.STAGE_WIDTH - widthOfObj - HORIZONTAL_BUFFER) + HORIZONTAL_SHIFT);
+    }
+
+    public int generateRandomYPosition() {
+        return (int) (Math.random() * (StartFrameMain.STAGE_HEIGHT - heightOfObj - VERTICAL_BUFFER) + VERTICAL_SHIFT);
     }
 }

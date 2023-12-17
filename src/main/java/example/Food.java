@@ -16,12 +16,8 @@ public class Food extends SnakeObject
 		this.widthOfObj = (int) foodImg.getWidth();
 		this.heightOfObj = (int) foodImg.getHeight();
 		//Generates coordinates for Food object randomly
-		int horizontalBuffer = 30;
-		int verticalBuffer = 60;
-		int horizontalShift = 30;
-		int verticalShift = 55;
-		this.xPosition = (int) (Math.random() * (StartFrameMain.STAGE_WIDTH - widthOfObj - horizontalBuffer) + horizontalShift);
-		this.yPosition = (int) (Math.random() * (StartFrameMain.STAGE_HEIGHT - heightOfObj - verticalBuffer) + verticalShift);
+		this.xPosition = generateRandomXPosition();
+		this.yPosition = generateRandomYPosition();
 	}
 
 	public void eaten(MySnake mySnake)	{

@@ -1,6 +1,7 @@
 package example;
 
 import example.Model.ImageUtil;
+import example.Model.MusicPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Parent;
@@ -25,12 +26,8 @@ public abstract class PowerUp extends SnakeObject {
         this.foodImg = ImageUtil.images.get(String.valueOf(r));
         this.widthOfObj = (int) foodImg.getWidth();
         this.heightOfObj = (int) foodImg.getHeight();
-        int horizontalBuffer = 30;
-        int verticalBuffer = 60;
-        int horizontalShift = 30;
-        int verticalShift = 55;
-        this.xPosition = (int) (Math.random() * (StartFrameMain.STAGE_WIDTH - widthOfObj - horizontalBuffer) + horizontalShift);
-        this.yPosition = (int) (Math.random() * (StartFrameMain.STAGE_HEIGHT - heightOfObj - verticalBuffer) + verticalShift);
+        this.xPosition = generateRandomXPosition();
+        this.yPosition = generateRandomYPosition();
     }
 
     @Override
@@ -41,11 +38,11 @@ public abstract class PowerUp extends SnakeObject {
     public void checkObjectPosition(Food food) {
         //Regenerates x position when current object overlaps with Food object
         if (Math.abs(this.xPosition - food.xPosition) < 10) {
-            this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
+            this.xPosition = generateRandomXPosition();
         }
         //Regenerates y position when current object overlaps with Food object
         if (Math.abs(this.yPosition - food.yPosition) < 10) {
-            this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
+            this.yPosition = generateRandomYPosition();
         }
     }
     // check if snake overlaps with a power up
@@ -54,11 +51,7 @@ public abstract class PowerUp extends SnakeObject {
             this.liveOfObject = false;
             mySnake.changeLength(mySnake.getLength() + 1);
             mySnake.score += scoreImplement;
-            new AudioClip(
-                    getClass()
-                            .getResource("/cw1setup/Sounds/power-up-sparkle.mp3")
-                            .toExternalForm())
-                    .play();
+            MusicPlayer.playSoundEffect("power-up-sparkle.mp3");
             return true;
         }
         return false;
@@ -77,10 +70,8 @@ public abstract class PowerUp extends SnakeObject {
         Parent parent = gameCanvas.getParent();
 
         if (parent instanceof Pane anchorPane) {
-
             // Add the bonus message to the AnchorPane
             anchorPane.getChildren().add(bonusMessage);
-
             // Use a Timeline or AnimationTimer to make the message disappear after a short delay
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.seconds(1), e -> anchorPane.getChildren().remove(bonusMessage))

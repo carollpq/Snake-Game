@@ -15,7 +15,7 @@ public class MySnake extends SnakeObject implements movable
 {
     private int speed_XY;
     int length;
-    private final int num;
+    private int num;
     public int score = 0;
 
     //Image of the Snake's head
@@ -61,51 +61,17 @@ public class MySnake extends SnakeObject implements movable
         switch (e.getCode())
         {
             case UP:
-                if (!down)
-                {
-                    up = true;
-                    left = false;
-                    right = false;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-up");
-
-                }
+                handleSnakeMoveUp();
                 break;
-
             case DOWN:
-                if (!up)
-                {
-                    down = true;
-                    left = false;
-                    right = false;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-down");
-                }
+                handleSnakeMoveDown();
                 break;
-
             case LEFT:
-                if (!right)
-                {
-                    up = false;
-                    down = false;
-                    left = true;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-left");
-
-                }
+                handleSnakeMoveLeft();
                 break;
-
             case RIGHT:
-                if (!left)
-                {
-                    up = false;
-                    down = false;
-                    right = true;
-
-                    newImgSnakeHead = IMG_SNAKE_HEAD;
-                }
+                handleSnakeMoveRight();
                 break;
-
             default:
                 break;
         }
@@ -117,56 +83,66 @@ public class MySnake extends SnakeObject implements movable
         switch (e.getCode())
         {
             case W:
-                if (!down)
-                {
-                    up = true;
-                    left = false;
-                    right = false;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-up");
-
-                }
+                handleSnakeMoveUp();
                 break;
-
             case S:
-                if (!up)
-                {
-                    down = true;
-                    left = false;
-                    right = false;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-down");
-                }
+                handleSnakeMoveDown();
                 break;
-
             case A:
-                if (!right)
-                {
-                    up = false;
-                    down = false;
-                    left = true;
-
-                    newImgSnakeHead = ImageUtil.images.get("snake-head-left");
-
-                }
+                handleSnakeMoveLeft();
                 break;
-
             case D:
-                if (!left)
-                {
-                    up = false;
-                    down = false;
-                    right = true;
-
-                    newImgSnakeHead = IMG_SNAKE_HEAD;
-                }
+                handleSnakeMoveRight();
                 break;
-
             default:
                 break;
         }
     }
 
+    //Sets the condition for snake to move left
+    public void handleSnakeMoveLeft() {
+        if (!right)
+        {
+            up = false;
+            down = false;
+            left = true;
+            newImgSnakeHead = ImageUtil.images.get("snake-head-left");
+        }
+    }
+
+    //Sets the condition for snake to move up
+    public void handleSnakeMoveUp() {
+        if (!down)
+        {
+            up = true;
+            left = false;
+            right = false;
+            newImgSnakeHead = ImageUtil.images.get("snake-head-up");
+        }
+    }
+
+    //Sets the condition for snake to move down
+    public void handleSnakeMoveDown() {
+        if (!up)
+        {
+            down = true;
+            left = false;
+            right = false;
+            newImgSnakeHead = ImageUtil.images.get("snake-head-down");
+        }
+    }
+
+    //Sets the condition for snake to move right
+    public void handleSnakeMoveRight() {
+        if (!left)
+        {
+            up = false;
+            down = false;
+            right = true;
+
+            newImgSnakeHead = IMG_SNAKE_HEAD;
+        }
+    }
 
     //Handles Snake's movement direction
     public void move()
