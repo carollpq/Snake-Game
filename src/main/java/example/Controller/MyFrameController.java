@@ -124,6 +124,12 @@ public class MyFrameController implements Initializable {
     }
 
     public void startGame() throws IOException, InterruptedException {
+        //Clears the snake body points
+        MySnake.bodyPoints = new LinkedList<>();
+        //Reset pause button
+        pause = false;
+        pauseBoard.setVisible(false);
+        darkenedBgImg.setVisible(false);
         //Plays Start Game sound effect
         playAudio("game_start_post-timer.mp3");
         countdownLabel.setVisible(false); //Hides previous countdown label

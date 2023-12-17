@@ -1,4 +1,0 @@
---patch-module
-CW1Setup=_
---add-reads
-CW1Setup=ALL-UNNAMED
