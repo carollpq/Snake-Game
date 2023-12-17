@@ -50,7 +50,7 @@ public class MyFrameController implements Initializable {
 
     private boolean stopAnimation = false; // Flag to control the animation stopping condition
     private static AnimationTimer animationTimer;
-    private static boolean pause = false; //Keeps track whether the game is paused
+    static boolean pause = false; //Keeps track whether the game is paused
     private Timeline countdownTimeline;
     private int countdownSeconds = 4; // Set the desired countdown time in seconds
 

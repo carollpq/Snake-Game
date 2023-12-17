@@ -19,7 +19,6 @@ import java.util.Random;
 
 public abstract class PowerUp extends SnakeObject {
     private int scoreImplement;
-    private int powerUp;
 
     public PowerUp(int r) {
         this.liveOfObject = true;
