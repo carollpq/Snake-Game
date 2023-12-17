@@ -30,8 +30,8 @@ public class Food extends SnakeObject
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
 			this.liveOfObject = false;
 			mySnake.changeLength(mySnake.getLength() + 1); //Increase the body length of Snake
-			int SCORE_INCREMENT = 1;
-			mySnake.score += SCORE_INCREMENT; //Increments score
+			int scoreIncrement = 1;
+			mySnake.score += scoreIncrement; //Increments score
 			//Plays Snake munching sound effect
 			MusicPlayer.playSoundEffect("snake-eat-sound.mp3");
 		}

@@ -239,8 +239,8 @@ public class MySnake extends SnakeObject implements movable
     //Checks whether the Snake has gone out of bounds
     private void outOfBounds()
     {
-        boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfObj));
-        boolean yOut = (yPosition <= 0 || yPosition >= (495 - heightOfObj));
+        boolean xOut = (xPosition <= 0 || xPosition >= (StartFrameMain.STAGE_WIDTH - widthOfObj));
+        boolean yOut = (yPosition <= 0 || yPosition >= (StartFrameMain.STAGE_HEIGHT - heightOfObj));
         if (xOut || yOut)
         {
             liveOfObject = false;

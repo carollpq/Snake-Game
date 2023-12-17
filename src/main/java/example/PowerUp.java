@@ -25,8 +25,12 @@ public abstract class PowerUp extends SnakeObject {
         this.foodImg = ImageUtil.images.get(String.valueOf(r));
         this.widthOfObj = (int) foodImg.getWidth();
         this.heightOfObj = (int) foodImg.getHeight();
-        this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
-        this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
+        int horizontalBuffer = 30;
+        int verticalBuffer = 60;
+        int horizontalShift = 30;
+        int verticalShift = 55;
+        this.xPosition = (int) (Math.random() * (StartFrameMain.STAGE_WIDTH - widthOfObj - horizontalBuffer) + horizontalShift);
+        this.yPosition = (int) (Math.random() * (StartFrameMain.STAGE_HEIGHT - heightOfObj - verticalBuffer) + verticalShift);
     }
 
     @Override
