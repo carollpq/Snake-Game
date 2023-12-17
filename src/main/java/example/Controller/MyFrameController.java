@@ -264,6 +264,8 @@ public class MyFrameController implements Initializable {
         if (event.getCode() == KeyCode.P) { //If 'P' is pressed
             togglePauseBtn();
         } else if (event.getCode() == KeyCode.H) { //If 'H' is pressed
+            //Saves current score before exiting to main menu
+            HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
             backToMain();
         }
     }
