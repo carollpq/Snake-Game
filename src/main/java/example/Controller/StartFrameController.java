@@ -1,6 +1,7 @@
 package example.Controller;
 
 import example.Model.ImageUtil;
+import example.Model.MusicPlayer;
 import example.StartFrameMain;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -94,21 +95,18 @@ public class StartFrameController {
     }
 
     @FXML
-    //Load the 'Select Your Mode' scene when 'Start' button is clicked
+    //Load the 'Select Your Mode' scene after the 'Next' button is clicked
     public void switchToGameMode() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/GameMode");
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
     @FXML
     //Checks whether current user is previous user
     public void checkPlayerNameIsSet() throws IOException {
-        if (StartFrameMain.getPlayerName() != null) { //If it's still the same player, no need to prompt player to enter name again
+        //If it's still the same player, no need to prompt player to enter name again
+        if (StartFrameMain.getPlayerName() != null) {
             switchToGameMode();
         } else {
             switchToEnterName();
@@ -116,16 +114,12 @@ public class StartFrameController {
     }
 
     @FXML
-    //Load the page to insert user's name after 'Instructions' button is clicked
+    //Load the page to insert user's name after 'Start' button is clicked
     public void switchToEnterName() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/EnterNameFrame");
         //Loads and plays the button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
     @FXML
@@ -134,11 +128,7 @@ public class StartFrameController {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/InstructionFrame");
         //Loads and plays the button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
     @FXML
@@ -146,11 +136,7 @@ public class StartFrameController {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/GameControlsFrame");
         //Loads and plays the button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
     @FXML
@@ -159,11 +145,7 @@ public class StartFrameController {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/HighScoreFrame");
         //Loads and plays the button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/decidemp3-14575.mp3")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
     @FXML
@@ -172,11 +154,7 @@ public class StartFrameController {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/cw1setup/StartFrame");
         //Loads and plays the button clicked sound effect
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/Button Press Sound Effect.wav")
-                        .toExternalForm())
-                .play();
+        MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
     @FXML

@@ -111,7 +111,6 @@ public class MyFrameController implements Initializable {
         });
         countdownTimeline.getKeyFrames().add(keyFrame);
         countdownTimeline.play();
-
     }
 
     public void startGame() throws IOException, InterruptedException {
@@ -135,7 +134,6 @@ public class MyFrameController implements Initializable {
             scheduleBonusSpawn();
         }
         drawSnakeObjects(graphicsContext);
-        gameCanvas.setFocusTraversable(true);
         animationTimer = animationTimer();
         gameCanvas.requestFocus(); //Ensure the buttons and objects on gameCanvas detect key presses
         playModeMusic(StartFrameMain.getCurrentMode()); //Plays the music for the game mode
@@ -172,7 +170,7 @@ public class MyFrameController implements Initializable {
 
 
     private int getRandomDelay() {
-        // Get a random delay between 5 and 15 seconds (adjust as needed)
+        // Get a random delay between 5 and 15 seconds
         return (int) (Math.random() * 10000) + 5000;
     }
 
