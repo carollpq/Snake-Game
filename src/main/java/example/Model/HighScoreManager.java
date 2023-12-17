@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HighScoreManager {
-    private static final String HIGH_SCORE_FILE = "high_scores.csv";
+    static String HIGH_SCORE_FILE = "high_scores.csv";
 
     public static void saveHighScore(String playerName, int score, String gameMode) {
         Map<String, HighScoreEntry> highScores = readHighScores();
