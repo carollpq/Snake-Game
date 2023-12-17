@@ -13,7 +13,7 @@ public abstract class SnakeObject //Represents the objects that will be drawn on
     int heightOfObj;
     Image snakeBodyImg;
     Image foodImg;
-    boolean liveOfObject;
+    public boolean liveOfObject;
     final int HORIZONTAL_BUFFER = 30;
     final int VERTICAL_BUFFER = 60;
     final int HORIZONTAL_SHIFT = 30;

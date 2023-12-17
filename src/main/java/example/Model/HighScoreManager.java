@@ -15,13 +15,24 @@ public class HighScoreManager {
 
     public static void saveHighScore(String playerName, int score, String gameMode) {
         Map<String, HighScoreEntry> highScores = readHighScores();
-        HighScoreEntry newEntry = new HighScoreEntry(playerName, score, gameMode);
-        highScores.put(gameMode, newEntry);
-        writeHighScores(highScores);
+        HighScoreEntry currentHighScore = highScores.getOrDefault(gameMode, new HighScoreEntry("", 0, gameMode));
+
+        if (score > currentHighScore.getScore()) {
+            HighScoreEntry newEntry = new HighScoreEntry(playerName, score, gameMode);
+            highScores.put(gameMode, newEntry);
+            writeHighScores(highScores);
+        }
     }
+
     public static HighScoreEntry getHighScore(String gameMode) {
         Map<String, HighScoreEntry> highScores = readHighScores();
-        return highScores.getOrDefault(gameMode, new HighScoreEntry("", 0, gameMode));
+
+        // Check if there are no scores for the specified game mode
+        if (highScores.isEmpty() || !highScores.containsKey(gameMode)) {
+            return new HighScoreEntry("", 0, gameMode);
+        }
+
+        return highScores.get(gameMode);
     }
 
     public static Map<String, HighScoreEntry> readHighScores() {
@@ -30,11 +41,19 @@ public class HighScoreManager {
              CSVReader csvReader = new CSVReaderBuilder(reader).withSkipLines(1).build()) {
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
-                String gameMode = nextRecord[0];
-                int score = Integer.parseInt(nextRecord[1]);
-                String playerName = nextRecord[2];
-                HighScoreEntry entry = new HighScoreEntry(playerName, score, gameMode);
-                highScores.put(gameMode, entry);
+                if (nextRecord.length >= 3 && !isEmptyRow(nextRecord)) {
+                    String gameMode = nextRecord[0];
+                    int score = Integer.parseInt(nextRecord[1]);
+                    String playerName = nextRecord[2];
+                    HighScoreEntry entry = new HighScoreEntry(playerName, score, gameMode);
+
+                    if (!highScores.containsKey(gameMode) || score > highScores.get(gameMode).getScore()) {
+                        highScores.put(gameMode, entry);
+                    }
+                } else {
+                    // Handle the case where the row doesn't have enough elements or is empty
+                    System.out.println("Invalid row in CSV file: " + String.join(", ", nextRecord));
+                }
             }
         } catch (FileNotFoundException | CsvValidationException e) {
             // File doesn't exist yet
@@ -43,6 +62,17 @@ public class HighScoreManager {
         }
         return highScores;
     }
+
+    // Helper method to check if a row is empty
+    private static boolean isEmptyRow(String[] row) {
+        for (String element : row) {
+            if (!element.trim().isEmpty()) {
+                return false; // The row is not empty
+            }
+        }
+        return true; // The row is empty
+    }
+
 
     private static void writeHighScores(Map<String, HighScoreEntry> highScores) {
         try (Writer writer = new FileWriter(HIGH_SCORE_FILE);
