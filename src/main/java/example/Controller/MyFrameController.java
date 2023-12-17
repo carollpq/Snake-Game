@@ -64,7 +64,6 @@ public class MyFrameController implements Initializable {
 
     private static String controls; //Whether left or right controls are used
 
-    // #1 ADDED THIS
     public void playAudio(String audioFileName){
         new AudioClip(
                 getClass()
