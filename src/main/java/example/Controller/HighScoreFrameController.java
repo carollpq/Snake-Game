@@ -11,18 +11,9 @@ import java.util.Map;
 public class HighScoreFrameController extends StartFrameController {
     @FXML //High score labels
     private Label easyHighScore, mediumHighScore, hardHighScore;
-    private String nameEntered;
-
-    public String getNameEntered() {
-        return nameEntered;
-    }
-
-    public void setNameEntered(String nameEntered) {
-        this.nameEntered = nameEntered;
-    }
 
     @FXML
-    public void initialize() throws IOException {
+    public void initialize() {
         displayHighScores();
     }
 
@@ -39,9 +30,5 @@ public class HighScoreFrameController extends StartFrameController {
         int score = entry.getScore();
         label.setText(playerName + "   -   " + score);
     }
-
-    @Override
-    public void switchToEnterName() {}
-
 
 }
