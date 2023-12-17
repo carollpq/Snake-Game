@@ -64,14 +64,6 @@ public class MyFrameController implements Initializable {
 
     private static String controls; //Whether left or right controls are used
 
-    public void playAudio(String audioFileName){
-        new AudioClip(
-                getClass()
-                        .getResource("/cw1setup/Sounds/"+audioFileName)
-                        .toExternalForm())
-                .play();
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -106,7 +98,7 @@ public class MyFrameController implements Initializable {
             if (countdownSeconds > 0) {
                 countdownLabel.setText(Integer.toString(countdownSeconds));
                 //Plays countdown sound effect
-                playAudio("countdown-audio.mp3");
+                MusicPlayer.playSoundEffect("countdown-audio.mp3");
             } else {
                 // Stops the countdown timer after countdown ends
                 countdownTimeline.stop();
@@ -130,7 +122,7 @@ public class MyFrameController implements Initializable {
         pauseBoard.setVisible(false);
         darkenedBgImg.setVisible(false);
         //Plays Start Game sound effect
-        playAudio("game_start_post-timer.mp3");
+        MusicPlayer.playSoundEffect("game_start_post-timer.mp3");
         countdownLabel.setVisible(false); //Hides previous countdown label
         countDownBackDrop.setVisible(false); //Hides previous background image used for countdown
         graphicsContext = gameCanvas.getGraphicsContext2D();
@@ -223,7 +215,7 @@ public class MyFrameController implements Initializable {
         MySnake.bodyPoints = new LinkedList<>();
         pause = false; //Resets the pausing state
         //Plays Game Over sound effect
-        playAudio("game_over.mp3");
+        MusicPlayer.playSoundEffect("game_over.mp3");
         //Saves final score
         HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
         MyFrameController.setFinalScore(mySnake.score);
@@ -307,7 +299,7 @@ public class MyFrameController implements Initializable {
             // Start a new countdown when the game is resumed
             pauseBoard.setVisible(false); // Hide the paused image
             //Plays countdown sound effect
-            playAudio("countdown-audio.mp3");
+            MusicPlayer.playSoundEffect("countdown-audio.mp3");
             startCountdown();
         } else {
             pause = true;
@@ -331,7 +323,7 @@ public class MyFrameController implements Initializable {
             countdownSeconds--;
             if (countdownSeconds > 0) {
                 countdownLabel.setText(Integer.toString(countdownSeconds));
-                playAudio("countdown-audio.mp3");
+                MusicPlayer.playSoundEffect("countdown-audio.mp3");
             } else {
                 // Resumes the game after the countdown
                 countdownTimeline.stop();
@@ -357,7 +349,7 @@ public class MyFrameController implements Initializable {
         //Sets and loads Main Menu's FXML
         StartFrameMain.setRoot("/cw1setup/StartFrame");
         //Loads and plays button clicked sound effect
-        playAudio("Button Press Sound Effect.wav");
+        MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
     public Canvas getGameCanvas() {

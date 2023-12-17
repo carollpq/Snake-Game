@@ -1,5 +1,6 @@
 package example.Model;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
@@ -42,5 +43,13 @@ public class MusicPlayer
 		if (getMediaPlayer().getStatus() == MediaPlayer.Status.PLAYING) {
 			getMediaPlayer().stop();
 		}
+	}
+
+	public static void playSoundEffect(String audioFileName){
+		new AudioClip(
+				MusicPlayer.class
+						.getResource("/cw1setup/Sounds/"+audioFileName)
+						.toExternalForm())
+				.play();
 	}
 }
