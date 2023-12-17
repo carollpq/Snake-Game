@@ -3,12 +3,12 @@ package example;
 import java.util.Random;
 
 import example.Model.ImageUtil;
+import example.Model.MusicPlayer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.media.AudioClip;
 
 public class Food extends SnakeObject
 {
-	private final int SCORE_INCREMENT = 1;
 	public Food()	{
 		this.liveOfObject = true;
 		//Randomly obtain image for Food object
@@ -16,8 +16,12 @@ public class Food extends SnakeObject
 		this.widthOfObj = (int) foodImg.getWidth();
 		this.heightOfObj = (int) foodImg.getHeight();
 		//Generates coordinates for Food object randomly
-		this.xPosition = (int) (Math.random() * (860 - widthOfObj - 30) + 30);
-		this.yPosition = (int) (Math.random() * (495 - heightOfObj - 60) + 55);
+		int horizontalBuffer = 30;
+		int verticalBuffer = 60;
+		int horizontalShift = 30;
+		int verticalShift = 55;
+		this.xPosition = (int) (Math.random() * (StartFrameMain.STAGE_WIDTH - widthOfObj - horizontalBuffer) + horizontalShift);
+		this.yPosition = (int) (Math.random() * (StartFrameMain.STAGE_HEIGHT - heightOfObj - verticalBuffer) + verticalShift);
 	}
 
 	public void eaten(MySnake mySnake)	{
@@ -26,13 +30,10 @@ public class Food extends SnakeObject
 		if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
 			this.liveOfObject = false;
 			mySnake.changeLength(mySnake.getLength() + 1); //Increase the body length of Snake
+			int SCORE_INCREMENT = 1;
 			mySnake.score += SCORE_INCREMENT; //Increments score
 			//Plays Snake munching sound effect
-			new AudioClip(
-					getClass()
-							.getResource("/cw1setup/Sounds/snake-eat-sound.mp3")
-							.toExternalForm())
-					.play();
+			MusicPlayer.playSoundEffect("snake-eat-sound.mp3");
 		}
 	}
 	@Override
