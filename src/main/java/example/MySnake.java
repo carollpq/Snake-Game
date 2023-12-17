@@ -6,7 +6,6 @@ import java.util.List;
 import java.awt.*;
 
 import example.Model.ImageUtil;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
 
@@ -15,7 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 public class MySnake extends SnakeObject implements movable
 {
     private int speed_XY;
-    private int length;
+    int length;
     private final int num;
     public int score = 0;
 
@@ -192,7 +191,7 @@ public class MySnake extends SnakeObject implements movable
     public void draw(GraphicsContext gc)
     {
 
-        outofBounds();
+        outOfBounds();
         eatBody();
 
         bodyPoints.add(new Point(xPosition, yPosition));
@@ -238,7 +237,7 @@ public class MySnake extends SnakeObject implements movable
     }
 
     //Checks whether the Snake has gone out of bounds
-    private void outofBounds()
+    private void outOfBounds()
     {
         boolean xOut = (xPosition <= 0 || xPosition >= (860 - widthOfObj));
         boolean yOut = (yPosition <= 0 || yPosition >= (495 - heightOfObj));

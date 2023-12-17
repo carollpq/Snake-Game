@@ -1,6 +1,7 @@
 package example.Model;
 
 import example.Model.GameUtil;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,8 +10,8 @@ public class ImageUtil
 {
 	public static Map<String, Image> images = new HashMap<>();
 
-	static
-	{
+	// Initialize the images in a separate method
+	public static void initializeImages() {
 		// Snake
 		images.put("snake-head-right", GameUtil.getImage("/cw1setup/Img/snake-head-right.png"));
 		images.put("snake-body", GameUtil.getImage("/cw1setup/Img/snake-body.png"));
@@ -61,4 +62,10 @@ public class ImageUtil
 		images.put("play-again-hover", GameUtil.getImage("/cw1setup/Img/play-again-hover.png"));
 		images.put("main-menu-hover", GameUtil.getImage("/cw1setup/Img/main-menu-hover.png"));
 	}
+
+	// Call this method to initialize images
+	static {
+		initializeImages();
+	}
+
 }

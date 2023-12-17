@@ -2,6 +2,7 @@ package example;
 
 import example.Controller.MyFrameController;
 import example.Model.GameUtil;
+import example.Model.ImageUtil;
 import example.Model.MusicPlayer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,7 @@ public class StartFrameMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        ImageUtil.initializeImages(); //Singleton pattern
         scene = new Scene(loadFXML("/cw1setup/StartFrame"), STAGE_WIDTH, STAGE_HEIGHT);
         //Fetch CSS file
         String css = this.getClass().getResource("/cw1setup/application.css").toExternalForm();

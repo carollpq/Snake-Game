@@ -11,7 +11,17 @@ import java.io.IOException;
 public class StartFrameController {
 
     @FXML //Button images
-    private ImageView startBtnImg, highScoreBtnImg, instructionsBtnImg, easyBtnImg, mediumBtnImg, hardBtnImg;
+    ImageView startBtnImg;
+    @FXML //Button images
+    private ImageView highScoreBtnImg;
+    @FXML //Button images
+    private ImageView instructionsBtnImg;
+    @FXML //Button images
+    private ImageView easyBtnImg;
+    @FXML //Button images
+    private ImageView mediumBtnImg;
+    @FXML //Button images
+    private ImageView hardBtnImg;
 
     @FXML
     //Set the image of 'Start' button when it is not hovered

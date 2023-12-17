@@ -9,6 +9,7 @@ module CW1Setup {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.media;
-    requires java.sql;
     requires com.opencsv;
+    requires org.junit.jupiter.api;
+    requires org.junit.platform.launcher;
 }
