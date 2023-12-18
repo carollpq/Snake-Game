@@ -15,8 +15,8 @@ import java.util.Objects;
  * Handles user interactions and events on the ending frame, such as displaying the final score,
  * managing button hover effects, and providing functionality to restart the game or return to the main menu.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class EndingFrameController extends StartFrameController {
     @FXML

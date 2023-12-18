@@ -42,8 +42,8 @@ import java.util.*;
  * with the goal of achieving the highest score possible. The class utilizes JavaFX for GUI components
  * and animation effects.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee-modified
+ *
  */
 public class MyFrameController implements Initializable {
 

@@ -11,6 +11,8 @@ import java.io.IOException;
 /**
  * Controller class for the Enter Name frame.
  * Extends StartFrameController to inherit common functionality.
+ *
+ * @author Carolina Lee
  */
 public class EnterNameFrameController extends StartFrameController {
 

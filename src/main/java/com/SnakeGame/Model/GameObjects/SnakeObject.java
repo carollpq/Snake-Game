@@ -8,6 +8,8 @@ import javafx.geometry.Rectangle2D;
 
 /**
  * Abstract class representing objects that will be drawn onto the game canvas.
+ *
+ * @author Carolina Lee
  */
 public abstract class SnakeObject
 {

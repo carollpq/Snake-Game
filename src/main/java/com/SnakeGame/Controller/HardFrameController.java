@@ -10,8 +10,8 @@ import java.io.IOException;
  * Extends the MyFrameController class. Handles game initialization and starting
  * for the hard game mode, including adjustments to snake speed and bonus object duration.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class HardFrameController extends MyFrameController{
     /**

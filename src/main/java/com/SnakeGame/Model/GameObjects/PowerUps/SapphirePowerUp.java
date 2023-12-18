@@ -5,6 +5,8 @@ import javafx.scene.canvas.Canvas;
 
 /**
  * Represents a Sapphire power-up in the game, providing a score bonus when consumed by the snake.
+ *
+ * @author Carolina Lee
  */
 public class SapphirePowerUp extends PowerUp {
     /**

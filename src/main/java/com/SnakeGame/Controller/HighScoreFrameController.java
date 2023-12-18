@@ -12,8 +12,8 @@ import java.util.Map;
  * Extends the StartFrameController. Handles the initialization and display
  * of high scores for easy, medium, and hard game modes.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class HighScoreFrameController extends StartFrameController {
     @FXML //High score labels

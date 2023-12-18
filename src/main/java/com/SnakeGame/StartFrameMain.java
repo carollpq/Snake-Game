@@ -19,20 +19,20 @@ import java.io.IOException;
  * The game allows the player to navigate through different scenes, such as the main menu and
  * gameplay scenes, while providing features like customizable player names, game modes, and music.
  *
- * @author Carolina Lee Pei Qian
+ * @author Carolina Lee
  * @version 1.0
  */
 public class StartFrameMain extends Application {
 
-    public static final int STAGE_WIDTH = 860;
-    public static final int STAGE_HEIGHT = 495;
+    public static final int STAGE_WIDTH = 860; //Represent the width of the stage / screen
+    public static final int STAGE_HEIGHT = 495; //Represent the height of the stage / screen
 
     private static Scene scene;
 
-    private static MusicPlayer currenMusic;
+    private static MusicPlayer currenMusic; //Stores current music playing
     private static FXMLLoader loader;
     private static String currentMode; // Indicating the mode of the current game
-    private static String playerName;
+    private static String playerName; //Stores player's name
 
     public static void setCurrenMusic(MusicPlayer currenMusic) {
         StartFrameMain.currenMusic = currenMusic;

@@ -11,8 +11,8 @@ import java.io.IOException;
  * Extends the StartFrameController. Handles user interactions and events related
  * to choosing between left-hand and right-hand controls for the Snake game.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 
 public class GameControlsController extends StartFrameController {

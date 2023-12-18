@@ -20,6 +20,8 @@ import javafx.util.Duration;
 
 /**
  * Represents a power-up object in the Snake game.
+ *
+ * @author Carolina Lee
  */
 public abstract class PowerUp extends SnakeObject {
     private int scoreImplement;

@@ -8,6 +8,8 @@ import javafx.scene.canvas.GraphicsContext;
 
 /**
  * Represents a food object in the Snake game.
+ *
+ * @author Carolina Lee-modified
  */
 public class Food extends SnakeObject
 {

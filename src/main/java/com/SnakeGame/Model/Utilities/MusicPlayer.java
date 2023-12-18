@@ -13,8 +13,8 @@ import java.io.File;
  * <p>The class utilizes the JavaFX MediaPlayer and AudioClip for music and sound effect
  * playback, respectively.</p>
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee-modified
+ *
  */
 
 public class MusicPlayer

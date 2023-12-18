@@ -10,8 +10,8 @@ import java.io.IOException;
  * Extends the MyFrameController. Handles the initialization and music setting
  * for the medium difficulty level of the Snake game.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class MediumFrameController extends MyFrameController {
     /**

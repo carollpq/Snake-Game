@@ -5,6 +5,8 @@ import javafx.scene.canvas.Canvas;
 
 /**
  * Represents a Diamond power-up in the game, providing a score bonus when consumed by the snake.
+ *
+ * @author Carolina Lee
  */
 public class DiamondPowerUp extends PowerUp {
     /**

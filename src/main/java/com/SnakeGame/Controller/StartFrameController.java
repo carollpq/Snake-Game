@@ -14,8 +14,8 @@ import java.io.IOException;
  *
  * This class contains methods to set images for buttons, switch scenes, and play sound effects.
  *
- * @author [Author Name]
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class StartFrameController {
 

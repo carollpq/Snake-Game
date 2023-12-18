@@ -14,8 +14,8 @@ import javafx.scene.paint.Color;
  * for graphics operations in the Snake Game. It includes error handling for image loading
  * to handle cases where the specified image is not found.</p>
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee-modified
+ *
  */
 
 public class GameUtil

@@ -17,8 +17,8 @@ import java.util.Map;
  * <p><strong>Note:</strong> Make sure to call {@code initializeImages()} before using any images.</p>
  * <p>For this project, a single instance was created in the StartFrameMain class</p>
  *
- * @author Your Name
- * @version 1.0
+ * @author Carolina Lee-modified
+ *
  */
 
 public class ImageUtil

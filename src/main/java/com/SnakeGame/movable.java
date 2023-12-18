@@ -6,10 +6,8 @@ package com.SnakeGame;
  * This interface declares a single method, {@code move()}, which should be implemented
  * by any class that implements this interface to define the movement behavior.
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
- * @project Snake Game
- * @description First interface for movable objects
+ * @author Carolina Lee-modified
+ *
  */
 
 public interface movable

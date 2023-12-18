@@ -15,8 +15,8 @@ import java.util.Map;
  * The high scores are stored in a CSV file, and this class provides functionality to update and retrieve
  * the highest scores for each game mode.
  *
- * @author Your Name
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 
 public class HighScoreManager {

@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * Factory class for creating different types of PowerUp objects.
+ * @author Carolina Lee
  */
 public class FactoryPowerUp {
     /**

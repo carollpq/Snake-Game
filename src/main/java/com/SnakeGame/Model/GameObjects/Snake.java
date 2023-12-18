@@ -22,8 +22,8 @@ import javafx.scene.canvas.GraphicsContext;
  * The class provides methods for handling key presses to change the snake's direction,
  * updating the snake's movement, drawing the snake on the game canvas, and checking for collisions.</p>
  *
- * @author Carolina Lee Pei Qian
- * @version 1.0
+ * @author Carolina Lee
+ *
  */
 public class Snake extends SnakeObject implements movable
 {
