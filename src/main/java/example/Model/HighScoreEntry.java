@@ -5,12 +5,6 @@ public class HighScoreEntry {
     private int score;
     private String gameMode;
 
-    public HighScoreEntry(String playerName, int score, String gameMode) {
-        this.playerName = playerName;
-        this.score = score;
-        this.gameMode = gameMode;
-    }
-
     public String getPlayerName() {
         return playerName;
     }
@@ -21,6 +15,12 @@ public class HighScoreEntry {
 
     public String getGameMode() {
         return gameMode;
+    }
+
+    public HighScoreEntry(String playerName, int score, String gameMode) {
+        this.playerName = playerName;
+        this.score = score;
+        this.gameMode = gameMode;
     }
 }
 

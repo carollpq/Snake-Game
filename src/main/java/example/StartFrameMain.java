@@ -24,6 +24,33 @@ public class StartFrameMain extends Application {
     private static String currentMode; // Indicating the mode of the current game
     private static String playerName;
 
+    public static void setCurrenMusic(MusicPlayer currenMusic) {
+        StartFrameMain.currenMusic = currenMusic;
+    }
+    public static MusicPlayer getCurrenMusic() {
+        return currenMusic;
+    }
+
+    public static String getCurrentMode() {
+        return currentMode;
+    }
+
+    public static void setCurrentMode(String currentMode) {
+        StartFrameMain.currentMode = currentMode;
+    }
+
+    public static Scene getScene() {
+        return scene;
+    }
+
+    public static String getPlayerName() {
+        return playerName;
+    }
+
+    public static void setPlayerName(String playerName) {
+        StartFrameMain.playerName = playerName;
+    }
+
     @Override
     public void start(Stage primaryStage) throws IOException {
         ImageUtil.initializeImages(); //Singleton pattern
@@ -62,33 +89,6 @@ public class StartFrameMain extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         loader = new FXMLLoader(StartFrameMain.class.getResource(fxml + ".fxml"));
         return loader.load();
-    }
-
-    public static void setCurrenMusic(MusicPlayer currenMusic) {
-        StartFrameMain.currenMusic = currenMusic;
-    }
-    public static MusicPlayer getCurrenMusic() {
-        return currenMusic;
-    }
-
-    public static String getCurrentMode() {
-        return currentMode;
-    }
-
-    public static void setCurrentMode(String currentMode) {
-        StartFrameMain.currentMode = currentMode;
-    }
-
-    public static Scene getScene() {
-        return scene;
-    }
-
-    public static String getPlayerName() {
-        return playerName;
-    }
-
-    public static void setPlayerName(String playerName) {
-        StartFrameMain.playerName = playerName;
     }
     public static void main(String[] args) {
         launch(args);

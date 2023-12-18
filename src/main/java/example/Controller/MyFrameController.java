@@ -60,6 +60,37 @@ public class MyFrameController implements Initializable {
 
     private static String controls; //Whether left or right controls are used
 
+    public Canvas getGameCanvas() {
+        return gameCanvas;
+    }
+
+    public int getOnScreenTime() {
+        return onScreenTime;
+    }
+
+    public void setOnScreenTime(int onScreenTime) {
+        this.onScreenTime = onScreenTime;
+    }
+
+    public int getSnakeSpeed() {
+        return snakeSpeed;
+    }
+
+    public void setSnakeSpeed(int snakeSpeed) {
+        this.snakeSpeed = snakeSpeed;
+    }
+    public static int getFinalScore() {
+        return finalScore;
+    }
+
+    public static void setFinalScore(int finalScore) {
+        MyFrameController.finalScore = finalScore;
+    }
+
+    public static void setControls(String controls) {
+        MyFrameController.controls = controls;
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -344,40 +375,6 @@ public class MyFrameController implements Initializable {
         StartFrameMain.setRoot("/StartFrame");
         //Loads and plays button clicked sound effect
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
-    }
-
-    public Canvas getGameCanvas() {
-        return gameCanvas;
-    }
-
-    public int getOnScreenTime() {
-        return onScreenTime;
-    }
-
-    public void setOnScreenTime(int onScreenTime) {
-        this.onScreenTime = onScreenTime;
-    }
-
-    public int getSnakeSpeed() {
-        return snakeSpeed;
-    }
-
-    public void setSnakeSpeed(int snakeSpeed) {
-        this.snakeSpeed = snakeSpeed;
-    }
-    public static int getFinalScore() {
-        return finalScore;
-    }
-
-    public static void setFinalScore(int finalScore) {
-        MyFrameController.finalScore = finalScore;
-    }
-    public static String getControls() {
-        return controls;
-    }
-
-    public static void setControls(String controls) {
-        MyFrameController.controls = controls;
     }
 
 }
