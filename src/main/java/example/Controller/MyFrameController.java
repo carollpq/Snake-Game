@@ -136,7 +136,7 @@ public class MyFrameController implements Initializable {
     }
 
     public void playModeMusic(String gameMode) {
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/"+ gameMode +"-mode-music.mp3"));
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/"+ gameMode +"-mode-music.mp3"));
     }
 
     //Schedules the spawning of bonus points objects onto screen at random time
@@ -214,8 +214,8 @@ public class MyFrameController implements Initializable {
         HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
         MyFrameController.setFinalScore(mySnake.score);
         //Sets Ending/Game Over scene music
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/ending-scene-music.mp3"));
-        StartFrameMain.setRoot("/cw1setup/EndingFrame");
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/ending-scene-music.mp3"));
+        StartFrameMain.setRoot("/EndingFrame");
         stopAnimation = true;
     }
 
@@ -339,9 +339,9 @@ public class MyFrameController implements Initializable {
     public void backToMain() throws IOException {
         stopAnimationTimer(animationTimer);
         //Changes to Main Menu music
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3"));
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/main-menu-music.mp3"));
         //Sets and loads Main Menu's FXML
-        StartFrameMain.setRoot("/cw1setup/StartFrame");
+        StartFrameMain.setRoot("/StartFrame");
         //Loads and plays button clicked sound effect
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }

@@ -98,7 +98,7 @@ public class StartFrameController {
     //Load the 'Select Your Mode' scene after the 'Next' button is clicked
     public void switchToGameMode() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/GameMode");
+        StartFrameMain.setRoot("/GameMode");
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
@@ -117,7 +117,7 @@ public class StartFrameController {
     //Load the page to insert user's name after 'Start' button is clicked
     public void switchToEnterName() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/EnterNameFrame");
+        StartFrameMain.setRoot("/EnterNameFrame");
         //Loads and plays the button clicked sound effect
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
@@ -126,7 +126,7 @@ public class StartFrameController {
     //Load the Instructions page after 'Instructions' button is clicked
     public void switchToInstructions() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/InstructionFrame");
+        StartFrameMain.setRoot("/InstructionFrame");
         //Loads and plays the button clicked sound effect
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
@@ -134,7 +134,7 @@ public class StartFrameController {
     @FXML
     public void switchToGameControls() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/GameControlsFrame");
+        StartFrameMain.setRoot("/GameControlsFrame");
         //Loads and plays the button clicked sound effect
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
@@ -143,7 +143,7 @@ public class StartFrameController {
     //Loads the 'High Score' page after 'High Score' button is clicked
     public void switchToHighScore() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/HighScoreFrame");
+        StartFrameMain.setRoot("/HighScoreFrame");
         //Loads and plays the button clicked sound effect
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
@@ -152,7 +152,7 @@ public class StartFrameController {
     //Loads the 'Home' page/Main Menu page when 'Back' button is clicked
     public void backToMainMenu() throws IOException {
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/StartFrame");
+        StartFrameMain.setRoot("/StartFrame");
         //Loads and plays the button clicked sound effect
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
@@ -163,7 +163,7 @@ public class StartFrameController {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/MyFrame");
+        StartFrameMain.setRoot("/MyFrame");
         StartFrameMain.setCurrentMode("easy");
     }
 
@@ -173,7 +173,7 @@ public class StartFrameController {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/MediumFrame");
+        StartFrameMain.setRoot("/MediumFrame");
         StartFrameMain.setCurrentMode("medium");
     }
 
@@ -183,7 +183,7 @@ public class StartFrameController {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();
         //Sets and loads the corresponding FXML file
-        StartFrameMain.setRoot("/cw1setup/HardFrame");
+        StartFrameMain.setRoot("/HardFrame");
         StartFrameMain.setCurrentMode("hard");
     }
 

@@ -1,6 +1,5 @@
 package example;
 
-import example.Controller.MyFrameController;
 import example.Model.GameUtil;
 import example.Model.ImageUtil;
 import example.Model.MusicPlayer;
@@ -28,16 +27,16 @@ public class StartFrameMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         ImageUtil.initializeImages(); //Singleton pattern
-        scene = new Scene(loadFXML("/cw1setup/StartFrame"), STAGE_WIDTH, STAGE_HEIGHT);
+        scene = new Scene(loadFXML("/StartFrame"), STAGE_WIDTH, STAGE_HEIGHT);
         //Fetch CSS file
-        String css = this.getClass().getResource("/cw1setup/application.css").toExternalForm();
+        String css = this.getClass().getResource("/application.css").toExternalForm();
         //Sets the  CSS file to this scene
         scene.getStylesheets().add(css);
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(scene);
-        primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/cw1setup/Img/snake-logo.png")));
+        primaryStage.getIcons().add(new Image(GameUtil.class.getResourceAsStream("/Img/snake-logo.png")));
         //Play main menu music
-        currenMusic = new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3");
+        currenMusic = new MusicPlayer("src/main/resources/Sounds/main-menu-music.mp3");
         currenMusic.play();
         primaryStage.setResizable(false);
         primaryStage.show();

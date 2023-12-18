@@ -48,7 +48,7 @@ public class MusicPlayer
 	public static void playSoundEffect(String audioFileName){
 		new AudioClip(
 				MusicPlayer.class
-						.getResource("/cw1setup/Sounds/"+audioFileName)
+						.getResource("/Sounds/" +audioFileName)
 						.toExternalForm())
 				.play();
 	}

@@ -18,6 +18,6 @@ public class HardFrameController extends MyFrameController{
     public void startGame() throws IOException, InterruptedException {
         super.startGame();
         StartFrameMain.getCurrenMusic().pause();
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/hard-mode-music.mp3"));
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/hard-mode-music.mp3"));
     }
 }

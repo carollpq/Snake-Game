@@ -41,7 +41,7 @@
          <graphic>
             <ImageView fx:id="instructionsBtnImg" fitHeight="46.0" fitWidth="254.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Img/instructions-btn.png" />
+                  <Image url="@Img/instruction-btn-modified.png" />
                </image>
             </ImageView>
          </graphic></Button>

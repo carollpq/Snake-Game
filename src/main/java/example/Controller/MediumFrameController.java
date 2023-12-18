@@ -19,6 +19,6 @@ public class MediumFrameController extends MyFrameController {
     public void startGame() throws IOException, InterruptedException {
         super.startGame();
         StartFrameMain.getCurrenMusic().pause();
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/medium-mode-music.mp3"));
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/medium-mode-music.mp3"));
     }
 }

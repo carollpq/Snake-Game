@@ -69,6 +69,6 @@ public class EndingFrameController extends StartFrameController {
     public void backToMainMenu() throws IOException {
         scoreLabel.setVisible(false); //Removes the label displaying high score
         super.backToMainMenu();
-        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/cw1setup/Sounds/main-menu-music.mp3"));
+        StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/main-menu-music.mp3"));
     }
 }
