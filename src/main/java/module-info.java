@@ -5,6 +5,7 @@ module com.snakegame.cw1setup {
     opens com.SnakeGame.Model.GameObjects;
     opens com.SnakeGame.Model.Utilities;
 
+    requires javafx.swing;
     requires java.desktop;
     requires jlayer;
     requires javafx.graphics;

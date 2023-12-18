@@ -1,4 +1,0 @@
---patch-module
-com.snakegame.cw1setup=_
---add-reads
-com.snakegame.cw1setup=ALL-UNNAMED

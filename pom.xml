@@ -62,7 +62,6 @@
             <groupId>org.testfx</groupId>
             <artifactId>testfx-junit5</artifactId>
             <version>4.0.15-alpha</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javazoom/jlayer -->
@@ -95,7 +94,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
             <version>22-ea+16</version>
-            <scope>test</scope>
         </dependency>
 
     </dependencies>
