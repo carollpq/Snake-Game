@@ -1,4 +1,4 @@
-module CW1Setup {
+module com.snakegame.cw1setup {
     opens com.SnakeGame;
     opens com.SnakeGame.Controller;
     opens com.SnakeGame.Model.GameObjects.PowerUps;
