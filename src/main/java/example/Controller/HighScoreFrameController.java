@@ -1,11 +1,10 @@
 package example.Controller;
 
-import example.Model.HighScoreEntry;
-import example.Model.HighScoreManager;
+import example.Model.Utilities.HighScoreEntry;
+import example.Model.Utilities.HighScoreManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-import java.io.IOException;
 import java.util.Map;
 
 /**

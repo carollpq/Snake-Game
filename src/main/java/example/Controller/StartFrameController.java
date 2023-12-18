@@ -1,11 +1,10 @@
 package example.Controller;
 
-import example.Model.ImageUtil;
-import example.Model.MusicPlayer;
+import example.Model.Utilities.ImageUtil;
+import example.Model.Utilities.MusicPlayer;
 import example.StartFrameMain;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
 

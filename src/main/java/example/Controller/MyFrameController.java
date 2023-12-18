@@ -1,6 +1,12 @@
 package example.Controller;
 
-import example.Model.*;
+import example.Model.SnakeObjects.PowerUps.FactoryPowerUp;
+import example.Model.SnakeObjects.PowerUps.PowerUp;
+import example.Model.SnakeObjects.Food;
+import example.Model.SnakeObjects.MySnake;
+import example.Model.Utilities.HighScoreManager;
+import example.Model.Utilities.ImageUtil;
+import example.Model.Utilities.MusicPlayer;
 import example.StartFrameMain;
 import javafx.animation.AnimationTimer;
 import javafx.animation.KeyFrame;

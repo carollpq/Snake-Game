@@ -1,7 +1,7 @@
 package example.Controller;
 
 import example.StartFrameMain;
-import example.Model.MusicPlayer;
+import example.Model.Utilities.MusicPlayer;
 
 import java.io.IOException;
 

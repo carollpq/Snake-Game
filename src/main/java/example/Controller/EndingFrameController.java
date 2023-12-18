@@ -1,8 +1,8 @@
 package example.Controller;
 
-import example.Model.ImageUtil;
+import example.Model.Utilities.ImageUtil;
 import example.StartFrameMain;
-import example.Model.MusicPlayer;
+import example.Model.Utilities.MusicPlayer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;

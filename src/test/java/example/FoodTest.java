@@ -1,8 +1,8 @@
 package example;
 
-import example.Model.Food;
-import example.Model.ImageUtil;
-import example.Model.MySnake;
+import example.Model.SnakeObjects.Food;
+import example.Model.Utilities.ImageUtil;
+import example.Model.SnakeObjects.MySnake;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.Test;

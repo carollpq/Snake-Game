@@ -1,9 +1,9 @@
 package example;
 
-import example.Model.Food;
-import example.Model.ImageUtil;
-import example.Model.MySnake;
-import example.Model.PowerUp;
+import example.Model.SnakeObjects.Food;
+import example.Model.Utilities.ImageUtil;
+import example.Model.SnakeObjects.MySnake;
+import example.Model.SnakeObjects.PowerUps.PowerUp;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;

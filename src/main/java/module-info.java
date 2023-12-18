@@ -1,7 +1,9 @@
 module CW1Setup {
     opens example;
     opens example.Controller;
-    opens example.Model;
+    opens example.Model.SnakeObjects.PowerUps;
+    opens example.Model.SnakeObjects;
+    opens example.Model.Utilities;
 
     requires java.desktop;
     requires jlayer;

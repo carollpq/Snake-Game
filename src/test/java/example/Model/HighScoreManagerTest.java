@@ -1,8 +1,8 @@
 package example.Model;
 
 import com.opencsv.CSVWriter;
-import example.Model.HighScoreEntry;
-import example.Model.HighScoreManager;
+import example.Model.Utilities.HighScoreEntry;
+import example.Model.Utilities.HighScoreManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

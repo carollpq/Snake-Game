@@ -1,7 +1,7 @@
 package example;
 
-import example.Model.ImageUtil;
-import example.Model.MySnake;
+import example.Model.Utilities.ImageUtil;
+import example.Model.SnakeObjects.MySnake;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.input.KeyCode;
