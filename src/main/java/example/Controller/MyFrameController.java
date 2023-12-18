@@ -105,6 +105,12 @@ public class MyFrameController implements Initializable {
         MyFrameController.controls = controls;
     }
 
+    /**
+     * Initializes the controller, sets up the game, and handles key press events.
+     *
+     * @param url            The location used to resolve relative paths for the root object.
+     * @param resourceBundle The resources used to localize the root object, or null if the root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -124,6 +130,12 @@ public class MyFrameController implements Initializable {
         }
     }
 
+    /**
+     * Initializes the game by starting a countdown, and then starts the game when the countdown ends.
+     *
+     * @throws IOException          If an I/O error occurs.
+     * @throws InterruptedException If the thread is interrupted.
+     */
     @FXML
     public void initialization() throws IOException, InterruptedException {
         //Reset final score at the start of game

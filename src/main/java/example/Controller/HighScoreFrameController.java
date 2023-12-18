@@ -20,6 +20,10 @@ public class HighScoreFrameController extends StartFrameController {
     @FXML //High score labels
     private Label easyHighScore, mediumHighScore, hardHighScore;
 
+    /**
+     * Initializes the high score display frame.
+     * Calls the method to display high scores.
+     */
     @FXML
     public void initialize() {
         displayHighScores();

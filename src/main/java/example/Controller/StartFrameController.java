@@ -9,6 +9,15 @@ import javafx.scene.media.AudioClip;
 
 import java.io.IOException;
 
+
+/**
+ * Controller class for the start frame, handling user interactions and scene transitions.
+ *
+ * This class contains methods to set images for buttons, switch scenes, and play sound effects.
+ *
+ * @author [Author Name]
+ * @version 1.0
+ */
 public class StartFrameController {
 
     @FXML //Button images
@@ -24,86 +33,118 @@ public class StartFrameController {
     @FXML //Button images
     private ImageView hardBtnImg;
 
+    /**
+     * Set the image of the 'Start' button when it is not hovered.
+     */
     @FXML
-    //Set the image of 'Start' button when it is not hovered
     public void onStart() {
         startBtnImg.setImage(ImageUtil.images.get("start-btn"));
     }
+
+    /**
+     * Set the image of 'Start' button when it is hovered
+     */
     @FXML
-    //Set the image of 'Start' button when it is hovered
     public void onStartHover() {
         startBtnImg.setImage(ImageUtil.images.get("start-btn-hover"));
     }
+
+    /**
+     * Set the image of 'High Score' button when it is not hovered
+     */
     @FXML
-    //Set the image of 'High Score' button when it is not hovered
     public void onHighScore() {
         highScoreBtnImg.setImage(ImageUtil.images.get("highscore-btn"));
     }
 
+    /**
+     * Set the image of 'High Score' button when it is hovered
+     */
     @FXML
-    //Set the image of 'High Score' button when it is hovered
     public void onHighScoreHover() {
         highScoreBtnImg.setImage(ImageUtil.images.get("highscore-btn-hover"));
     }
 
+    /**
+     * Set the image of 'Instructions' button when it is not hovered
+     */
     @FXML
-    //Set the image of 'Instructions' button when it is not hovered
     public void onInstructions() {
         instructionsBtnImg.setImage(ImageUtil.images.get("instructions-btn"));
     }
 
+    /**
+     * Set the image of 'Instructions' button when it is hovered
+     */
     @FXML
-    //Set the image of 'Instructions' button when it is hovered
     public void onInstructionsHover() {
         instructionsBtnImg.setImage(ImageUtil.images.get("instructions-btn-hover"));
     }
 
+    /**
+     * Set the image of 'Easy' button when it is not hovered
+     */
     @FXML
-    //Set the image of 'Easy' button when it is not hovered
     public void onEasy() {
         easyBtnImg.setImage(ImageUtil.images.get("easy-btn"));
     }
 
+    /**
+     * Set the image of 'Easy' button when it is hovered
+     */
     @FXML
-    //Set the image of 'Easy' button when it is hovered
     public void onEasyHover() {
         easyBtnImg.setImage(ImageUtil.images.get("easy-btn-hover"));
     }
 
+    /**
+     * Set the image of 'Medium' button when it is not hovered
+     */
     @FXML
-    //Set the image of 'Medium' button when it is not hovered
     public void onMedium() {
         mediumBtnImg.setImage(ImageUtil.images.get("medium-btn"));
     }
 
+    /**
+     * Set the image of 'Medium' button when it is hovered
+     */
     @FXML
-    //Set the image of 'Medium' button when it is hovered
     public void onMediumHover() {
         mediumBtnImg.setImage(ImageUtil.images.get("medium-btn-hover"));
     }
 
+    /**
+     * Set the image of 'Hard' button when it is not hovered
+     */
     @FXML
-    //Set the image of 'Hard' button when it is not hovered
     public void onHard() {
         hardBtnImg.setImage(ImageUtil.images.get("hard-btn"));
     }
 
+    /**
+     * Set the image of 'Hard' button when it is hovered
+     */
     @FXML
-    //Set the image of 'Hard' button when it is hovered
     public void onHardHover() {
         hardBtnImg.setImage(ImageUtil.images.get("hard-btn-hover"));
     }
 
+    /**
+     * Load the 'Select Your Mode' scene after the 'Next' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Load the 'Select Your Mode' scene after the 'Next' button is clicked
     public void switchToGameMode() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/GameMode");
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
+    /**
+     * Checks whether current user is previous user
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Checks whether current user is previous user
     public void checkPlayerNameIsSet() throws IOException {
         //If it's still the same player, no need to prompt player to enter name again
         if (StartFrameMain.getPlayerName() != null) {
@@ -113,8 +154,12 @@ public class StartFrameController {
         }
     }
 
+    /**
+     * Switches to the page to insert the user's name after the 'Start' button is clicked.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Load the page to insert user's name after 'Start' button is clicked
     public void switchToEnterName() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/EnterNameFrame");
@@ -122,8 +167,11 @@ public class StartFrameController {
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
+    /**
+     * Load the Instructions page after 'Instructions' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Load the Instructions page after 'Instructions' button is clicked
     public void switchToInstructions() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/InstructionFrame");
@@ -131,6 +179,10 @@ public class StartFrameController {
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
+    /**
+     * Loads the 'Game Controls' page after user enters their name
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
     public void switchToGameControls() throws IOException {
         //Sets and loads the corresponding FXML file
@@ -139,8 +191,11 @@ public class StartFrameController {
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
+    /**
+     * Loads the 'High Score' page after 'High Score' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Loads the 'High Score' page after 'High Score' button is clicked
     public void switchToHighScore() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/HighScoreFrame");
@@ -148,8 +203,11 @@ public class StartFrameController {
         MusicPlayer.playSoundEffect("decidemp3-14575.mp3");
     }
 
+    /**
+     * Loads the 'Home' page/Main Menu page when 'Back' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Loads the 'Home' page/Main Menu page when 'Back' button is clicked
     public void backToMainMenu() throws IOException {
         //Sets and loads the corresponding FXML file
         StartFrameMain.setRoot("/StartFrame");
@@ -157,8 +215,11 @@ public class StartFrameController {
         MusicPlayer.playSoundEffect("Button Press Sound Effect.wav");
     }
 
+    /**
+     * Loads Easy mode after 'Easy' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Loads Easy mode after 'Easy' button is clicked
     public void playEasyMode() throws IOException {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();
@@ -167,8 +228,11 @@ public class StartFrameController {
         StartFrameMain.setCurrentMode("easy");
     }
 
+    /**
+     * Loads Medium mode after 'Medium' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Loads Medium mode after 'Medium' button is clicked
     public void playMediumMode() throws IOException {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();
@@ -177,8 +241,11 @@ public class StartFrameController {
         StartFrameMain.setCurrentMode("medium");
     }
 
+    /**
+     * Loads Hard mode after 'Hard' button is clicked
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Loads Hard mode after 'Hard' button is clicked
     public void playHardMode() throws IOException {
         //Pauses current music playing to allow for countdown
         StartFrameMain.getCurrenMusic().pause();

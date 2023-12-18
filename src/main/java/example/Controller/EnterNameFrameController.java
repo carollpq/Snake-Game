@@ -9,11 +9,21 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+
+/**
+ * Controller class for the Enter Name frame.
+ * Extends StartFrameController to inherit common functionality.
+ */
 public class EnterNameFrameController extends StartFrameController {
 
     @FXML
     private TextField playerName;
 
+    /**
+     * Validates the entered player name and proceeds to the game controls if the name is valid.
+     *
+     * @throws IOException if an error occurs during the transition to the game controls.
+     */
     @FXML
     public void checkPlayerName() throws IOException {
         // Validation logic for player name TextField
@@ -29,7 +39,9 @@ public class EnterNameFrameController extends StartFrameController {
         }
     }
 
-    // Helper method to show an alert
+    /**
+     * Helper method to display an error alert when the player name is empty.
+     */
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");

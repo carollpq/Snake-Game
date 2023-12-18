@@ -5,7 +5,22 @@ import example.Model.MusicPlayer;
 
 import java.io.IOException;
 
+/**
+ * Controller class for the medium game mode frame in the Snake Game.
+ * Extends the MyFrameController. Handles the initialization and music setting
+ * for the medium difficulty level of the Snake game.
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
 public class MediumFrameController extends MyFrameController {
+    /**
+     * Initializes the medium game mode frame.
+     * Calls the method to set up the snake speed and bonusObj on-screen time.
+     *
+     * @throws IOException If an I/O error occurs during the initialization.
+     * @throws InterruptedException If the thread is interrupted during the initialization.
+     */
     @Override
     public void initialization() throws IOException, InterruptedException {
         super.initialization();
@@ -15,6 +30,13 @@ public class MediumFrameController extends MyFrameController {
         setOnScreenTime(2000);
     }
 
+    /**
+     * Starts the medium difficulty level game.
+     * Calls the method to start the game and changes the background music.
+     *
+     * @throws IOException If an I/O error occurs during the transition to the game.
+     * @throws InterruptedException If the thread is interrupted during the game start.
+     */
     @Override
     public void startGame() throws IOException, InterruptedException {
         super.startGame();

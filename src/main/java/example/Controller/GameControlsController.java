@@ -48,10 +48,20 @@ public class GameControlsController extends StartFrameController {
         }
     }
 
+    /**
+     * Gets the chosen controls preference.
+     *
+     * @return The chosen controls preference ("left" or "right").
+     */
     public String getControlsChosen() {
         return controlsChosen;
     }
 
+    /**
+     * Sets the controls preference to the specified value.
+     *
+     * @param controlsChosen The controls preference to set ("left" or "right").
+     */
     public void setControlsChosen(String controlsChosen) {
         this.controlsChosen = controlsChosen;
     }
