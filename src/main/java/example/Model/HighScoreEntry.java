@@ -1,5 +1,12 @@
 package example.Model;
 
+/**
+ * Represents a high score entry in the Snake Game, including the player's name,
+ * score, and the game mode in which the score was achieved.
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
 public class HighScoreEntry {
     private String playerName;
     private int score;

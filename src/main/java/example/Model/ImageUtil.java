@@ -4,6 +4,23 @@ import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Utility class for managing and providing access to images used in the Snake Game.
+ *
+ * <p>This class initializes and provides a mapping of image names to corresponding Image objects.
+ * It includes images for the snake, food objects, and various buttons used in the game.</p>
+ *
+ * <p>To use the images, call the static method {@code initializeImages()} or access the images
+ * directly from the {@code images} map. The images are loaded and stored as Image objects for
+ * efficient use within the application.</p>
+ *
+ * <p><strong>Note:</strong> Make sure to call {@code initializeImages()} before using any images.</p>
+ * <p>For this project, a single instance was created in the StartFrameMain class</p>
+ *
+ * @author Your Name
+ * @version 1.0
+ */
+
 public class ImageUtil
 {
 	public static Map<String, Image> images = new HashMap<>();

@@ -6,8 +6,26 @@ import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.paint.Color;
 
+
+/**
+ * Utility class for common game-related operations.
+ *
+ * <p>This class provides methods for loading images and rotating them, particularly useful
+ * for graphics operations in the Snake Game. It includes error handling for image loading
+ * to handle cases where the specified image is not found.</p>
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
+
 public class GameUtil
 {
+	/**
+	 * Loads an image from the specified resource path.
+	 *
+	 * @param imagePath The path to the image resource.
+	 * @return The loaded Image object, or null if the image is not found.
+	 */
 	public static Image getImage(String imagePath)
 	{
 		Image image;
@@ -23,6 +41,13 @@ public class GameUtil
 		}
 	}
 
+	/**
+	 * Rotates the given image by the specified degree.
+	 *
+	 * @param image  The image to rotate.
+	 * @param degree The degree by which to rotate the image.
+	 * @return The rotated Image object.
+	 */
 	public static Image rotateImage(final Image image, final int degree) {
 		ImageView imageView = new ImageView(image);
 		imageView.setRotate(degree);

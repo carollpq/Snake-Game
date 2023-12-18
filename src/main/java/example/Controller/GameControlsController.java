@@ -6,6 +6,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 
 import java.io.IOException;
+/**
+ * Controller class for the game controls selection frame in the Snake Game.
+ * Extends the StartFrameController. Handles user interactions and events related
+ * to choosing between left-hand and right-hand controls for the Snake game.
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
 
 public class GameControlsController extends StartFrameController {
 
@@ -14,6 +22,11 @@ public class GameControlsController extends StartFrameController {
     private ToggleGroup controlsToggleGroup; //Makes sure only one button is selected
     private String controlsChosen;
 
+    /**
+     * Initializes the game controls selection frame.
+     * Creates a ToggleGroup and assigns it to the RadioButtons to ensure
+     * that only one button is selected at a time.
+     */
     @FXML
     public void initialize() {
         // Create a ToggleGroup and assign it to the RadioButtons
@@ -22,6 +35,10 @@ public class GameControlsController extends StartFrameController {
         rightHandControls.setToggleGroup(controlsToggleGroup);
     }
 
+    /**
+     * Handles the selection of a radio button. Sets the chosen controls based on
+     * the selected radio button (left-hand or right-hand controls).
+     */
     @FXML
     private void handleRadioButtonSelection() {
         if (controlsToggleGroup.getSelectedToggle() == leftHandControls) {
@@ -40,21 +57,32 @@ public class GameControlsController extends StartFrameController {
     }
 
     @FXML
-    //Sets the controls to 'W', 'A', 'S', 'D' in MySnake
+    /**
+     * Sets the controls to 'W', 'A', 'S', 'D' in MySnake and updates the
+     * controls preference to "left".
+     */
     public void setLeftHandControls() {
         setControlsChosen("left");
         MyFrameController.setControls("left");
     }
 
     @FXML
-    //Sets the controls to 'UP', 'DOWN', 'LEFT', 'RIGHT' in MySnake
+    /**
+     * Sets the controls to 'UP', 'DOWN', 'LEFT', 'RIGHT' in MySnake and updates
+     * the controls preference to "right".
+     */
     public void setRightHandControls() {
         setControlsChosen("right");
         MyFrameController.setControls("right");
     }
 
     @FXML
-    //Checks whether player has chosen the control preference
+    /**
+     * Checks whether the player has chosen the control preference.
+     * If not, displays an error alert. Otherwise, switches to the game mode screen.
+     *
+     * @throws IOException If an I/O error occurs during the transition to the game mode.
+     */
     public void checkChosenControls() throws IOException {
         if (getControlsChosen() == null) {
             showAlert();
@@ -63,6 +91,9 @@ public class GameControlsController extends StartFrameController {
         }
     }
 
+    /**
+     * Displays an error alert informing the player to choose their preferred controls.
+     */
     private void showAlert() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");

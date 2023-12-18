@@ -13,9 +13,17 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
+/**
+ * Represents a power-up object in the Snake game.
+ */
 public abstract class PowerUp extends SnakeObject {
     private int scoreImplement;
 
+    /**
+     * Constructs a PowerUp object with a given image index.
+     *
+     * @param r The index used to obtain the image for the PowerUp object.
+     */
     public PowerUp(int r) {
         this.liveOfObject = true;
         this.foodImg = ImageUtil.images.get(String.valueOf(r));
@@ -29,7 +37,11 @@ public abstract class PowerUp extends SnakeObject {
     public void draw(GraphicsContext gc) {
         gc.drawImage(foodImg, xPosition, yPosition);
     }
-    //Makes sure the generated bonus point object does not stack on top of Food object
+    /**
+     * Ensures that the generated bonus point object does not overlap with the Food object.
+     *
+     * @param food The Food object used for checking overlap.
+     */
     public void checkObjectPosition(Food food) {
         //Regenerates x position when current object overlaps with Food object
         if (Math.abs(this.xPosition - food.xPosition) < 10) {
@@ -40,7 +52,13 @@ public abstract class PowerUp extends SnakeObject {
             this.yPosition = generateRandomYPosition();
         }
     }
-    // check if snake overlaps with a power up
+    /**
+     * Checks if the Snake overlaps with a power-up and handles the interaction.
+     *
+     * @param mySnake    The Snake object that interacts with the power-up.
+     * @param gameCanvas The Canvas on which the game is drawn.
+     * @return True if the Snake overlaps with the power-up, false otherwise.
+     */
     public boolean handleSnakeTouch(MySnake mySnake, Canvas gameCanvas){
         if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject) {
             this.liveOfObject = false;
@@ -51,6 +69,15 @@ public abstract class PowerUp extends SnakeObject {
         }
         return false;
     }
+
+    /**
+     * Displays a bonus message on the game canvas.
+     *
+     * @param message    The message to be displayed.
+     * @param x          The x-coordinate of the message.
+     * @param y          The y-coordinate of the message.
+     * @param gameCanvas The Canvas on which the game is drawn.
+     */
     protected void displayBonusMessage(String message, double x, double y, Canvas gameCanvas) {
         Text bonusMessage = new Text(message);
         bonusMessage.setFont(Font.font("Sans Serif", FontWeight.BOLD, 20));
@@ -75,6 +102,12 @@ public abstract class PowerUp extends SnakeObject {
         }
     }
 
+    /**
+     * Handles the logic when the PowerUp object is eaten by the Snake.
+     *
+     * @param mySnake    The Snake object that interacts with the power-up.
+     * @param gameCanvas The Canvas on which the game is drawn.
+     */
     public abstract void eaten(MySnake mySnake, Canvas gameCanvas);
 
     public void setScoreImplement(int scoreImplement) {

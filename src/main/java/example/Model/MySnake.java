@@ -12,6 +12,18 @@ import javafx.scene.image.Image;
 
 import javafx.scene.canvas.GraphicsContext;
 
+
+/**
+ * The MySnake class represents the player-controlled snake in the game.
+ * It extends the SnakeObject class and implements the movable interface for handling movements.
+ *
+ * <p>The snake's properties include its position, speed, length, and body points.
+ * The class provides methods for handling key presses to change the snake's direction,
+ * updating the snake's movement, drawing the snake on the game canvas, and checking for collisions.</p>
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
 public class MySnake extends SnakeObject implements movable
 {
     private int speed_XY;
@@ -28,6 +40,14 @@ public class MySnake extends SnakeObject implements movable
     private static Image newImgSnakeHead;
     boolean up, down, left, right = true;
 
+
+    /**
+     * Constructor for creating a MySnake object with the specified position and speed.
+     *
+     * @param x           The initial x-coordinate of the snake.
+     * @param y           The initial y-coordinate of the snake.
+     * @param snakeSpeed  The speed of the snake.
+     */
     public MySnake(int x, int y, int snakeSpeed)
     {
         this.liveOfObject = true;
@@ -55,7 +75,11 @@ public class MySnake extends SnakeObject implements movable
         this.length = length;
     }
 
-    //Handles key presses for Snake's movements
+    /**
+     * Handles key presses for changing the snake's direction if player chooses right controls.
+        *
+        * @param e The KeyEvent representing the key press.
+     */
     public void handleKeyPressRight(KeyEvent e)
     {
         // Checking the keys
@@ -78,6 +102,11 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
+    /**
+     * Handles key presses for changing the snake's direction if player chooses left controls.
+     *
+     * @param e The KeyEvent representing the key press.
+     */
     public void handleKeyPressLeft(KeyEvent e)
     {
         // Checking the keys
@@ -198,6 +227,11 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
+    /**
+     * Draws the snake's body on the canvas.
+     *
+     * @param g The GraphicsContext used for drawing on the canvas.
+     */
     public void drawBody(GraphicsContext g)
     {
         int length = bodyPoints.size() - 1 - num;

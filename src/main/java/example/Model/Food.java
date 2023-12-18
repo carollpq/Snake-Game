@@ -4,8 +4,14 @@ import java.util.Random;
 
 import javafx.scene.canvas.GraphicsContext;
 
+/**
+ * Represents a food object in the Snake game.
+ */
 public class Food extends SnakeObject
 {
+	/**
+	 * Constructs a Food object with a random image, position, and sets it as alive.
+	 */
 	public Food()	{
 		this.liveOfObject = true;
 		//Randomly obtain image for Food object
@@ -17,6 +23,11 @@ public class Food extends SnakeObject
 		this.yPosition = generateRandomYPosition();
 	}
 
+	/**
+	 * Handles the logic when the Food object is eaten by the Snake.
+	 *
+	 * @param mySnake The Snake object that interacts with the food.
+	 */
 	public void eaten(MySnake mySnake)	{
 
 		//If the snake object touches the food object

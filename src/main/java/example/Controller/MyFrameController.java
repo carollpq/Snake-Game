@@ -24,7 +24,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
-
+/**
+ * The controller class for the Easy game mode, responsible for managing the game logic,
+ * user input, and interactions with the graphical user interface.
+ *
+ * This class implements the Initializable interface, allowing it to be used as a controller
+ * for JavaFX FXML files. It handles the initialization of the game, user input, game state updates,
+ * and transitions between different scenes.
+ *
+ * The game features a snake that moves across the canvas, consuming food and bonus objects,
+ * with the goal of achieving the highest score possible. The class utilizes JavaFX for GUI components
+ * and animation effects.
+ *
+ * @author Carolina Lee Pei Qian
+ * @version 1.0
+ */
 public class MyFrameController implements Initializable {
 
     @FXML
@@ -140,6 +154,12 @@ public class MyFrameController implements Initializable {
         countdownTimeline.play();
     }
 
+    /**
+     * Starts the game after the countdown, initializing the snake, food, and bonus objects.
+     *
+     * @throws IOException          If an I/O error occurs.
+     * @throws InterruptedException If the thread is interrupted.
+     */
     public void startGame() throws IOException, InterruptedException {
         //Clears the snake body points
         MySnake.bodyPoints = new LinkedList<>();
@@ -166,11 +186,18 @@ public class MyFrameController implements Initializable {
         playModeMusic(StartFrameMain.getCurrentMode()); //Plays the music for the game mode
     }
 
+    /**
+     * Plays the music corresponding to the selected game mode.
+     *
+     * @param gameMode The selected game mode.
+     */
     public void playModeMusic(String gameMode) {
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/"+ gameMode +"-mode-music.mp3"));
     }
 
-    //Schedules the spawning of bonus points objects onto screen at random time
+    /**
+     * Schedules the spawning of bonus points objects onto the screen at random intervals.
+     */
     private void scheduleBonusSpawn() {
         int delay = getRandomDelay(); // Get a random delay in milliseconds
         int period = 30000; // Set the period for bonusObj spawn (30,000 milliseconds = 30 seconds)
@@ -196,12 +223,21 @@ public class MyFrameController implements Initializable {
     }
 
 
+    /**
+     * Gets a random delay for scheduling the bonus points object spawn.
+     *
+     * @return A random delay in milliseconds.
+     */
     private int getRandomDelay() {
         // Get a random delay between 5 and 15 seconds
         return (int) (Math.random() * 10000) + 5000;
     }
 
-    //Draws the score labels onto screen
+    /**
+     * Draws the current score on the game canvas.
+     *
+     * @param gc The GraphicsContext used for rendering.
+     */
     public void drawScore(GraphicsContext gc)
     {
         Font font = Font.font("Sans Serif", FontWeight.BOLD, FontPosture.REGULAR, 30);
@@ -210,6 +246,10 @@ public class MyFrameController implements Initializable {
         gc.fillText("SCORE : " + mySnake.score, 20, 40);
     }
 
+    /**
+     * Clears the canvas and draws the snake, food, and bonus objects onto the screen.
+     *
+     */
     public void clearCanvas(){
         graphicsContext.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
         mySnake.draw(graphicsContext); //Draws snake onto canvas
@@ -223,6 +263,9 @@ public class MyFrameController implements Initializable {
         }
     }
 
+    /**
+     * Sets the timer for bonus points objects and manages their visibility and lifetime.
+     */
     public void setBonusObjTimer(){
         if (bonusObj.liveOfObject) { //If bonus points object has not been eaten
             bonusObj.checkObjectPosition(food); //Checks whether object collides with Food objects
@@ -236,6 +279,12 @@ public class MyFrameController implements Initializable {
         }
     }
 
+    /**
+     * Resets the game state, plays the game over sound effect, saves the final score, and transitions
+     * to the ending scene.
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     public void resetGame() throws IOException {
         MySnake.bodyPoints = new LinkedList<>();
         pause = false; //Resets the pausing state
@@ -250,7 +299,13 @@ public class MyFrameController implements Initializable {
         stopAnimation = true;
     }
 
-    //Draws MySnake, Food, and PowerUp objects onto screen
+    /**
+     * Draws the snake, food, and bonus objects onto the screen and manages game state transitions.
+     *
+     * @param gc The GraphicsContext used for rendering.
+     * @throws IOException          If an I/O error occurs.
+     * @throws InterruptedException If the thread is interrupted.
+     */
     public void drawSnakeObjects(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
@@ -269,6 +324,12 @@ public class MyFrameController implements Initializable {
         drawScore(gc);
     }
 
+    /**
+     * Handles key presses for snake movements, pause/resume, and returning to the main menu.
+     *
+     * @param event The KeyEvent representing the key press.
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
     public void handleKeyPress(KeyEvent event) throws IOException {
         // Handle key presses for snake movements
@@ -286,6 +347,11 @@ public class MyFrameController implements Initializable {
         }
     }
 
+    /**
+     * Creates and starts an AnimationTimer for continuous game updates and rendering.
+     *
+     * @return The AnimationTimer object.
+     */
     public AnimationTimer animationTimer() {
         AnimationTimer animationTimer = new AnimationTimer() {
             @Override
@@ -315,8 +381,11 @@ public class MyFrameController implements Initializable {
         animationTimer.stop();
     }
 
+    /**
+     * Toggles the game pause state, updating the UI accordingly and managing music playback.
+     * Called when 'P' key is pressed
+     */
     @FXML
-    //Called when 'P' key is pressed
     public void togglePauseBtn() {
         if (pause) { //If user wants to resume game
             //Reset countdown time
@@ -335,6 +404,9 @@ public class MyFrameController implements Initializable {
         }
     }
 
+    /**
+     * Starts a countdown when the 'P' key is pressed to resume the game.
+     */
     private void startCountdown() {
         // Reset the countdown label and visibility
         countdownLabel.setVisible(true);
@@ -365,8 +437,13 @@ public class MyFrameController implements Initializable {
 
     }
 
+    /**
+     * Returns to the main menu, saving the current score and transitioning to the main menu scene.
+     * Called when 'H' key is pressed
+     *
+     * @throws IOException If an I/O error occurs.
+     */
     @FXML
-    //Called when 'H' key is pressed
     public void backToMain() throws IOException {
         stopAnimationTimer(animationTimer);
         //Changes to Main Menu music
