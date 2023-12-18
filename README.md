@@ -10,8 +10,8 @@ Welcome to the Snake Game! Developed by Carolina Lee Pei Qian, this classic and 
 
 1. Clone the repository or download the ZIP file.
 2. Ensure you have the latest version of Java and JavaFX installed.
-3. Compile the application by entering 'mvn install' in the terminal.
-4. Run the game by typing "mvn clean compile exec:java" in the terminal.
+3. Compile the application by entering 'mvn install' in the terminal, then running it with "mvn clean compile exec:java".
+5. If that does not work, you can run the game in StartFrameMain.
 
 ## How to Play
 ![Game Screenshot 1](/src/main/resources/Img/instruction-page.jpg)
