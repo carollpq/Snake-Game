@@ -29,5 +29,4 @@ public class TopazPowerUp extends PowerUp {
         boolean status = handleSnakeTouch(mySnake,gameCanvas);
         if (status) displayBonusMessage("+3 points! Yippee!", this.xPosition, this.yPosition, gameCanvas);
     }
-
 }
