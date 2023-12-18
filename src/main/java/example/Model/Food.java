@@ -1,11 +1,8 @@
-package example;
+package example.Model;
 
 import java.util.Random;
 
-import example.Model.ImageUtil;
-import example.Model.MusicPlayer;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.media.AudioClip;
 
 public class Food extends SnakeObject
 {

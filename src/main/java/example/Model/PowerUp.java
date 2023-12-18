@@ -1,7 +1,5 @@
-package example;
+package example.Model;
 
-import example.Model.ImageUtil;
-import example.Model.MusicPlayer;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Parent;
@@ -14,9 +12,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
-import javafx.scene.media.AudioClip;
-
-import java.util.Random;
 
 public abstract class PowerUp extends SnakeObject {
     private int scoreImplement;
@@ -56,7 +51,7 @@ public abstract class PowerUp extends SnakeObject {
         }
         return false;
     }
-    void displayBonusMessage(String message, double x, double y, Canvas gameCanvas) {
+    protected void displayBonusMessage(String message, double x, double y, Canvas gameCanvas) {
         Text bonusMessage = new Text(message);
         bonusMessage.setFont(Font.font("Sans Serif", FontWeight.BOLD, 20));
         bonusMessage.setFill(Color.BLACK);

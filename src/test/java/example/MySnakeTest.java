@@ -1,11 +1,11 @@
 package example;
 
 import example.Model.ImageUtil;
+import example.Model.MySnake;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;

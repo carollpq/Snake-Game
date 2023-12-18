@@ -1,5 +1,6 @@
-package example;
+package example.Model;
 
+import example.StartFrameMain;
 import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
@@ -7,8 +8,8 @@ import javafx.geometry.Rectangle2D;
 
 public abstract class SnakeObject //Represents the objects that will be drawn onto the game canvas
 {
-    int xPosition;
-    int yPosition;
+    protected int xPosition;
+    protected int yPosition;
     int widthOfObj;
     int heightOfObj;
     Image snakeBodyImg;

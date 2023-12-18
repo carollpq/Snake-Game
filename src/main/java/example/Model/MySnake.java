@@ -1,11 +1,12 @@
-package example;
+package example.Model;
 
 import java.util.LinkedList;
 import java.util.List;
 
 import java.awt.*;
 
-import example.Model.ImageUtil;
+import example.StartFrameMain;
+import example.movable;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.image.Image;
 

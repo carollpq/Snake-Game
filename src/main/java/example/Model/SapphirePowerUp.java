@@ -1,5 +1,7 @@
-package example;
+package example.Model;
 
+import example.Model.MySnake;
+import example.Model.PowerUp;
 import javafx.scene.canvas.Canvas;
 
 public class SapphirePowerUp extends PowerUp {
