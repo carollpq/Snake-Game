@@ -28,50 +28,117 @@ public abstract class SnakeObject
     final int HORIZONTAL_SHIFT = 30;
     final int VERTICAL_SHIFT = 55;
 
+    /**
+     * Gets the X-coordinate of the snake object's position.
+     *
+     * @return The X-coordinate of the snake object's position.
+     */
+
     public int getXPosition() {
         return xPosition;
     }
 
+    /**
+     * Sets the X-coordinate of the snake object's position.
+     *
+     * @param xPosition The new X-coordinate of the snake object's position.
+     */
     public void setXPosition(int xPosition) {
         this.xPosition = xPosition;
     }
 
+    /**
+     * Gets the Y-coordinate of the snake object's position.
+     *
+     * @return The Y-coordinate of the snake object's position.
+     */
     public int getYPosition() {
         return yPosition;
     }
 
+    /**
+     * Sets the Y-coordinate of the snake object's position.
+     *
+     * @param yPosition The new Y-coordinate of the snake object's position.
+     */
     public void setYPosition(int yPosition) {
         this.yPosition = yPosition;
     }
 
+    /**
+     * Gets the width of the snake object.
+     *
+     * @return The width of the snake object.
+     */
     public int getWidthOfObj() {
         return widthOfObj;
     }
 
+    /**
+     * Sets the width of the snake object.
+     *
+     * @param widthOfObj The new width of the snake object.
+     */
     public void setWidthOfObj(int widthOfObj) {
         this.widthOfObj = widthOfObj;
     }
 
+
+    /**
+     * Gets the height of the snake object.
+     *
+     * @return The height of the snake object.
+     */
     public int getHeightOfObj() {
         return heightOfObj;
     }
+
+
+    /**
+     * Sets the height of the snake object.
+     *
+     * @param heightOfObj The new height of the snake object.
+     */
 
     public void setHeightOfObj(int heightOfObj) {
         this.heightOfObj = heightOfObj;
     }
 
+
+    /**
+     * Gets the image representing the food object.
+     *
+     * @return The image representing the food object.
+     */
     public Image getFoodImg() {
         return foodImg;
     }
 
+
+    /**
+     * Sets the image representing the food object.
+     *
+     * @param foodImg The new image representing the food object.
+     */
     public void setFoodImg(Image foodImg) {
         this.foodImg = foodImg;
     }
 
+
+    /**
+     * Checks the liveliness status of the snake object.
+     *
+     * @return True if the snake object is alive, false otherwise.
+     */
     public boolean isLiveOfObject() {
         return liveOfObject;
     }
 
+    /**
+     * Sets the liveliness status of the snake object.
+     *
+     * @param liveOfObject The new liveliness status of the snake object.
+     */
     public void setLiveOfObject(boolean liveOfObject) {
         this.liveOfObject = liveOfObject;
     }
