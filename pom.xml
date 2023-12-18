@@ -21,7 +21,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.1</version>
                 <configuration>
-                    <mainClass>example.StartFrameMain</mainClass>
+                    <mainClass>com.SnakeGame.StartFrameMain</mainClass>
                 </configuration>
             </plugin>
         </plugins>

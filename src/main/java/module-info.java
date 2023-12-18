@@ -1,9 +1,9 @@
 module CW1Setup {
-    opens example;
-    opens example.Controller;
-    opens example.Model.GameObjects.PowerUps;
-    opens example.Model.GameObjects;
-    opens example.Model.Utilities;
+    opens com.SnakeGame;
+    opens com.SnakeGame.Controller;
+    opens com.SnakeGame.Model.GameObjects.PowerUps;
+    opens com.SnakeGame.Model.GameObjects;
+    opens com.SnakeGame.Model.Utilities;
 
     requires java.desktop;
     requires jlayer;
