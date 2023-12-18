@@ -1,4 +1,4 @@
-package example.Model.SnakeObjects;
+package example.Model.GameObjects;
 
 import java.util.Random;
 
@@ -28,16 +28,16 @@ public class Food extends SnakeObject
 	/**
 	 * Handles the logic when the Food object is eaten by the Snake.
 	 *
-	 * @param mySnake The Snake object that interacts with the food.
+	 * @param snake The Snake object that interacts with the food.
 	 */
-	public void eaten(MySnake mySnake)	{
+	public void eaten(Snake snake)	{
 
 		//If the snake object touches the food object
-		if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject)		{
+		if (snake.getRectangle().intersects(this.getRectangle()) && liveOfObject && snake.liveOfObject)		{
 			this.liveOfObject = false;
-			mySnake.changeLength(mySnake.getLength() + 1); //Increase the body length of Snake
+			snake.changeLength(snake.getLength() + 1); //Increase the body length of Snake
 			int scoreIncrement = 1;
-			mySnake.score += scoreIncrement; //Increments score
+			snake.score += scoreIncrement; //Increments score
 			//Plays Snake munching sound effect
 			MusicPlayer.playSoundEffect("snake-eat-sound.mp3");
 		}

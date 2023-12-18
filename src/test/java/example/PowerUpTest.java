@@ -1,9 +1,9 @@
 package example;
 
-import example.Model.SnakeObjects.Food;
+import example.Model.GameObjects.Food;
+import example.Model.GameObjects.Snake;
 import example.Model.Utilities.ImageUtil;
-import example.Model.SnakeObjects.MySnake;
-import example.Model.SnakeObjects.PowerUps.PowerUp;
+import example.Model.GameObjects.PowerUps.PowerUp;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.canvas.Canvas;
@@ -22,7 +22,7 @@ class PowerUpTest {
         }
 
         @Override
-        public void eaten(MySnake mySnake, Canvas gameCanvas) {
+        public void eaten(Snake snake, Canvas gameCanvas) {
             // Provide an implementation for the abstract method for testing
         }
     }
@@ -55,26 +55,26 @@ class PowerUpTest {
     void handleSnakeTouch_PowerUpIncreaseSnakeLengthAndScore() {
         Platform.runLater(() -> {
             ImageUtil.initializeImages();
-            MySnake mySnake = new MySnake(100, 100, 5);
+            Snake snake = new Snake(100, 100, 5);
             TestPowerUp powerUp = new TestPowerUp(1);
             Canvas gameCanvas = new Canvas(800, 500);
 
-            int initialLength = mySnake.getLength();
-            int initialScore = mySnake.score;
+            int initialLength = snake.getLength();
+            int initialScore = snake.score;
 
             // Set the positions to overlap
             powerUp.xPosition = 100;
             powerUp.yPosition = 100;
 
             // Call the method to handle snake touch
-            powerUp.handleSnakeTouch(mySnake, gameCanvas);
+            powerUp.handleSnakeTouch(snake, gameCanvas);
 
             // Check if the power-up is marked as not live
             assertFalse(powerUp.liveOfObject);
 
             // Check if the snake length and score are increased
-            assertEquals(initialLength + 1, mySnake.getLength());
-            assertEquals(initialScore + 1, mySnake.score);
+            assertEquals(initialLength + 1, snake.getLength());
+            assertEquals(initialScore + 1, snake.score);
 
         });
     }

@@ -1,9 +1,9 @@
 package example.Controller;
 
-import example.Model.SnakeObjects.PowerUps.FactoryPowerUp;
-import example.Model.SnakeObjects.PowerUps.PowerUp;
-import example.Model.SnakeObjects.Food;
-import example.Model.SnakeObjects.MySnake;
+import example.Model.GameObjects.PowerUps.FactoryPowerUp;
+import example.Model.GameObjects.PowerUps.PowerUp;
+import example.Model.GameObjects.Food;
+import example.Model.GameObjects.Snake;
 import example.Model.Utilities.HighScoreManager;
 import example.Model.Utilities.ImageUtil;
 import example.Model.Utilities.MusicPlayer;
@@ -60,7 +60,7 @@ public class MyFrameController implements Initializable {
     @FXML
     private GraphicsContext graphicsContext;
 
-    private MySnake mySnake; //The Snake of the game
+    private Snake snake; //The Snake of the game
     private Food food; //Food objects for Snake
     private PowerUp bonusObj; //Bonus points objects
 
@@ -180,7 +180,7 @@ public class MyFrameController implements Initializable {
      */
     public void startGame() throws IOException, InterruptedException {
         //Clears the snake body points
-        MySnake.bodyPoints = new LinkedList<>();
+        Snake.bodyPoints = new LinkedList<>();
         //Reset pause button
         pause = false;
         pauseBoard.setVisible(false);
@@ -190,7 +190,7 @@ public class MyFrameController implements Initializable {
         countdownLabel.setVisible(false); //Hides previous countdown label
         countDownBackDrop.setVisible(false); //Hides previous background image used for countdown
         graphicsContext = gameCanvas.getGraphicsContext2D();
-        mySnake = new MySnake(100, 100, getSnakeSpeed()); //Creates instance of 'Snake'
+        snake = new Snake(100, 100, getSnakeSpeed()); //Creates instance of 'Snake'
         food = new Food(); //Creates instance of Food object
         bonusObj = FactoryPowerUp.makePowerUp() ; //Creates instance of bonus points object
         //Initialize the bonusObj spawn timer and task if not already done
@@ -261,7 +261,7 @@ public class MyFrameController implements Initializable {
         Font font = Font.font("Sans Serif", FontWeight.BOLD, FontPosture.REGULAR, 30);
         gc.setFont(font);
         gc.setFill(Color.BLACK);
-        gc.fillText("SCORE : " + mySnake.score, 20, 40);
+        gc.fillText("SCORE : " + snake.score, 20, 40);
     }
 
     /**
@@ -270,11 +270,11 @@ public class MyFrameController implements Initializable {
      */
     public void clearCanvas(){
         graphicsContext.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
-        mySnake.draw(graphicsContext); //Draws snake onto canvas
+        snake.draw(graphicsContext); //Draws snake onto canvas
         if (food.liveOfObject) //If Food object has not been eaten
         {
             food.draw(graphicsContext); //Continue drawing current Food at current position
-            food.eaten(mySnake); //Continue checking whether food has been eaten
+            food.eaten(snake); //Continue checking whether food has been eaten
         } else
         {
             food = new Food(); //Draws a new Food object
@@ -288,7 +288,7 @@ public class MyFrameController implements Initializable {
         if (bonusObj.liveOfObject) { //If bonus points object has not been eaten
             bonusObj.checkObjectPosition(food); //Checks whether object collides with Food objects
             bonusObj.draw(graphicsContext);
-            bonusObj.eaten(mySnake, getGameCanvas()); //Continue checking whether object has been eaten
+            bonusObj.eaten(snake, getGameCanvas()); //Continue checking whether object has been eaten
 
             long currentTime = System.currentTimeMillis();
             if (currentTime - bonusSpawnTime > getOnScreenTime()) { //If object stays longer than set on screen time
@@ -304,13 +304,13 @@ public class MyFrameController implements Initializable {
      * @throws IOException If an I/O error occurs.
      */
     public void resetGame() throws IOException {
-        MySnake.bodyPoints = new LinkedList<>();
+        Snake.bodyPoints = new LinkedList<>();
         pause = false; //Resets the pausing state
         //Plays Game Over sound effect
         MusicPlayer.playSoundEffect("game_over.mp3");
         //Saves final score
-        HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
-        MyFrameController.setFinalScore(mySnake.score);
+        HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), snake.score, StartFrameMain.getCurrentMode());
+        MyFrameController.setFinalScore(snake.score);
         //Sets Ending/Game Over scene music
         StartFrameMain.changeMusic(new MusicPlayer("src/main/resources/Sounds/ending-scene-music.mp3"));
         StartFrameMain.setRoot("/EndingFrame");
@@ -327,14 +327,14 @@ public class MyFrameController implements Initializable {
     public void drawSnakeObjects(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
-        if (mySnake.liveOfObject && !pause) //if Snake is alive and game is not paused
+        if (snake.liveOfObject && !pause) //if Snake is alive and game is not paused
         {
             //Clears the canvas before output another snake body
             clearCanvas();
             //Implement a timer so that object stays for a limited amount of time
             setBonusObjTimer();
         }
-        else if (!mySnake.liveOfObject)
+        else if (!snake.liveOfObject)
         {
             //Resets the game
             resetGame();
@@ -352,15 +352,15 @@ public class MyFrameController implements Initializable {
     public void handleKeyPress(KeyEvent event) throws IOException {
         // Handle key presses for snake movements
         if (controls.equals("left")) {
-            mySnake.handleKeyPressLeft(event);
+            snake.handleKeyPressLeft(event);
         } else if (controls.equals("right")) {
-            mySnake.handleKeyPressRight(event);
+            snake.handleKeyPressRight(event);
         }
         if (event.getCode() == KeyCode.P) { //If 'P' is pressed
             togglePauseBtn();
         } else if (event.getCode() == KeyCode.H) { //If 'H' is pressed
             //Saves current score before exiting to main menu
-            HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), mySnake.score, StartFrameMain.getCurrentMode());
+            HighScoreManager.saveHighScore(StartFrameMain.getPlayerName(), snake.score, StartFrameMain.getCurrentMode());
             backToMain();
         }
     }

@@ -1,7 +1,7 @@
 package example;
 
+import example.Model.GameObjects.Snake;
 import example.Model.Utilities.ImageUtil;
-import example.Model.SnakeObjects.MySnake;
 import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.input.KeyCode;
@@ -12,7 +12,7 @@ import java.awt.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MySnakeTest {
+class SnakeTest {
 
     // Initialize JavaFX toolkit
     JFXPanel jfxPanel = new JFXPanel();
@@ -23,12 +23,12 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             // Create a KeyEvent to simulate a key press
             KeyEvent rightPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.RIGHT, false, false, false, false);
-            mySnake.handleKeyPressRight(rightPress);
-            mySnake.move();
-            assertEquals(105, mySnake.xPosition);
+            snake.handleKeyPressRight(rightPress);
+            snake.move();
+            assertEquals(105, snake.xPosition);
         });
     }
 
@@ -38,11 +38,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent upPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.UP, false, false, false, false);
-            mySnake.handleKeyPressRight(upPress);
-            mySnake.move();
-            assertEquals(95, mySnake.yPosition);
+            snake.handleKeyPressRight(upPress);
+            snake.move();
+            assertEquals(95, snake.yPosition);
         });
     }
 
@@ -52,11 +52,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent downPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.DOWN, false, false, false, false);
-            mySnake.handleKeyPressRight(downPress);
-            mySnake.move();
-            assertEquals(105, mySnake.yPosition);
+            snake.handleKeyPressRight(downPress);
+            snake.move();
+            assertEquals(105, snake.yPosition);
         });
     }
 
@@ -66,11 +66,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent leftPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.LEFT, false, false, false, false);
-            mySnake.handleKeyPressRight(leftPress);
-            mySnake.move();
-            assertEquals(95, mySnake.xPosition);
+            snake.handleKeyPressRight(leftPress);
+            snake.move();
+            assertEquals(95, snake.xPosition);
         });
     }
 
@@ -81,12 +81,12 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             // Create a KeyEvent to simulate a key press
             KeyEvent rightPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.D, false, false, false, false);
-            mySnake.handleKeyPressRight(rightPress);
-            mySnake.move();
-            assertEquals(105, mySnake.xPosition);
+            snake.handleKeyPressRight(rightPress);
+            snake.move();
+            assertEquals(105, snake.xPosition);
         });
     }
 
@@ -96,11 +96,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent upPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.W, false, false, false, false);
-            mySnake.handleKeyPressRight(upPress);
-            mySnake.move();
-            assertEquals(95, mySnake.yPosition);
+            snake.handleKeyPressRight(upPress);
+            snake.move();
+            assertEquals(95, snake.yPosition);
         });
     }
 
@@ -110,11 +110,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent downPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.S, false, false, false, false);
-            mySnake.handleKeyPressRight(downPress);
-            mySnake.move();
-            assertEquals(105, mySnake.yPosition);
+            snake.handleKeyPressRight(downPress);
+            snake.move();
+            assertEquals(105, snake.yPosition);
         });
     }
 
@@ -124,11 +124,11 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
+            Snake snake = new Snake(initialX, initialY, 5);
             KeyEvent leftPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.A, false, false, false, false);
-            mySnake.handleKeyPressRight(leftPress);
-            mySnake.move();
-            assertEquals(95, mySnake.xPosition);
+            snake.handleKeyPressRight(leftPress);
+            snake.move();
+            assertEquals(95, snake.xPosition);
         });
     }
 
@@ -138,13 +138,13 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 100;
             int initialX = 100;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
-            mySnake.length = 3; // Set snake length to 3 for testing
-            MySnake.bodyPoints.add(new Point(100, 110));
-            MySnake.bodyPoints.add(new Point(100, 120));
-            MySnake.bodyPoints.add(new Point(100, 130));
-            mySnake.eatBody();
-            assertFalse(mySnake.liveOfObject); // Snake should die as it eats itself
+            Snake snake = new Snake(initialX, initialY, 5);
+            snake.length = 3; // Set snake length to 3 for testing
+            Snake.bodyPoints.add(new Point(100, 110));
+            Snake.bodyPoints.add(new Point(100, 120));
+            Snake.bodyPoints.add(new Point(100, 130));
+            snake.eatBody();
+            assertFalse(snake.liveOfObject); // Snake should die as it eats itself
         });
     }
 
@@ -154,9 +154,9 @@ class MySnakeTest {
             ImageUtil.initializeImages();
             int initialY = 0;
             int initialX = 0;
-            MySnake mySnake = new MySnake(initialX, initialY, 5);
-            mySnake.move();
-            assertFalse(mySnake.liveOfObject);
+            Snake snake = new Snake(initialX, initialY, 5);
+            snake.move();
+            assertFalse(snake.liveOfObject);
         });
     }
 }

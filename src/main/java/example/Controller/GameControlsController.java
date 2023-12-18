@@ -68,7 +68,7 @@ public class GameControlsController extends StartFrameController {
 
     @FXML
     /**
-     * Sets the controls to 'W', 'A', 'S', 'D' in MySnake and updates the
+     * Sets the controls to 'W', 'A', 'S', 'D' in Snake and updates the
      * controls preference to "left".
      */
     public void setLeftHandControls() {
@@ -78,7 +78,7 @@ public class GameControlsController extends StartFrameController {
 
     @FXML
     /**
-     * Sets the controls to 'UP', 'DOWN', 'LEFT', 'RIGHT' in MySnake and updates
+     * Sets the controls to 'UP', 'DOWN', 'LEFT', 'RIGHT' in Snake and updates
      * the controls preference to "right".
      */
     public void setRightHandControls() {

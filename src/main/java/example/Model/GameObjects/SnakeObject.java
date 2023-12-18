@@ -1,7 +1,6 @@
-package example.Model.SnakeObjects;
+package example.Model.GameObjects;
 
 import example.StartFrameMain;
-import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.geometry.Rectangle2D;

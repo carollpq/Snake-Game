@@ -1,4 +1,4 @@
-package example.Model.SnakeObjects;
+package example.Model.GameObjects;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,7 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
 
 
 /**
- * The MySnake class represents the player-controlled snake in the game.
+ * The Snake class represents the player-controlled snake in the game.
  * It extends the SnakeObject class and implements the movable interface for handling movements.
  *
  * <p>The snake's properties include its position, speed, length, and body points.
@@ -25,7 +25,7 @@ import javafx.scene.canvas.GraphicsContext;
  * @author Carolina Lee Pei Qian
  * @version 1.0
  */
-public class MySnake extends SnakeObject implements movable
+public class Snake extends SnakeObject implements movable
 {
     private int speed_XY;
     int length;
@@ -43,13 +43,13 @@ public class MySnake extends SnakeObject implements movable
 
 
     /**
-     * Constructor for creating a MySnake object with the specified position and speed.
+     * Constructor for creating a Snake object with the specified position and speed.
      *
      * @param x           The initial x-coordinate of the snake.
      * @param y           The initial y-coordinate of the snake.
      * @param snakeSpeed  The speed of the snake.
      */
-    public MySnake(int x, int y, int snakeSpeed)
+    public Snake(int x, int y, int snakeSpeed)
     {
         this.liveOfObject = true;
         this.xPosition = x;

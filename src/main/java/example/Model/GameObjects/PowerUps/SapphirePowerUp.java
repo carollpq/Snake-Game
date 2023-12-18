@@ -1,6 +1,6 @@
-package example.Model.SnakeObjects.PowerUps;
+package example.Model.GameObjects.PowerUps;
 
-import example.Model.SnakeObjects.MySnake;
+import example.Model.GameObjects.Snake;
 import javafx.scene.canvas.Canvas;
 
 /**
@@ -20,12 +20,12 @@ public class SapphirePowerUp extends PowerUp {
     /**
      * Handles the action when the Sapphire power-up is eaten by the snake.
      *
-     * @param mySnake    The snake object in the game.
+     * @param snake    The snake object in the game.
      * @param gameCanvas The Canvas where the game is displayed.
      */
     @Override
-    public void eaten(MySnake mySnake, Canvas gameCanvas) {
-        boolean status = handleSnakeTouch(mySnake,gameCanvas);
+    public void eaten(Snake snake, Canvas gameCanvas) {
+        boolean status = handleSnakeTouch(snake,gameCanvas);
         if (status) displayBonusMessage("+10 points! WOO!!", this.xPosition, this.yPosition, gameCanvas);
     }
 

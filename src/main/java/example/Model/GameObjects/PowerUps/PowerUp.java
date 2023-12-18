@@ -1,8 +1,8 @@
-package example.Model.SnakeObjects.PowerUps;
+package example.Model.GameObjects.PowerUps;
 
-import example.Model.SnakeObjects.Food;
-import example.Model.SnakeObjects.MySnake;
-import example.Model.SnakeObjects.SnakeObject;
+import example.Model.GameObjects.Food;
+import example.Model.GameObjects.Snake;
+import example.Model.GameObjects.SnakeObject;
 import example.Model.Utilities.ImageUtil;
 import example.Model.Utilities.MusicPlayer;
 import javafx.animation.KeyFrame;
@@ -66,15 +66,15 @@ public abstract class PowerUp extends SnakeObject {
     /**
      * Checks if the Snake overlaps with a power-up and handles the interaction.
      *
-     * @param mySnake    The Snake object that interacts with the power-up.
+     * @param snake    The Snake object that interacts with the power-up.
      * @param gameCanvas The Canvas on which the game is drawn.
      * @return True if the Snake overlaps with the power-up, false otherwise.
      */
-    public boolean handleSnakeTouch(MySnake mySnake, Canvas gameCanvas){
-        if (mySnake.getRectangle().intersects(this.getRectangle()) && liveOfObject && mySnake.liveOfObject) {
+    public boolean handleSnakeTouch(Snake snake, Canvas gameCanvas){
+        if (snake.getRectangle().intersects(this.getRectangle()) && liveOfObject && snake.liveOfObject) {
             this.liveOfObject = false;
-            mySnake.changeLength(mySnake.getLength() + 1);
-            mySnake.score += scoreImplement;
+            snake.changeLength(snake.getLength() + 1);
+            snake.score += scoreImplement;
             MusicPlayer.playSoundEffect("power-up-sparkle.mp3");
             return true;
         }
@@ -116,10 +116,10 @@ public abstract class PowerUp extends SnakeObject {
     /**
      * Handles the logic when the PowerUp object is eaten by the Snake.
      *
-     * @param mySnake    The Snake object that interacts with the power-up.
+     * @param snake    The Snake object that interacts with the power-up.
      * @param gameCanvas The Canvas on which the game is drawn.
      */
-    public abstract void eaten(MySnake mySnake, Canvas gameCanvas);
+    public abstract void eaten(Snake snake, Canvas gameCanvas);
 
     /**
      * Sets the score increment for the power-up.

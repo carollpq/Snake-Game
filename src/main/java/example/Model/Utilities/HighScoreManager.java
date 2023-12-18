@@ -21,7 +21,7 @@ import java.util.Map;
  */
 
 public class HighScoreManager {
-    static String HIGH_SCORE_FILE = "high_scores.csv";
+    public static String HIGH_SCORE_FILE = "high_scores.csv";
 
     /**
      * Saves the player's high score for a specific game mode. If the player's score is higher than the

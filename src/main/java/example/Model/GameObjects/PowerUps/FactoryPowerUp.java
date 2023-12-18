@@ -1,4 +1,4 @@
-package example.Model.SnakeObjects.PowerUps;
+package example.Model.GameObjects.PowerUps;
 
 import java.util.Random;
 

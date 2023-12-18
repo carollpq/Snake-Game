@@ -1,8 +1,8 @@
 module CW1Setup {
     opens example;
     opens example.Controller;
-    opens example.Model.SnakeObjects.PowerUps;
-    opens example.Model.SnakeObjects;
+    opens example.Model.GameObjects.PowerUps;
+    opens example.Model.GameObjects;
     opens example.Model.Utilities;
 
     requires java.desktop;
