@@ -11,18 +11,70 @@ import javafx.geometry.Rectangle2D;
  */
 public abstract class SnakeObject
 {
-    public int xPosition;
-    public int yPosition;
-    protected int widthOfObj;
-    protected int heightOfObj;
+    private int xPosition;
+
+    private int yPosition;
+
+    private int widthOfObj;
+
+    private int heightOfObj;
     Image snakeBodyImg;
-    protected Image foodImg;
-    public boolean liveOfObject;
+
+    private Image foodImg;
+
+    private boolean liveOfObject;
     final int HORIZONTAL_BUFFER = 30;
     final int VERTICAL_BUFFER = 60;
     final int HORIZONTAL_SHIFT = 30;
     final int VERTICAL_SHIFT = 55;
 
+    public int getXPosition() {
+        return xPosition;
+    }
+
+    public void setXPosition(int xPosition) {
+        this.xPosition = xPosition;
+    }
+
+    public int getYPosition() {
+        return yPosition;
+    }
+
+    public void setYPosition(int yPosition) {
+        this.yPosition = yPosition;
+    }
+
+    public int getWidthOfObj() {
+        return widthOfObj;
+    }
+
+    public void setWidthOfObj(int widthOfObj) {
+        this.widthOfObj = widthOfObj;
+    }
+
+    public int getHeightOfObj() {
+        return heightOfObj;
+    }
+
+    public void setHeightOfObj(int heightOfObj) {
+        this.heightOfObj = heightOfObj;
+    }
+
+    public Image getFoodImg() {
+        return foodImg;
+    }
+
+    public void setFoodImg(Image foodImg) {
+        this.foodImg = foodImg;
+    }
+
+    public boolean isLiveOfObject() {
+        return liveOfObject;
+    }
+
+    public void setLiveOfObject(boolean liveOfObject) {
+        this.liveOfObject = liveOfObject;
+    }
 
     /**
      * Draws the snake object on the game canvas using the provided GraphicsContext.

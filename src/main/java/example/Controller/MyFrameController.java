@@ -229,7 +229,7 @@ public class MyFrameController implements Initializable {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    if (!bonusObj.liveOfObject) {
+                    if (!bonusObj.isLiveOfObject()) {
                         bonusObj = FactoryPowerUp.makePowerUp();
                         bonusSpawnTime = System.currentTimeMillis(); // Set the bonus spawn time
                     }
@@ -271,7 +271,7 @@ public class MyFrameController implements Initializable {
     public void clearCanvas(){
         graphicsContext.clearRect(0, 0, gameCanvas.getWidth(), gameCanvas.getHeight());
         snake.draw(graphicsContext); //Draws snake onto canvas
-        if (food.liveOfObject) //If Food object has not been eaten
+        if (food.isLiveOfObject()) //If Food object has not been eaten
         {
             food.draw(graphicsContext); //Continue drawing current Food at current position
             food.eaten(snake); //Continue checking whether food has been eaten
@@ -285,14 +285,14 @@ public class MyFrameController implements Initializable {
      * Sets the timer for bonus points objects and manages their visibility and lifetime.
      */
     public void setBonusObjTimer(){
-        if (bonusObj.liveOfObject) { //If bonus points object has not been eaten
+        if (bonusObj.isLiveOfObject()) { //If bonus points object has not been eaten
             bonusObj.checkObjectPosition(food); //Checks whether object collides with Food objects
             bonusObj.draw(graphicsContext);
             bonusObj.eaten(snake, getGameCanvas()); //Continue checking whether object has been eaten
 
             long currentTime = System.currentTimeMillis();
             if (currentTime - bonusSpawnTime > getOnScreenTime()) { //If object stays longer than set on screen time
-                bonusObj.liveOfObject = false; // Mark the bonusObj as no longer live
+                bonusObj.setLiveOfObject(false); // Mark the bonusObj as no longer live
             }
         }
     }
@@ -327,14 +327,14 @@ public class MyFrameController implements Initializable {
     public void drawSnakeObjects(GraphicsContext gc) throws IOException, InterruptedException {
 
         // Determine the state of the game.
-        if (snake.liveOfObject && !pause) //if Snake is alive and game is not paused
+        if (snake.isLiveOfObject() && !pause) //if Snake is alive and game is not paused
         {
             //Clears the canvas before output another snake body
             clearCanvas();
             //Implement a timer so that object stays for a limited amount of time
             setBonusObjTimer();
         }
-        else if (!snake.liveOfObject)
+        else if (!snake.isLiveOfObject())
         {
             //Resets the game
             resetGame();

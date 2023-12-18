@@ -4,14 +4,11 @@ import example.Model.GameObjects.Food;
 import example.Model.Utilities.ImageUtil;
 import example.Model.GameObjects.Snake;
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FoodTest {
-    // Initialize JavaFX toolkit
-    JFXPanel jfxPanel = new JFXPanel();
 
     @Test
     void foodEatenIncreasesSnakeLengthAndScore() {
@@ -23,8 +20,8 @@ class FoodTest {
             Food food = new Food();
 
             // Manually set the position of the snake and food for testing
-            food.xPosition = 100;
-            food.yPosition = 100;
+            food.setXPosition(100);
+            food.setYPosition(100);
 
             int initialLength = snake.getLength();
             int initialScore = snake.score;
@@ -33,7 +30,7 @@ class FoodTest {
             food.eaten(snake);
 
             // Check if the food is marked as not live
-            assertFalse(food.liveOfObject);
+            assertFalse(food.isLiveOfObject());
 
             // Check if the snake length and score are increased
             assertEquals(initialLength + 1, snake.getLength());
@@ -52,10 +49,10 @@ class FoodTest {
             Food food = new Food();
 
             // Manually set the position of the snake and food for testing
-            snake.xPosition = 200;
-            snake.yPosition = 200;
-            food.xPosition = 300;
-            food.yPosition = 300;
+            snake.setXPosition(200);
+            snake.setYPosition(200);
+            food.setXPosition(300);
+            food.setYPosition(300);
 
             int initialLength = snake.getLength();
             int initialScore = snake.score;
@@ -64,7 +61,7 @@ class FoodTest {
             food.eaten(snake);
 
             // Check if the food is still live
-            assertTrue(food.liveOfObject);
+            assertTrue(food.isLiveOfObject());
 
             // Check if the snake length and score are not changed
             assertEquals(initialLength, snake.getLength());

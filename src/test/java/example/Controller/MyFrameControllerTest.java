@@ -5,15 +5,13 @@ import javafx.embed.swing.JFXPanel;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import org.junit.jupiter.api.Test;
-
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MyFrameControllerTest {
-
-    // Initialize JavaFX toolkit
-    JFXPanel jfxPanel = new JFXPanel();
+    //Initialise JFX Toolkit
+    JFXPanel jfxpanel = new JFXPanel();
 
     @Test
     void checkWhetherGamePausedAfterPressingP_ResumesAfterPressingAgain() {

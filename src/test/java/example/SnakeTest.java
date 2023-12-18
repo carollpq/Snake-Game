@@ -13,9 +13,8 @@ import java.awt.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SnakeTest {
-
-    // Initialize JavaFX toolkit
-    JFXPanel jfxPanel = new JFXPanel();
+    //Initialise JFX Toolkit
+    JFXPanel jfxpanel = new JFXPanel();
     @Test
     void snakeMovesRightForRightControls() {
         // Use Platform.runLater to ensure the test method runs on the JavaFX Application Thread
@@ -28,7 +27,7 @@ class SnakeTest {
             KeyEvent rightPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.RIGHT, false, false, false, false);
             snake.handleKeyPressRight(rightPress);
             snake.move();
-            assertEquals(105, snake.xPosition);
+            assertEquals(105, snake.getXPosition());
         });
     }
 
@@ -42,7 +41,7 @@ class SnakeTest {
             KeyEvent upPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.UP, false, false, false, false);
             snake.handleKeyPressRight(upPress);
             snake.move();
-            assertEquals(95, snake.yPosition);
+            assertEquals(95, snake.getYPosition());
         });
     }
 
@@ -56,7 +55,7 @@ class SnakeTest {
             KeyEvent downPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.DOWN, false, false, false, false);
             snake.handleKeyPressRight(downPress);
             snake.move();
-            assertEquals(105, snake.yPosition);
+            assertEquals(105, snake.getYPosition());
         });
     }
 
@@ -70,7 +69,7 @@ class SnakeTest {
             KeyEvent leftPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.LEFT, false, false, false, false);
             snake.handleKeyPressRight(leftPress);
             snake.move();
-            assertEquals(95, snake.xPosition);
+            assertEquals(95, snake.getXPosition());
         });
     }
 
@@ -86,7 +85,7 @@ class SnakeTest {
             KeyEvent rightPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.D, false, false, false, false);
             snake.handleKeyPressRight(rightPress);
             snake.move();
-            assertEquals(105, snake.xPosition);
+            assertEquals(105, snake.getXPosition());
         });
     }
 
@@ -100,7 +99,7 @@ class SnakeTest {
             KeyEvent upPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.W, false, false, false, false);
             snake.handleKeyPressRight(upPress);
             snake.move();
-            assertEquals(95, snake.yPosition);
+            assertEquals(95, snake.getYPosition());
         });
     }
 
@@ -114,7 +113,7 @@ class SnakeTest {
             KeyEvent downPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.S, false, false, false, false);
             snake.handleKeyPressRight(downPress);
             snake.move();
-            assertEquals(105, snake.yPosition);
+            assertEquals(105, snake.getYPosition());
         });
     }
 
@@ -128,7 +127,7 @@ class SnakeTest {
             KeyEvent leftPress = new KeyEvent(KeyEvent.KEY_PRESSED, "", "", KeyCode.A, false, false, false, false);
             snake.handleKeyPressRight(leftPress);
             snake.move();
-            assertEquals(95, snake.xPosition);
+            assertEquals(95, snake.getXPosition());
         });
     }
 
@@ -139,12 +138,12 @@ class SnakeTest {
             int initialY = 100;
             int initialX = 100;
             Snake snake = new Snake(initialX, initialY, 5);
-            snake.length = 3; // Set snake length to 3 for testing
+            snake.changeLength(3); // Set snake length to 3 for testing
             Snake.bodyPoints.add(new Point(100, 110));
             Snake.bodyPoints.add(new Point(100, 120));
             Snake.bodyPoints.add(new Point(100, 130));
             snake.eatBody();
-            assertFalse(snake.liveOfObject); // Snake should die as it eats itself
+            assertFalse(snake.isLiveOfObject()); // Snake should die as it eats itself
         });
     }
 
@@ -156,7 +155,7 @@ class SnakeTest {
             int initialX = 0;
             Snake snake = new Snake(initialX, initialY, 5);
             snake.move();
-            assertFalse(snake.liveOfObject);
+            assertFalse(snake.isLiveOfObject());
         });
     }
 }

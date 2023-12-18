@@ -15,14 +15,14 @@ public class Food extends SnakeObject
 	 * Constructs a Food object with a random image, position, and sets it as alive.
 	 */
 	public Food()	{
-		this.liveOfObject = true;
+		setLiveOfObject(true);
 		//Randomly obtain image for Food object
-		this.foodImg = ImageUtil.images.get(String.valueOf(new Random().nextInt(17)));
-		this.widthOfObj = (int) foodImg.getWidth();
-		this.heightOfObj = (int) foodImg.getHeight();
+		setFoodImg(ImageUtil.images.get(String.valueOf(new Random().nextInt(17))));
+		setWidthOfObj((int) getFoodImg().getWidth());
+		setHeightOfObj((int) getFoodImg().getHeight());
 		//Generates coordinates for Food object randomly
-		this.xPosition = generateRandomXPosition();
-		this.yPosition = generateRandomYPosition();
+		setXPosition(generateRandomXPosition());
+		setYPosition(generateRandomYPosition());
 	}
 
 	/**
@@ -33,8 +33,8 @@ public class Food extends SnakeObject
 	public void eaten(Snake snake)	{
 
 		//If the snake object touches the food object
-		if (snake.getRectangle().intersects(this.getRectangle()) && liveOfObject && snake.liveOfObject)		{
-			this.liveOfObject = false;
+		if (snake.getRectangle().intersects(this.getRectangle()) && isLiveOfObject() && snake.isLiveOfObject())		{
+			setLiveOfObject(false);
 			snake.changeLength(snake.getLength() + 1); //Increase the body length of Snake
 			int scoreIncrement = 1;
 			snake.score += scoreIncrement; //Increments score
@@ -51,6 +51,6 @@ public class Food extends SnakeObject
 	@Override
 	public void draw(GraphicsContext g)
 	{
-		g.drawImage(foodImg, xPosition, yPosition);
+		g.drawImage(getFoodImg(), getXPosition(), getYPosition());
 	}
 }

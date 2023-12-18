@@ -26,7 +26,7 @@ public class GarnetPowerUp extends PowerUp {
     @Override
     public void eaten(Snake snake, Canvas gameCanvas) {
         boolean status = handleSnakeTouch(snake,gameCanvas);
-        if (status) displayBonusMessage("+8 points! Brilliant!", this.xPosition, this.yPosition, gameCanvas);
+        if (status) displayBonusMessage("+8 points! Brilliant!", getXPosition(), getYPosition(), gameCanvas);
     }
 
 }

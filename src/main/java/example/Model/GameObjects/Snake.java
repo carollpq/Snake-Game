@@ -51,17 +51,17 @@ public class Snake extends SnakeObject implements movable
      */
     public Snake(int x, int y, int snakeSpeed)
     {
-        this.liveOfObject = true;
-        this.xPosition = x;
-        this.yPosition = y;
+        setLiveOfObject(true);
+        setXPosition(x);
+        setYPosition(y);
         this.snakeBodyImg = ImageUtil.images.get("snake-body");
-        this.widthOfObj = (int)snakeBodyImg.getWidth();
-        this.heightOfObj = (int)snakeBodyImg.getHeight();
+        setWidthOfObj((int)snakeBodyImg.getWidth());
+        setHeightOfObj((int)snakeBodyImg.getHeight());
 
         setSpeed_XY(snakeSpeed);
         this.length = 1; //Starting length is 1
 
-        this.num = widthOfObj / speed_XY;
+        this.num = getWidthOfObj() / speed_XY;
         newImgSnakeHead = IMG_SNAKE_HEAD;
 
     }
@@ -201,16 +201,16 @@ public class Snake extends SnakeObject implements movable
         // Let the snake move
         if (up)
         {
-            yPosition -= speed_XY;
+            setYPosition(getYPosition() - speed_XY);
         } else if (down)
         {
-            yPosition += speed_XY;
+            setYPosition(getYPosition() + speed_XY);
         } else if (left)
         {
-            xPosition -= speed_XY;
+            setXPosition(getXPosition() - speed_XY);
         } else if (right)
         {
-            xPosition += speed_XY;
+            setXPosition(getXPosition() + speed_XY);
         }
 
     }
@@ -226,13 +226,13 @@ public class Snake extends SnakeObject implements movable
         outOfBounds();
         eatBody();
 
-        bodyPoints.add(new Point(xPosition, yPosition));
+        bodyPoints.add(new Point(getXPosition(), getYPosition()));
 
         if (bodyPoints.size() == (this.length + 1) * num)
         {
             bodyPoints.remove(0);
         }
-        gc.drawImage(newImgSnakeHead, xPosition, yPosition);
+        gc.drawImage(newImgSnakeHead, getXPosition(), getYPosition());
         drawBody(gc);
 
         move();
@@ -249,7 +249,7 @@ public class Snake extends SnakeObject implements movable
             {
                 if (point.equals(point2) && point != point2)
                 {
-                    this.liveOfObject = false;
+                    setLiveOfObject(false);
                 }
             }
         }
@@ -285,11 +285,11 @@ public class Snake extends SnakeObject implements movable
      */
     private void outOfBounds()
     {
-        boolean xOut = (xPosition <= 0 || xPosition >= (StartFrameMain.STAGE_WIDTH - widthOfObj));
-        boolean yOut = (yPosition <= 0 || yPosition >= (StartFrameMain.STAGE_HEIGHT - heightOfObj));
+        boolean xOut = (getXPosition() <= 0 || getXPosition() >= (StartFrameMain.STAGE_WIDTH - getWidthOfObj()));
+        boolean yOut = (getYPosition() <= 0 || getYPosition() >= (StartFrameMain.STAGE_HEIGHT - getHeightOfObj()));
         if (xOut || yOut)
         {
-            liveOfObject = false;
+            setLiveOfObject(false);
         }
     }
 }

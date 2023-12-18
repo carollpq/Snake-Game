@@ -12,9 +12,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PowerUpTest {
-    // Initialize JavaFX toolkit
-    JFXPanel jfxPanel = new JFXPanel();
 
+    //Initialise JFX Toolkit
+    JFXPanel jfxpanel = new JFXPanel();
     private class TestPowerUp extends PowerUp {
 
         public TestPowerUp(int r) {
@@ -35,19 +35,19 @@ class PowerUpTest {
             TestPowerUp powerUp = new TestPowerUp(1);
 
             // Set the positions to be very close to each other
-            powerUp.xPosition = food.xPosition;
-            powerUp.yPosition = food.yPosition;
+            powerUp.setXPosition(food.getXPosition());
+            powerUp.setYPosition(food.getYPosition());
 
             // Check if positions are initially overlapping
-            assertTrue(Math.abs(powerUp.xPosition - food.xPosition) < 10);
-            assertTrue(Math.abs(powerUp.yPosition - food.yPosition) < 10);
+            assertTrue(Math.abs(powerUp.getXPosition() - food.getXPosition()) < 10);
+            assertTrue(Math.abs(powerUp.getYPosition() - food.getYPosition()) < 10);
 
             // Call the method to regenerate positions
             powerUp.checkObjectPosition(food);
 
             // Check if positions are no longer overlapping
-            assertTrue(Math.abs(powerUp.xPosition - food.xPosition) >= 10);
-            assertTrue(Math.abs(powerUp.yPosition - food.yPosition) >= 10);
+            assertTrue(Math.abs(powerUp.getXPosition() - food.getXPosition()) >= 10);
+            assertTrue(Math.abs(powerUp.getXPosition() - food.getXPosition()) >= 10);
         });
     }
 
@@ -63,14 +63,14 @@ class PowerUpTest {
             int initialScore = snake.score;
 
             // Set the positions to overlap
-            powerUp.xPosition = 100;
-            powerUp.yPosition = 100;
+            powerUp.setXPosition(100);
+            powerUp.setYPosition(100);
 
             // Call the method to handle snake touch
             powerUp.handleSnakeTouch(snake, gameCanvas);
 
             // Check if the power-up is marked as not live
-            assertFalse(powerUp.liveOfObject);
+            assertFalse(powerUp.isLiveOfObject());
 
             // Check if the snake length and score are increased
             assertEquals(initialLength + 1, snake.getLength());

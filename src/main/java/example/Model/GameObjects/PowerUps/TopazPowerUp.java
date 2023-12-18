@@ -26,6 +26,6 @@ public class TopazPowerUp extends PowerUp {
     @Override
     public void eaten(Snake snake, Canvas gameCanvas) {
         boolean status = handleSnakeTouch(snake,gameCanvas);
-        if (status) displayBonusMessage("+3 points! Yippee!", this.xPosition, this.yPosition, gameCanvas);
+        if (status) displayBonusMessage("+3 points! Yippee!", getXPosition(), getYPosition(), gameCanvas);
     }
 }

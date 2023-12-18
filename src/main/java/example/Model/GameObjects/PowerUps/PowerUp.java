@@ -30,12 +30,12 @@ public abstract class PowerUp extends SnakeObject {
      * @param r The index used to obtain the image for the PowerUp object.
      */
     public PowerUp(int r) {
-        this.liveOfObject = true;
-        this.foodImg = ImageUtil.images.get(String.valueOf(r));
-        this.widthOfObj = (int) foodImg.getWidth();
-        this.heightOfObj = (int) foodImg.getHeight();
-        this.xPosition = generateRandomXPosition();
-        this.yPosition = generateRandomYPosition();
+        setLiveOfObject(true);
+        setFoodImg(ImageUtil.images.get(String.valueOf(r)));
+        setWidthOfObj((int) getFoodImg().getWidth());
+        setHeightOfObj((int) getFoodImg().getHeight());
+        setXPosition(generateRandomXPosition());
+        setYPosition(generateRandomYPosition());
     }
 
     /**
@@ -45,7 +45,7 @@ public abstract class PowerUp extends SnakeObject {
      */
     @Override
     public void draw(GraphicsContext gc) {
-        gc.drawImage(foodImg, xPosition, yPosition);
+        gc.drawImage(getFoodImg(), getXPosition(), getYPosition());
     }
 
     /**
@@ -55,12 +55,12 @@ public abstract class PowerUp extends SnakeObject {
      */
     public void checkObjectPosition(Food food) {
         //Regenerates x position when current object overlaps with Food object
-        if (Math.abs(this.xPosition - food.xPosition) < 10) {
-            this.xPosition = generateRandomXPosition();
+        if (Math.abs(getXPosition() - food.getXPosition()) < 10) {
+            setXPosition(generateRandomXPosition());
         }
         //Regenerates y position when current object overlaps with Food object
-        if (Math.abs(this.yPosition - food.yPosition) < 10) {
-            this.yPosition = generateRandomYPosition();
+        if (Math.abs(getYPosition() - food.getYPosition()) < 10) {
+            setYPosition(generateRandomYPosition());
         }
     }
     /**
@@ -71,8 +71,8 @@ public abstract class PowerUp extends SnakeObject {
      * @return True if the Snake overlaps with the power-up, false otherwise.
      */
     public boolean handleSnakeTouch(Snake snake, Canvas gameCanvas){
-        if (snake.getRectangle().intersects(this.getRectangle()) && liveOfObject && snake.liveOfObject) {
-            this.liveOfObject = false;
+        if (snake.getRectangle().intersects(this.getRectangle()) && isLiveOfObject() && snake.isLiveOfObject()) {
+            setLiveOfObject(false);
             snake.changeLength(snake.getLength() + 1);
             snake.score += scoreImplement;
             MusicPlayer.playSoundEffect("power-up-sparkle.mp3");

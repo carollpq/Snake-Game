@@ -26,7 +26,7 @@ public class DiamondPowerUp extends PowerUp {
     @Override
     public void eaten(Snake snake, Canvas gameCanvas) {
         boolean status = handleSnakeTouch(snake,gameCanvas);
-        if (status) displayBonusMessage("+5 points! Good Job!", this.xPosition, this.yPosition, gameCanvas);
+        if (status) displayBonusMessage("+5 points! Good Job!", getXPosition(), getYPosition(), gameCanvas);
     }
 
 }

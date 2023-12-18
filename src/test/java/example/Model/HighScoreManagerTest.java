@@ -3,6 +3,7 @@ package example.Model;
 import com.opencsv.CSVWriter;
 import example.Model.Utilities.HighScoreEntry;
 import example.Model.Utilities.HighScoreManager;
+import javafx.embed.swing.JFXPanel;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,6 +16,8 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HighScoreManagerTest {
+    //Initialise JFX Toolkit
+    JFXPanel jfxpanel = new JFXPanel();
 
     @TempDir
     static Path tempDir;
