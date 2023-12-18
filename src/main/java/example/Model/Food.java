@@ -40,6 +40,12 @@ public class Food extends SnakeObject
 			MusicPlayer.playSoundEffect("snake-eat-sound.mp3");
 		}
 	}
+
+	/**
+	 * Draws the Food object on the game canvas using the provided GraphicsContext.
+	 *
+	 * @param g The GraphicsContext used for drawing on the canvas.
+	 */
 	@Override
 	public void draw(GraphicsContext g)
 	{

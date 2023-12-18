@@ -65,11 +65,21 @@ public class MySnake extends SnakeObject implements movable
 
     }
 
+    /**
+     * Gets the length of the snake.
+     *
+     * @return The length of the snake.
+     */
     public int getLength()
     {
         return length;
     }
 
+    /**
+     * Changes the length of the snake.
+     *
+     * @param length The new length of the snake.
+     */
     public void changeLength(int length)
     {
         this.length = length;
@@ -129,7 +139,9 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    //Sets the condition for snake to move left
+    /**
+     * Sets the condition for the snake to move left.
+     */
     public void handleSnakeMoveLeft() {
         if (!right)
         {
@@ -140,7 +152,9 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    //Sets the condition for snake to move up
+    /**
+     * Sets the condition for the snake to move up.
+     */
     public void handleSnakeMoveUp() {
         if (!down)
         {
@@ -151,7 +165,9 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    //Sets the condition for snake to move down
+    /**
+     * Sets the condition for the snake to move down.
+     */
     public void handleSnakeMoveDown() {
         if (!up)
         {
@@ -162,7 +178,9 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    //Sets the condition for snake to move right
+    /**
+     * Sets the condition for the snake to move right.
+     */
     public void handleSnakeMoveRight() {
         if (!left)
         {
@@ -174,7 +192,9 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
-    //Handles Snake's movement direction
+    /**
+     * Handles the snake's movement by updating its position.
+     */
     public void move()
     {
         // Let the snake move
@@ -194,6 +214,11 @@ public class MySnake extends SnakeObject implements movable
 
     }
 
+    /**
+     * Draws the snake on the game canvas using the provided GraphicsContext.
+     *
+     * @param gc The GraphicsContext used for drawing on the canvas.
+     */
     public void draw(GraphicsContext gc)
     {
 
@@ -212,7 +237,9 @@ public class MySnake extends SnakeObject implements movable
         move();
     }
 
-    //Checks whether the Snake has eaten itself
+    /**
+     * Checks whether the snake has collided with itself.
+     */
     public void eatBody()
     {
         for (Point point : bodyPoints)
@@ -243,11 +270,18 @@ public class MySnake extends SnakeObject implements movable
         }
     }
 
+    /**
+     * Sets the speed of the snake in the X and Y directions.
+     *
+     * @param speed_XY The speed of the snake.
+     */
     public void setSpeed_XY(int speed_XY) {
         this.speed_XY = speed_XY;
     }
 
-    //Checks whether the Snake has gone out of bounds
+    /**
+     * Checks whether the Snake has gone out of bounds
+     */
     private void outOfBounds()
     {
         boolean xOut = (xPosition <= 0 || xPosition >= (StartFrameMain.STAGE_WIDTH - widthOfObj));

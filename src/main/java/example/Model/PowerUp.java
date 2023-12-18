@@ -33,10 +33,16 @@ public abstract class PowerUp extends SnakeObject {
         this.yPosition = generateRandomYPosition();
     }
 
+    /**
+     * Draws the PowerUp object on the game canvas using the provided GraphicsContext.
+     *
+     * @param gc The GraphicsContext used for drawing on the canvas.
+     */
     @Override
     public void draw(GraphicsContext gc) {
         gc.drawImage(foodImg, xPosition, yPosition);
     }
+
     /**
      * Ensures that the generated bonus point object does not overlap with the Food object.
      *
@@ -110,6 +116,11 @@ public abstract class PowerUp extends SnakeObject {
      */
     public abstract void eaten(MySnake mySnake, Canvas gameCanvas);
 
+    /**
+     * Sets the score increment for the power-up.
+     *
+     * @param scoreImplement The score increment value.
+     */
     public void setScoreImplement(int scoreImplement) {
         this.scoreImplement = scoreImplement;
     }

@@ -36,25 +36,33 @@ public class EndingFrameController extends StartFrameController {
     }
 
     @FXML
-    //Set the image of 'Play Again' button when it is not hovered
+    /**
+     * Set the image of 'Play Again' button when it is not hovered
+     */
     public void onPlayAgain() {
         playAgainBtnImg.setImage(ImageUtil.images.get("play-again-btn"));
     }
 
     @FXML
-    //Set the image of 'Play Again' button when it is hovered
+    /**
+     * Set the image of 'Play Again' button when it is hovered
+     */
     public void onPlayAgainHover() {
         playAgainBtnImg.setImage(ImageUtil.images.get("play-again-hover"));
     }
 
     @FXML
-    //Set the image of 'Main Menu' button when it is not hovered
+    /**
+     * Set the image of 'Main Menu' button when it is not hovered
+     */
     public void onMainMenu() {
         mainMenuBtnImg.setImage(ImageUtil.images.get("main-menu-btn"));
     }
 
     @FXML
-    //Set the image of 'Main Menu' button when it is hovered
+    /**
+     * Set the image of 'Main Menu' button when it is hovered
+     */
     public void onMainMenuHover() {
         mainMenuBtnImg.setImage(ImageUtil.images.get("main-menu-hover"));
     }
